@@ -1,0 +1,33 @@
+# Commande - rsync
+
+## Exclusions
+
+* would exclude all filenames matching *.o
+
+		--exclude "*.o"
+
+* would exclude a file in the base directory called foo
+
+		--exclude "/foo"
+
+* would exclude any directory called foo.
+
+		--exclude "foo/"
+
+* would exclude any file called bar two levels below a base directory called foo.
+
+		--exclude "/foo/*/bar"
+
+* would exclude any file called bar two or more levels below a base directory called foo.
+
+		--exclude "/foo/**/bar"
+
+## Inclusions
+
+* would include all directories and C source files
+
+		--include "*/" --include "*.c" --exclude "*"
+
+* would include only foo/bar.c (the foo/ directory must be explicitly included or it would be excluded by the "*")
+
+		--include "foo/" --include "foo/bar.c" --exclude "*"

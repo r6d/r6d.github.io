@@ -1,0 +1,330 @@
+# Git
+
+## Notes perso
+
+### Commit
+
+* envoyer un mail avec un diff coloré (html) 
+
+	* [[http://blog.chomperstomp.com/making-git-show-post-receive-e-mails-as-an-html-color-formatted-diff/](http://blog.chomperstomp.com/making-git-show-post-receive-e-mails-as-an-html-color-formatted-diff/)]
+	* [[https://github.com/kenshaw/githooks](https://github.com/kenshaw/githooks)]
+
+* commit dans GIT d'un ensemble de fichier/dossiers du même niveau
+
+~~~~ {.bash}
+for i in *; do git add "$i"; git commit "$i" -m "ajout fichier"; done
+~~~~
+
+* git changer le nom d'auteur d'une liste de commits - V1
+
+~~~~ {.bash}
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME='<name>'; GIT_AUTHOR_EMAIL='<mail>'; GIT_COMMITER_NAME='<name>'; GIT_COMMITTER_EMAIL='<mail>';" HEAD
+~~~~
+
+* git changer le nom d'auteur d'une liste de commits - V2  — NON TESTÉ
+
+~~~~ {.bash}
+#!/bin/sh
+
+AUTHOR="<name>"
+AUTHOR_EMAIL="<mail>"**
+
+COMMITER_NAME="<name>"
+COMMITTER_EMAIL="<mail>"
+COMMIT="HEAD"
+
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME='${AUTHOR}'; GIT_AUTHOR_EMAIL='${AUTHOR_EMAIL}'; GIT_COMMITER_NAME='${COMMITER_NAME}'; GIT_COMMITTER_EMAIL='${COMMITTER_EMAIL}';" ${COMMIT}
+~~~~
+
+### Suppression du fichier dans tout l'historique
+
+~~~~ {.bash}
+git filter-branch --index-filter 'git rm --cached --ignore-unmatch B_ANCIEN/DUT2A/STAGE_DUT_TOUT.tar' HEAD
+~~~~
+
+## Notes récupérées en ligne - Git-Snippet
+
+### Setup
+
+* clone the repository specified by `<repo>`; this is similar to `"checkout"` in some other version control systems such as Subversion and CVS
+
+	~~~~ {.bash}
+	git clone <repo>
+	~~~~
+
+* Add colors to your `~/.gitconfig` file:
+
+		  [color]
+		    ui = auto
+		  [color "branch"]
+		    current = yellow reverse
+		    local = yellow
+		    remote = green
+		  [color "diff"]
+		    meta = yellow bold
+		    frag = magenta bold
+		    old = red bold
+		    new = green bold
+		  [color "status"]
+		    added = yellow
+		    changed = green
+		    untracked = cyan
+
+* Highlight whitespace in diffs
+
+		  [color]
+		    ui = true
+		  [color "diff"]
+		    whitespace = red reverse
+		  [core]
+		    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+* Add aliases to your `~/.gitconfig` file:
+
+		  [alias]
+		    st = status
+		    ci = commit
+		    br = branch
+		    co = checkout
+		    df = diff
+		    dc = diff --cached
+		    lg = log -p
+		    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+		    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+		    ls = ls-files
+
+		    # Show files ignored by git:
+		    ign = ls-files -o -i --exclude-standard
+
+### Reverting
+
+* reverse commit specified by `<rev>` and commit the result.
+	This does *not* do the same thing as similarly named commands in other VCS's such as `"svn revert »` or `"bzr revert"`, see below
+
+	~~~~ {.bash}
+	git revert <rev>
+	~~~~
+
+* re-checkout `<file>`, overwriting any local changes
+
+	~~~~ {.bash}
+	git checkout <file>
+	~~~~
+
+* re-checkout all files, overwriting any local changes.
+	This is most similar to `"svn revert"` if you're used to Subversion commands
+
+	~~~~ {.bash}
+	git checkout .
+	~~~~
+
+### Fix mistakes / Undo
+
+* abandon everything since your last commit; this command can be DANGEROUS.
+	If merging has resulted in conflicts and you'd like to just forget about the merge, this command will do that.
+
+	~~~~ {.bash}
+	git reset --hard
+	~~~~
+
+* undo your most recent *successful* merge *and* any changes that occurred after.
+	Useful for forgetting about the merge you just did.
+	If there are conflicts (the merge was not successful), use `"git reset --hard"` (above) instead.
+
+	~~~~ {.bash}
+	git reset --hard ORIG_HEAD or git reset --hard origin/master 
+	~~~~
+
+* forgot something in your last commit ? That's easy to fix.
+	Undo your last commit, but keep the changes in the staging area for editing.
+
+	~~~~ {.bash}
+	git reset --soft HEAD^
+	~~~~
+
+* redo previous commit, including changes you've staged in the meantime.
+	Also used to edit commit message of previous commit.
+
+	~~~~ {.bash}
+	git commit --amend
+	~~~~
+
+### Stashing
+
+* save your local modifications to a new stash (so you can for example `"git svn rebase"` or `"git pull"`)
+
+	~~~~ {.bash}
+	git stash
+	git stash save <optional-name>
+	~~~~
+
+* restore the changes recorded in the stash on top of the current working tree state
+
+	~~~~ {.bash}
+	git stash apply
+	~~~~
+
+* restore the changes from the most recent stash, and remove it from the stack of stashed changes
+
+	~~~~ {.bash}
+	git stash pop
+	~~~~
+
+### Remotes
+
+* prune deleted remote-tracking branches from "git branch -r" listing
+
+	~~~~ {.bash}
+	git remote prune <remote>
+	~~~~
+
+* add a remote and track its master
+
+	~~~~ {.bash}
+	git remote add -t master -m master origin git://example.com/git.git/
+	~~~~
+
+* show information about the remote server.
+
+	~~~~ {.bash}
+	git remote show <remote>
+	~~~~
+
+* Track a remote branch as a local branch.
+
+	~~~~ {.bash}
+	git checkout -b <local branch> <remote>/<remote branch>
+	~~~~
+
+Example:
+
+~~~~ {.bash}
+git checkout -b myfeature origin/myfeature 
+~~~~
+
+### Submodules
+
+* add the given repository at the given path.
+	The addition will be part of the next commit.
+
+	~~~~ {.bash}
+	git submodule add <remote_repository> <path/to/submodule>
+	~~~~
+
+* Update the registered submodules (clone missing submodules, and checkout the commit specified by the super-repo). `—init` is needed the first time.
+
+	~~~~ {.bash}
+	git submodule update [--init]
+	~~~~
+
+* Executes the given command within each checked out submodule.
+
+	~~~~ {.bash}
+	git submodule foreach <command>
+	~~~~
+
+#### Removing submodules
+
+1. delete the relevant line from the `.gitmodules` file.
+1. delete the relevant section from `.git/config`.
+1. run `git rm --cached path_to_submodule` (no trailing slash).
+1. commit and delete the now untracked submodule files.
+
+#### Updating submodules
+
+To update a submodule to a new commit:
+
+1. update submodule:
+
+	~~~~ {.bash}
+	cd <path to submodule>
+	git pull
+	~~~~
+
+1. commit the new version of submodule:
+
+	~~~~ {.bash}
+	cd <path to toplevel>
+	git commit -m "update submodule version"
+	~~~~
+
+1. check that the submodule has the correct version
+
+	~~~~ {.bash}
+	git submodule status
+	~~~~
+
+If the update in the submodule is not committed in the main repository, it is lost and doing git submodule update will revert to the previous version.
+
+### Archive
+
+* Will export expanded tree as tar archive at given path
+
+	~~~~ {.bash}
+	git archive master | tar -x -C /somewhere/else
+	~~~~
+
+* Will export archive as bz2
+
+	~~~~ {.bash}
+	git archive master | bzip2 > source-tree.tar.bz2
+	~~~~
+
+* Will export as zip
+
+	~~~~ {.bash}
+	git archive --format zip --output /full/path master
+	~~~~
+
+### Git Instaweb
+
+
+* gestion
+
+	~~~~ {.bash}
+	git instaweb --httpd=webrick [--start | --stop | --restart]
+	~~~~
+
+### Environment Variables
+
+* Your full name to be recorded in any newly created commits.
+	Overrides user.name in `.git/config`
+
+		GIT_AUTHOR_NAME, GIT_COMMITTER_NAME
+
+* Your email address to be recorded in any newly created commits.
+	Overrides user.email in `.git/config`
+
+		GIT_AUTHOR_EMAIL, GIT_COMMITTER_EMAIL
+
+* Location of the repository to use (for out of working directory repositories)
+
+		GIT_DIR
+
+* Location of the Working Directory - use with GIT_DIR to specifiy the working directory root or to work without being in the working directory at all.
+
+		GIT_WORKING_TREE
+
+### Changing history
+
+#### Change author for all commits with given name
+
+~~~~ {.bash}
+git filter-branch --commit-filter '
+	if [ "$GIT_COMMITTER_NAME" = "<Old Name>" ];
+	then
+		GIT_COMMITTER_NAME="<New Name>";
+		GIT_AUTHOR_NAME="<New Name>";
+		GIT_COMMITTER_EMAIL="<New Email>";
+		GIT_AUTHOR_EMAIL="<New Email>";
+		git commit-tree "$@";
+	else
+		git commit-tree "$@";
+	fi' HEAD
+~~~~
+
+### Ignore changes on tracked files
+
+~~~~ {.bash}
+git update-index --assume-unchanged
+~~~~

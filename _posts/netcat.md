@@ -1,0 +1,24 @@
+# Commande - Netcat
+
+* utilisation classique de netcat
+
+* pour transférer des fichiers en masse sans compression & avec le minimum d'overhead.
+* ATTENTION : ne prend pas en compte la reprise du transfert
+
+## Serveur
+
+* Il faut penser à se mettre dans le bon répertoire
+	* c-a-d : dans le dossier qui sert de base pour l'extraction du tar
+* connexion en TCP
+
+	~~~~ {.bash}
+	netcat -l -p 7001| tar xvf -
+	~~~~
+
+## Client
+
+* regroupement des fichiers dans une archive non compressée + transfert
+
+	~~~~ {.bash}
+	tar cf - ./Sata150/ |netcat 192.168.1.113 7001
+	~~~~
