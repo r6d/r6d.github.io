@@ -16,7 +16,7 @@ baseurl: ''
 github: 'jpierre03/jpierre03.github.io'
 
 # Set this to your UA-# value, or '' to disable the block completely
-#gaaccount: ''
+gaaccount: ''
 
 # Set this to your disqus shortname to enable comments. Note that the 'comments'
 # setting below must also be true. Individual posts can override 'comments' to
