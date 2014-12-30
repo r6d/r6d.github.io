@@ -12,12 +12,12 @@ comments: false
 Les fichier .dbf contiennent de simples tables.
 Cette méthode ne s'applique pas à la conversion de base fox pro gérant les relations.
 
-~~~~ {.bash}
+```bash
 	find . -type f -name "*.dbf" -exec \
 		bash -c 'pgdbf "{}" \
 			| iconv -c -f UTF-8 -t UTF-8 \
 			|psql -d <user>' \;
-~~~~
+```
 
 # PostgreSQL
 
@@ -27,63 +27,63 @@ Cette méthode ne s'applique pas à la conversion de base fox pro gérant les re
 
 * Peupler une table rapidement avec des données aléatoires :
 
-~~~~~{.sql}
+```sql
 INSERT INTO Log(level, message)
 SELECT 'level2' as level, md5(random()::text) AS descr
 	FROM (SELECT * FROM generate_series(1,10*1000*1000) AS id) AS x;
-~~~~~
+```
 
 ## Création de base
 
 * Create the filesystem
 
-	~~~~ {.bash}		
+	```bash		
 	$ export PGROOT="/var/lib/postgres"
 	$ mkdir -p $PGROOT/data && chown postgres.postgres $PGROOT/data
 	$ su - postgres -c "/usr/bin/initdb -D $PGROOT/data"
-	~~~~
+	```
 * Make it UTF8 by default
 
-	~~~~ {.bash}
+	```bash
 	$ su - postgres -c "/usr/bin/initdb -E utf8 --locale=en_US.UTF-8 $PGROOT/data"
-	~~~~
+	```
 * Create Databases
 
-	~~~~ {.bash}
+	```bash
 	createdb -O owner -T some_template database_name
-	~~~~
+	```
 	
 	* By default, PostgreSQL listens on TCP port 5432.
 
 ## Export de base
 * Dump all databases
 
-	~~~~ {.bash}
+	```bash
 	pg_dumpall --clean > databases.sql
-	~~~~
+	```
 * Dump a database with compression (-Fc)
 
-	~~~~ {.bash}
+	```bash
 	pg_dump -Fc --file=database.sql --clean database
-	~~~~
+	```
 
 * Dump a table
 
-	~~~~ {.bash}
+	```bash
 	pg_dump [-d database] [--schema schema] -t table
-	~~~~
+	```
 * Dump a table definition (no data)
 
-	~~~~ {.bash}
+	```bash
 	pg_dump -s [-d database] [--schema schema] -t table
-	~~~~
+	```
 
 ## Restauration de base
 * Restore a database from a dump file
 
-	~~~~ {.bash}
+	```bash
 	pg_dump -Ft [-h host] [-p port] [-U username[  [--schema=schema] -F c -b -v -f 	<path_to_dump_file> <db_name>
-	~~~~
+	```
 	* -p, –port=PORT database server port number
 	* -i, –ignore-version proceed even when server version mismatches
 	* -h, –host=HOSTNAME database server host or socket directory
@@ -98,10 +98,10 @@ SELECT 'level2' as level, md5(random()::text) AS descr
 	* -f, –file=FILENAME output file name
 * Restore a database
 
-	~~~~ {.bash}
+	```bash
 	pg_restore -Fc database.sql
 	pg_restore [-h host] [-p port] [-U user] [--schema=schema] -d database -v -c <path_to_dump_file>
-	~~~~
+	```
 	* -p, --port=PORT database server port number
 	* -i, --ignore-version proceed even when server version mismatches
 	* -h, --host=HOSTNAME database server host or socket directory
@@ -112,11 +112,11 @@ SELECT 'level2' as level, md5(random()::text) AS descr
 	* -c, --clean Clean (drop) database objects before recreating them
 * Reset password of postgres user
 
-	~~~~ {.bash}
+	```bash
 	# su postgres
 	# psql -d template1
 	template1=# ALTER USER postgres WITH PASSWORD '${POSTGRESQL_POSTGRES_PASSWORD}';
-	~~~~
+	```
 
 ## psql
 
@@ -170,7 +170,7 @@ SELECT 'level2' as level, md5(random()::text) AS descr
 ## PostgreSQL Examples
 * Adding new user called BRIAN:
 
-	~~~~ {.bash}
+	```bash
 	$ sudo su - postgres
 	$ createuser --createdb --username postgres --no-createrole \\
 	 		--pwprompt BRIAN
@@ -178,34 +178,34 @@ SELECT 'level2' as level, md5(random()::text) AS descr
 		Enter it again:
 		Shall the new role be a superuser? (y/n) n
 	$ exit
-	~~~~
+	```
 
 * ALTER TABLE
 	* Add a unique constraint to the email column in the customer table
 	
-	~~~~ {.sql}
+	```sql
 	ALTER TABLE customer ADD CONSTRAINT customer_email_key UNIQUE (email);
-	~~~~
+	```
 
 ## PostgreSQL-Snippet
 
 ### Créer un utilisateur et lui donner les droits sur une DB
 
-~~~~ {.bash}
+```bash
 su - postgres
-~~~~
-~~~~ {.sql}
+```
+```sql
 CREATE USER tom WITH PASSWORD 'myPassword';
 CREATE DATABASE jerry;
 GRANT ALL PRIVILEGES ON DATABASE jerry to tom;
 \q
-~~~~
+```
 
 ### Changer le propriétaire d'une base
 
-~~~~ {.sql}
+```sql
 ALTER TABLE climate.measurement OWNER TO postgres;
-~~~~
+```
 	
 # Sqlite
 
@@ -213,23 +213,23 @@ ALTER TABLE climate.measurement OWNER TO postgres;
 
 * Extraire les URL's de la bdd de firefox
 
-	~~~~ {.bash}
+	```bash
 	sqlite3 places.sqlite "SELECT * FROM moz_places" \
 			| awk -F '|' '{print "\033[4m" $1 "\033[m) " $2}'
-	~~~~
+	```
 
 	le fichier en question peut se trouver à :
 
-	~~~~ {.bash}
+	```bash
 	$HOME/.mozilla/firefox/<??>.default
-	~~~~
+	```
 
 ## Exemple de script
 
 Script qui crée une base `dbname.db`, avec une table `data`, qui insère plusieurs lignes de données.
 Et qui affiche des données à partir d'une requête.
 
-~~~~ {.bash}
+```bash
 	#!/bin/bash
 
 	# Defining my databse first table
@@ -259,4 +259,4 @@ Et qui affiche des données à partir d'une requête.
 		# Printing my data
 		echo -e "\e[4m$Id\e[m) "$Name" -> "$Value;
 	done
-~~~~
+```
