@@ -3,6 +3,7 @@ layout: post
 title: "Messagerie - UUCP"
 date: 2012-07-03 12:56:32 +0200
 comments: false
+tags: [mail, uucp]
 ---
 
 # Messagerie - UUCP

@@ -3,6 +3,7 @@ layout: post
 title: "Messagerie - Mutt"
 date: 2012-07-03 12:56:32 +0200
 comments: false
+tags: [mail, mutt]
 ---
 
 # Messagerie - Mutt

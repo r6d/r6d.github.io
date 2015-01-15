@@ -3,6 +3,7 @@ layout: post
 title: "Base de données - Sqlite"
 date: 2012-10-22 16:25:06 -0700
 comments: false
+tags: [database, sqlite]
 ---
 	
 # Sqlite
