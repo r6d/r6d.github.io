@@ -1,29 +1,47 @@
-# Git
+---
+layout: post
+title: "GIT - notes"
+date: 2015-01-14 20:25:06 +0200
+comments: false
+tags: [git]
+---
 
-## Notes perso
+# Trucs et astuces sur GIT
 
-### Commit
+## Envoyer un diff coloré par mail (utilisation de html) 
 
-* envoyer un mail avec un diff coloré (html) 
+* [Tutoriel Blog.chomperstomp.com](http://blog.chomperstomp.com/making-git-show-post-receive-e-mails-as-an-html-color-formatted-diff/)
+* [Le code d'un hook](https://github.com/kenshaw/githooks)
 
-	* [[http://blog.chomperstomp.com/making-git-show-post-receive-e-mails-as-an-html-color-formatted-diff/](http://blog.chomperstomp.com/making-git-show-post-receive-e-mails-as-an-html-color-formatted-diff/)]
-	* [[https://github.com/kenshaw/githooks](https://github.com/kenshaw/githooks)]
+# Mise dans l'historique GIT d'un ensemble de fichier/dossiers du même niveau
 
-* commit dans GIT d'un ensemble de fichier/dossiers du même niveau
+Lors de l'import en masse de données dans GIT, principalement des usages "exotiques" il peut être acceptable de commiter différents fichiers et dossiers séparément.
 
-~~~~ {.bash}
-for i in *; do git add "$i"; git commit "$i" -m "ajout fichier"; done
-~~~~
+Parmi ces usages, on peut citer :
 
-* git changer le nom d'auteur d'une liste de commits - V1
+* conserver des photos
+* historiser un dossier `maildir` (1 fichier par mail + dossiers avec noms composés pour aplatir une arborescence)
+* sauvegarder des fichiers principalement binaires
+* et autres ...
 
-~~~~ {.bash}
+A noter que du fait du fonctionnement interne de git, notamment de la staging, commiter séparément de gros volumes de données permet d'accélérer l'import.
+
+```bash
+for i in *; do git add "${i}"; git commit "${i}" -m "ajout fichier ${i}"; done
+```
+
+## Changer le nom d'auteur d'une liste de commits
+
+
+### Version inline
+
+```bash
 git filter-branch -f --env-filter "GIT_AUTHOR_NAME='<name>'; GIT_AUTHOR_EMAIL='<mail>'; GIT_COMMITER_NAME='<name>'; GIT_COMMITTER_EMAIL='<mail>';" HEAD
-~~~~
+```
 
-* git changer le nom d'auteur d'une liste de commits - V2  — NON TESTÉ
+### Version script bash — NON TESTÉ
 
-~~~~ {.bash}
+```bash
 #!/bin/sh
 
 AUTHOR="<name>"
@@ -34,67 +52,61 @@ COMMITTER_EMAIL="<mail>"
 COMMIT="HEAD"
 
 git filter-branch -f --env-filter "GIT_AUTHOR_NAME='${AUTHOR}'; GIT_AUTHOR_EMAIL='${AUTHOR_EMAIL}'; GIT_COMMITER_NAME='${COMMITER_NAME}'; GIT_COMMITTER_EMAIL='${COMMITTER_EMAIL}';" ${COMMIT}
-~~~~
+```
 
-### Suppression du fichier dans tout l'historique
+## Suppression du fichier dans tout l'historique
 
-~~~~ {.bash}
+
+```bash
 git filter-branch --index-filter 'git rm --cached --ignore-unmatch B_ANCIEN/DUT2A/STAGE_DUT_TOUT.tar' HEAD
-~~~~
+```
 
-## Notes récupérées en ligne - Git-Snippet
+Explications :
 
-### Setup
+* `rm` : suppression
+* `--cached` : les informations conservées dans l'arbre des révisions
+* `--ignore-unmatch` : ne pas prendre en compte ce qui ne correspond pas = supprimer ce qui correspond ...
+* `HEAD`: à appliquer à partir de la tête de l'arbre
 
-* clone the repository specified by `<repo>`; this is similar to `"checkout"` in some other version control systems such as Subversion and CVS
+## Configuration habituelle
 
-	~~~~ {.bash}
-	git clone <repo>
-	~~~~
+Fichier de config global : `~/.gitconfig`
 
-* Add colors to your `~/.gitconfig` file:
+```
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[core]
+	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[alias]
+	a = add -p
+	ci = commit
+	co = checkout
+	st = status
+	dc = diff --cached
+	df = diff
+	lg = log -p
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	ls = ls-files
 
-		  [color]
-		    ui = auto
-		  [color "branch"]
-		    current = yellow reverse
-		    local = yellow
-		    remote = green
-		  [color "diff"]
-		    meta = yellow bold
-		    frag = magenta bold
-		    old = red bold
-		    new = green bold
-		  [color "status"]
-		    added = yellow
-		    changed = green
-		    untracked = cyan
+	# Show files ignored by git:
+	ign = ls-files -o -i --exclude-standard
 
-* Highlight whitespace in diffs
-
-		  [color]
-		    ui = true
-		  [color "diff"]
-		    whitespace = red reverse
-		  [core]
-		    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-
-* Add aliases to your `~/.gitconfig` file:
-
-		  [alias]
-		    st = status
-		    ci = commit
-		    br = branch
-		    co = checkout
-		    df = diff
-		    dc = diff --cached
-		    lg = log -p
-		    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-		    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-		    ls = ls-files
-
-		    # Show files ignored by git:
-		    ign = ls-files -o -i --exclude-standard
+```
 
 ### Reverting
 
