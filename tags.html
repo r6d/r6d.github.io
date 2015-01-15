@@ -1,0 +1,28 @@
+---
+layout: page
+title: Tags
+header: Articles par Tag
+---
+{% include JB/setup %}
+
+<div class="panel-group" id="accordion">
+  {% for tag in site.tags %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#{{ tag[0] }}-collapse">
+          {{ tag[0] }}
+        </a>
+      </h4>
+    </div>
+    <div id="{{ tag[0] }}-collapse" class="panel-collapse collapse">
+      <div class="panel-body">
+        {% assign posts = tag[1] %}
+        {% for post in posts %}
+        <div><span>{{post.date | date_to_string }} » </span><a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a></div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
