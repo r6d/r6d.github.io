@@ -6,14 +6,16 @@ comments: false
 tags: [elasticsearch, docker]
 ---
 
-# Maiskeskidit ?
+# Utilisation d'Elasticsearch à grand renfort de docker
+
+## Maiskeskidit ?
 
 Il s'agit dans ce post d'exposer quelques commandes permettant de prototyper avec elasticsearch.
 
 Ces commandes n'ont pas vocation à conserver les données.
 Dès qu'elles sont terminées, les données sont perdues.
 
-# Lancement de plusieurs instances d'elasticsearch
+## Lancement de plusieurs instances d'elasticsearch
 
 [Elasticsearch.org](http://www.elasticsearch.org) ou [Elasticsearch, la société](http://www.elasticsearch.com) propose un moteur de recherche gratuit, libre (open source avec autorisation de modification et de partage du code), distribué et surtout : qui marche facilement.
 
@@ -37,7 +39,7 @@ L'exécution de ces commandes dans des terminaux différents permet d'obtenir un
 
 Au besoin, il est possible d'accéder directement avec l'adresse IP de la machine à la place de `localhost`.
 
-# Duplication de données d'un serveur à un autre
+## Duplication de données d'un serveur à un autre
 
 Lors des test, il est également utile d'avoir des données à charger rapidement dans elasticsearch.
 
@@ -67,7 +69,7 @@ Options :
 	```
 
 
-# Instance ES avec monitoring simple (head) 
+## Instance ES avec monitoring simple (head)
 
 ```bash
 docker run --rm -it --name es -p 6520:9200 -p 6530:9300 jamescarr/elasticsearch-head
