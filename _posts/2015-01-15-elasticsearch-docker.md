@@ -69,6 +69,11 @@ Options :
 	```
 
 
+### Kibana 4
+
+https://github.com/bobrik/docker-kibana4
+
+
 ## Instance ES avec monitoring simple (head)
 
 ```bash
