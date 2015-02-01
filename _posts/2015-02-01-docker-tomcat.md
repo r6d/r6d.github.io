@@ -22,17 +22,17 @@ Notes :
 
 D'après l'[image officielle du registre](https://registry.hub.docker.com/_/tomcat/) :
 
-	```bash
-	docker run -it --rm tomcat:8.0
-	```
+```bash
+docker run -it --rm tomcat:8.0
+```
 
 Le port d'écoute par défaut est `8080`.
 
 Une [image alternative](https://registry.hub.docker.com/u/tutum/tomcat/) propose de définir un mot de passe pour l'utilisateur de l'application de gestion :
 
-	```bash
-	docker run -it --rm -p 8080:8080 -e TOMCAT_PASS="mypass" tutum/tomcat
-	```
+```bash
+docker run -it --rm -p 8080:8080 -e TOMCAT_PASS="mypass" tutum/tomcat
+```
 
 L'application de gestion devient disponible à l'adresse :
 
