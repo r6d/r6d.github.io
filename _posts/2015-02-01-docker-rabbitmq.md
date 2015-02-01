@@ -20,7 +20,7 @@ Notes :
 * dès que les commandes sont terminées, les données produites dans le conteneur sont perdues.
 
 
-## Instructions de lancement simple
+## Instructions de lancement
 
 D'après [mikaelhg](https://github.com/mikaelhg/docker-rabbitmq) :
 
