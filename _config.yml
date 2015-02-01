@@ -25,7 +25,7 @@ disqus: ''
 comments: false
 
 permalink: /:year/:month/:title
-paginate: 15
+paginate: 4
 
 highlighter: pygments
 markdown: redcarpet
