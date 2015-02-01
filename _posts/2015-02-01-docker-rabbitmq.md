@@ -28,6 +28,9 @@ D'après [mikaelhg](https://github.com/mikaelhg/docker-rabbitmq) :
 docker run -it --rm -p 5672:5672 -p 15672:15672 mikaelhg/docker-rabbitmq
 ```
 
+L'interface de gestion est disponible sur le port `15672` et AMQP est disponible sur le port `5672` comme avec une instance habituelle de RabbitMQ.
+
+
 Docker fourni également une image officielle qui ne semble pas contenir l'interface de gestion.
 
 ```bash
