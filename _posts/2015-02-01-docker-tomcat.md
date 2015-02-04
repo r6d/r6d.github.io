@@ -36,8 +36,7 @@ docker run -it --rm -p 8080:8080 -e TOMCAT_PASS="mypass" tutum/tomcat
 
 L'application de gestion devient disponible à l'adresse :
 
-```
-http://127.0.0.1:8080/manager/
-```
+[http://127.0.0.1:8080/manager/](http://127.0.0.1:8080/manager/)
+
 
 L'utilisateur est `admin` et le mot de passe celui indiqué dans la chaine de lancement.
