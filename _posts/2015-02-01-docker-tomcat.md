@@ -40,3 +40,14 @@ L'application de gestion devient disponible à l'adresse :
 
 
 L'utilisateur est `admin` et le mot de passe celui indiqué dans la chaine de lancement.
+
+## Lancement de Tomcat 8 avec un jre 8
+
+[image docker](https://registry.hub.docker.com/u/jpierre03/tomcat/), [le github](https://github.com/jpierre03/docker-tomcat)
+
+```bash
+docker run --rm -it -p 8080:8080 -e TOMCAT_PASS="mypass" jpierre03/tomcat
+```
+Le manager est disponible en tant que `admin` avec le mot de passe indiqué en paramètre
+
+[http://127.0.0.1:8080/manager/](http://127.0.0.1:8080/manager/)
