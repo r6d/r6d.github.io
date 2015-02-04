@@ -6,11 +6,11 @@ comments: false
 tags: [tomcat, java, docker]
 ---
 
-# Déploiement rapide d'un serveur d'application Java. Tomcat + docker
+# Déploiement rapide de serveur Tomcat avec docker
 
 [Tomcat](http://tomcat.apache.org/) :
 
-* un serveur d'application java
+* un serveur d'application [Java](http://fr.wikipedia.org/wiki/Java_%28langage%29)
 * fait partie des implémentations les plus connues & déployées
 
 Notes :
@@ -28,7 +28,7 @@ docker run -it --rm tomcat:8.0
 
 Le port d'écoute par défaut est `8080`.
 
-Une [image alternative](https://registry.hub.docker.com/u/tutum/tomcat/) propose de définir un mot de passe pour l'utilisateur de l'application de gestion :
+Une [image alternative](https://registry.hub.docker.com/u/tutum/tomcat/),[le github](https://github.com/tutumcloud/tutum-docker-tomcat) propose de définir un mot de passe pour l'utilisateur de l'application de gestion :
 
 ```bash
 docker run -it --rm -p 8080:8080 -e TOMCAT_PASS="mypass" tutum/tomcat
