@@ -31,6 +31,14 @@ docker run -it --rm -p 5672:5672 -p 15672:15672 mikaelhg/docker-rabbitmq
 L'interface de gestion est disponible sur le port `15672` et AMQP est disponible sur le port `5672` comme avec une instance habituelle de RabbitMQ.
 
 
+Selon [tutum](https://github.com/tutumcloud/tutum-docker-rabbitmq), il est possible de déterminer le mot de passe de l'admin par un paramètre d'environement.
+
+```bash
+docker run -d -p 5672:5672 -p 15672:15672 -e RABBITMQ_PASS="mypass" tutum/rabbitmq
+```
+
+https://registry.hub.docker.com/u/tutum/rabbitmq/
+
 Docker fourni également une image officielle qui ne semble pas contenir l'interface de gestion.
 
 ```bash
