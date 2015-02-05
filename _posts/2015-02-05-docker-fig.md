@@ -25,7 +25,7 @@ Il ne reste plus que l'installation de `fig` à proprement parler.
 sudo pip install -U fig
 ````
 
-## Exemples de fichier de configuration
+## Exemple de fichier de configuration
 
 * [http://www.syncano.com/docker-workflow-fig-sh/](http://www.syncano.com/docker-workflow-fig-sh/)
 
