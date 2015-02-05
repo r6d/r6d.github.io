@@ -6,7 +6,7 @@ comments: false
 tags: [fig, docker]
 ---
 
-# Lancement d'applications utilisant plusieurs containers docker avec fig
+# Lancer plusieurs applications docker-isées avec fig
 
 * [instructions officielles d'installation](http://www.fig.sh/install.html)
 
