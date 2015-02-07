@@ -14,15 +14,15 @@ Cet article est une copie de l'article original [disponible  http://semver.org/l
 
 Étant donné un numéro de version `MAJEUR.MINEUR.CORRECTIF`, il faut incrémenter :
 
-1. le numéro de version MAJEUR quand il y a des changements rétro-incompatibles,
-1. le numéro de version MINEUR quand il y a des changements rétro-compatibles,
-1. le numéro de version de CORRECTIF quand il y a des corrections d’anomalies rétro-compatibles
+1. le numéro de version `MAJEUR` quand il y a des changements rétro-incompatibles,
+1. le numéro de version `MINEUR` quand il y a des changements rétro-compatibles,
+1. le numéro de version de `CORRECTIF` quand il y a des corrections d’anomalies rétro-compatibles
 
 Des libellés supplémentaires peuvent être ajoutés pour les versions de pré-livraison et pour des méta-données de construction sous forme d'extension du format `MAJEURE.MINEURE.CORRECTIF`.
 
 ## Introduction
 
-Dans le monde de la gestion des logiciels, il existe un endroit redouté appelé "l'enfer des dépendances" (de l'anglais "dependency hell").
+Dans le monde de la gestion des logiciels, il existe un endroit redouté appelé "_l'enfer des dépendances_" (de l'anglais "_dependency hell_").
 Plus votre système se développe et plus vous intégrez de composants dans votre logiciel, plus vous êtes susceptible de vous trouver un jour dans cette abîme de désespoir.
 
 Dans les systèmes comportant de nombreuses dépendances, publier une nouvelle version d'un composant peut vite devenir un cauchemar.
@@ -35,12 +35,13 @@ Ces règles sont basées mais pas nécessairement limitées à des pratiques tr�
 Pour que ce système fonctionne, vous devez d'abord déclarer une API publique.
 Il peut s'agir d'un document ou de règles imposées par le code lui- même. Quoiqu'il en soit, il est important que cette API soit claire et précise.
 Une fois prête, vous communiquez ses modifications par des incrémentations successives de son numéro de version.
-Considérons le format de version X.Y.Z où X, Y et Z identifient la version (Majeure.Mineure.Corrective).
+Considérons le format de version `X.Y.Z` où `X`, `Y` et `Z` identifient la version (Majeure.Mineure.Corrective).
 Les corrections qui n'affectent pas l'API incrémentent le dernier identifiant qui est l'identifiant de version de correction.
 Lors d'ajouts ou de modifications rétro-compatibles de l'API, il faut incrémenter l'identifiant de version mineure.
 Enfin, pour des modifications rétro-incompatibles, il faut incrémenter l'identifiant de version majeure.
 
-J'appelle ce système "gestion sémantique de version". Avec ce système, les numéros de version, et la façon dont ils changent, donnent du sens au code sous-jacent et à ce qui a été modifié d'une version à l'autre.
+J'appelle ce système "_gestion sémantique de version_".
+Avec ce système, les numéros de version, et la façon dont ils changent, donnent du sens au code sous-jacent et à ce qui a été modifié d'une version à l'autre.
 
 ## Spécification de la gestion sémantique de version (SemVer)
 
@@ -53,7 +54,7 @@ Dans tous les cas, elle doit être précise et claire.
 1. Un numéro de version standard DOIT prendre la forme `X.Y.Z` où `X`, `Y` et `Z` sont des entiers non négatifs et NE DOIVENT PAS être préfixés par des zéros.
 `X` représente l'identifiant de version majeure, `Y` représente l'identifiant de version mineure et `Z` l'identifiant de version de correction.
 Chaque élément DOIT s'incrémenter numériquement.
-Exemple : 1.9.0 -> 1.10.0 -> 1.11.0.
+Exemple : `1.9.0` -> `1.10.0` -> `1.11.0ù.
 
 1. Une fois qu'un composant est publié, le contenu de sa version NE DOIT PAS être modifié.
 Toute modification DOIT être publiée dans une nouvelle version.
@@ -116,33 +117,34 @@ Une fois que vos intentions sont claires, une spécification souple (mais pas "t
 Un exemple simple permet de montrer comment la gestion sémantique de version peut faire de l'enfer des dépendances, une chose du passé.
 Considérons une bibliothèque appelée "CamionDePompier".
 Elle nécessite un composant appelé "Échelle" dont la version est gérée sémantiquement.
-Lorsque la librairie CamionDePompier est créée, Échelle en est à sa version 3.1.0. Et puisque CamionDePompier utilise des fonctionnalités qui ont été introduites en 3.1.0, vous pouvez spécifier, sans ne courir aucun risque, une dépendance vers Échelle plus grande ou égale à 3.1.0 mais inférieure à 4.0.0.
-Maintenant, lorsque les versions 3.1.1 et 3.2.0 de Échelle seront disponibles, vous pourrez les publier dans votre système de gestion de dépendances en sachant qu'elles seront compatibles avec les logiciels existants qui en dépendent.
+Lorsque la librairie CamionDePompier est créée, Échelle en est à sa version `3.1.0`.
+Et puisque CamionDePompier utilise des fonctionnalités qui ont été introduites en `3.1.0`, vous pouvez spécifier, sans ne courir aucun risque, une dépendance vers Échelle plus grande ou égale à `3.1.0` mais inférieure à `4.0.0`.
+Maintenant, lorsque les versions `3.1.1` et `3.2.0` de Échelle seront disponibles, vous pourrez les publier dans votre système de gestion de dépendances en sachant qu'elles seront compatibles avec les logiciels existants qui en dépendent.
 
 En tant que développeur responsable, bien entendu, vous voudrez vérifier que toute mise à jour de composant fonctionne comme annoncée.
 Dans la réalité, les choses ne sont pas forcément toujours très cohérentes ; il n'y a donc rien d'autre à faire que de rester vigilant.
 Ce que vous pouvez cependant faire est de laisser la gestion sémantique de version vous fournir une manière saine de publier et mettre à jour vos composants et ainsi ne pas avoir besoin de déployer de nouvelles versions de vos sous-composants vous permettant ainsi d'économiser du temps et du souci.
 
 Si tout cela vous semble intéressant, tout ce que vous avez à faire pour commencer à utiliser la gestion sémantique de version est de déclarer que vous le faites et d'en suivre les règles.
-Ajoutez ensuite un lien vers ce site web dans votre README pour que d'autres puissent en connaître les règles et en bénéficier.
+Ajoutez ensuite un lien vers ce site web dans votre `README` pour que d'autres puissent en connaître les règles et en bénéficier.
 
 ## FAQ
 
-### Comment dois-je gérer les révisions dans la phase initiale de développement 0.y.z ?
+### Comment dois-je gérer les révisions dans la phase initiale de développement `0.y.z` ?
 
 La chose la plus simple à faire est de commencer vos développements avec une version initiale à 0.1.0 puis d'incrémenter l'identifiant de version mineure pour chaque nouvelle publication.
 
-### Comment savoir quand publier la version 1.0.0 ?
+### Comment savoir quand publier la version `1.0.0` ?
 
 Si votre logiciel est utilisé en environnement de production ou que vous avez une API stable de laquelle des utilisateurs ont commencé à dépendre, vous devriez probablement déjà être en version 1.0.0.
-Et si vous vous faites déjà du soucis pour la rétro-compatibilité, vous devriez également avoir dépassé la 1.0.0.
+Et si vous vous faites déjà du soucis pour la rétro-compatibilité, vous devriez également avoir dépassé la `1.0.0`.
 
 ### N'est-ce pas décourager le développement rapide et les itérations courtes ?
 
 La version majeure zéro est faite pour un développement rapide.
 Si vous changez votre API tous les jours, vous devriez toujours être en version 0.y.z ou sur une branche de développement séparée en préparant la prochaine version majeure.
 
-### Si le moindre changement rétro-incompatible de l'API publique nécessite une incrémentation de l'identifiant de version majeure, ne vais-je pas me retrouver à la version 42.0.0 très rapidement ?
+### Si le moindre changement rétro-incompatible de l'API publique nécessite une incrémentation de l'identifiant de version majeure, ne vais-je pas me retrouver à la version `42.0.0` très rapidement ?
 
 C'est une question de développement responsable et d'anticipation.
 Les changements incompatibles ne doivent pas être introduits à la légère dans du logiciel dont beaucoup de code source dépend.
@@ -179,7 +181,11 @@ Si ces changements sont importants pour vos utilisateurs, utilisez les numéros 
 ### Comment dois-je traiter les fonctionnalités obsolètes ?
 
 Rendre des fonctionnalités obsolètes est une part normale du développement de logiciels et cela est souvent nécessaire pour aller de l'avant.
-Lorsque vous dépréciez une partie de votre API publique, vous devez faire deux choses : (1) mettre à jour la documentation pour informer les utilisateurs du changement, (2) publier une nouvelle version mineure avec la dépréciation en place.
+Lorsque vous dépréciez une partie de votre API publique, vous devez faire deux choses :
+
+1. mettre à jour la documentation pour informer les utilisateurs du changement,
+2. publier une nouvelle version mineure avec la dépréciation en place.
+
 Avant que vous ne supprimiez complètement la fonctionnalité dans une nouvelle version majeure, il devrait y avoir au moins une version mineure qui contient la dépréciation pour que les utilisateurs puissent effectuer la transition en douceur.
 
 ### Est-ce que la gestion sémantique de version spécifie une limite de taille pour la chaîne de caractères d'un numéro de version ?
