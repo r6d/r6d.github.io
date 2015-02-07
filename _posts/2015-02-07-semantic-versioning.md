@@ -8,6 +8,8 @@ tags: [versioning, nommage]
 
 # Gestion sémantique de version 2.0.0
 
+Cet article est une copie de l'article original [disponible  http://semver.org/lang/fr/spec/v2.0.0.html](http://semver.org/lang/fr/spec/v2.0.0.html).
+
 ## En bref
 
 Étant donné un numéro de version MAJEUR.MINEUR.CORRECTIF, il faut incrémenter :
