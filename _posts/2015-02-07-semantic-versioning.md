@@ -46,39 +46,39 @@ J'appelle ce système "gestion sémantique de version". Avec ce système, les nu
 
 Les mots clés "DOIT", "NE DOIT PAS", "OBLIGATOIRE", "DEVRA", "NE DEVRA PAS", "DEVRAIT", "NE DEVRAIT PAS", "RECOMMANDÉ", "PEUT", et "OPTIONNEL" dans ce document doivent être interprétés comme décrit dans la [RFC 2119](http://microformats.org/wiki/rfc-2119-fr).
 
-Tout logiciel utilisant la gestion sémantique de version DOIT déclarer une API publique.
+1. Tout logiciel utilisant la gestion sémantique de version DOIT déclarer une API publique.
 Cette API peut être déclarée dans le code lui-même ou dans un document.
 Dans tous les cas, elle doit être précise et claire.
 
-Un numéro de version standard DOIT prendre la forme X.Y.Z où X, Y et Z sont des entiers non négatifs et NE DOIVENT PAS être préfixés par des zéros.
+1. Un numéro de version standard DOIT prendre la forme X.Y.Z où X, Y et Z sont des entiers non négatifs et NE DOIVENT PAS être préfixés par des zéros.
 X représente l'identifiant de version majeure, Y représente l'identifiant de version mineure et Z l'identifiant de version de correction.
 Chaque élément DOIT s'incrémenter numériquement.
 Exemple : 1.9.0 -> 1.10.0 -> 1.11.0.
 
-Une fois qu'un composant est publié, le contenu de sa version NE DOIT PAS être modifié.
+1. Une fois qu'un composant est publié, le contenu de sa version NE DOIT PAS être modifié.
 Toute modification DOIT être publiée dans une nouvelle version.
 
-L'identifiant de version majeure zéro (0.y.z) est destiné au développement initial.
+1. L'identifiant de version majeure zéro (0.y.z) est destiné au développement initial.
 Tout ou partie peut être modifié à tout moment.
 L'API publique ne devrait pas être considérée comme stable.
 
-La version 1.0.0 définit l'API publique.
+1. La version 1.0.0 définit l'API publique.
 La façon dont le numéro de version est incrémenté après cette publication est dépendante de cette API publique et de ses évolutions.
 
-L'identifiant de version de correction Z (x.y.Z | x > 0) DOIT être incrémenté si seules des corrections rétro-compatibles sont introduites.
+1. L'identifiant de version de correction Z (x.y.Z | x > 0) DOIT être incrémenté si seules des corrections rétro-compatibles sont introduites.
 Une correction est définie comme un changement interne qui corrige un comportement incorrect.
 
-L'identifiant de version mineure Y (x.Y.z | x > 0) DOIT être incrémenté si de nouvelles fonctionnalités rétro-compatibles sont introduites dans l'API publique.
+1. L'identifiant de version mineure Y (x.Y.z | x > 0) DOIT être incrémenté si de nouvelles fonctionnalités rétro-compatibles sont introduites dans l'API publique.
 Il DOIT être incrémenté si une fonctionnalité de l'API publique est marquée comme obsolète.
 Il PEUT être incrémenté si de nouvelles fonctionnalités ou améliorations substantielles sont introduites dans le code privé.
 Il PEUT inclure dans le même temps des corrections.
 L'identifiant de version de correction DOIT être remis à zéro lorsque l'identifiant de version mineure est incrémenté.
 
-L'identifiant de version majeur X (X.y.z | X > 0) DOIT être incrémenté si des changements rétro-incompatibles sont introduits dans l'API publique.
+1. L'identifiant de version majeur X (X.y.z | X > 0) DOIT être incrémenté si des changements rétro-incompatibles sont introduits dans l'API publique.
 Cela PEUT inclure dans le même temps des changements mineurs et des corrections.
 Les identifiants de version mineure et de correction DOIVENT être remis à zéro quand l'identifiant de version majeure est incrémenté.
 
-Une version de pré-livraison PEUT être notée par l'ajout d'un trait d'union et d'une série d'identifiants séparés par des points suivant immédiatement l'identifiant de version de correction.
+1. Une version de pré-livraison PEUT être notée par l'ajout d'un trait d'union et d'une série d'identifiants séparés par des points suivant immédiatement l'identifiant de version de correction.
 Les identifiants DOIVENT être composés uniquement de caractères alphanumériques ASCII et de traits d'union [0-9A-Za-z-].
 Les identifiants NE DOIVENT PAS être vides.
 Les identifiants numériques NE DOIVENT PAS être préfixés par des zéros.
@@ -86,14 +86,14 @@ Les versions de pré-livraison précèdent la version normale associée (version
 Une version de pré-livraison indique que la version n’est pas stable et ne satisfait pas forcément les exigences de compatibilité associées à une version normale.
 Exemples : 1.0.0-alpha, 1.0.0-alpha.1, 1.0.0-0.3.7, 1.0.0-x.7.z.92.
 
-Les méta-données de construction PEUVENT être notées par l'ajout d'un signe "plus" et d'une série d'identifiants séparés par des points suivant immédiatement l'identifiant de version de correction ou de pré-livraison.
+1. Les méta-données de construction PEUVENT être notées par l'ajout d'un signe "plus" et d'une série d'identifiants séparés par des points suivant immédiatement l'identifiant de version de correction ou de pré-livraison.
 Les identifiants DOIVENT être composés uniquement de caractères alphanumériques ASCII et de traits d'union [0-9A-Za-z-].
 Les identifiants NE DOIVENT PAS être vides.
 Les méta-données de construction DEVRAIENT être ignorées dans l'ordre des versions.
 Autrement dit, deux versions qui diffèrent seulement par leurs informations de construction ont la même priorité.
 Exemples : 1.0.0-alpha+001, 1.0.0+20130313144700, 1.0.0-beta+exp.sha.5114f85.
 
-La priorité défini la façon dont sont ordonnées les versions entre elles.
+1. La priorité défini la façon dont sont ordonnées les versions entre elles.
 La priorité DOIT être calculée en séparant les identifiants de versions entre majeures, mineures, de correction et de pré-livraison, en suivant cet ordre (les informations de construction n’entrent pas en compte dans la comparaison).
 La priorité est déterminée par la première différence apparaissant dans la comparaison de chacun de ces identifiants dans l'ordre : majeur, mineur et correctif.
 Ces identifiants sont toujours comparés numériquement.
