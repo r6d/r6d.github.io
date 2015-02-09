@@ -1,21 +1,6 @@
 # Welcome to the libs wiki! -  Notes, outils, liens & méthodes
-## Commandes
-
-* [[Reseau > Netcat](./netcat)]	: transfert de fichiers en masse par le réseau (TCP) & tar
-* [[Reseau > Rsync](./rsync)]	: synchronisation *unidirectionnelle* de fichiers
-* [[Sed](./sed)]	: traitement de chaine de caractères par *regexp*
-* [[Xinit](./Xinit)]	: lancement d'application graphique depuis la console
-* [[Versionning > git](./versionning_01_git)]	: commandes usuelles de GIT
 
 ## Thèmes
-
-* [[BaseDonnees > FoxPro-PostgreSQL](./baseDonnees#foxpro-postgresql)]	: commande pour importer des tables FoxPro dans PostgreSQL
-* [[BaseDonnees > PostgreSQL](./baseDonnees#postgresql)]			: documentations utiles pour la gestion & l'administration de la base de données
-* [[BaseDonnees > PostgreSQL-Snippet](./baseDonnees#postgresql-snippet)]	: commandes utiles pour la gestion & l'administration de la base de données
-
-* [[Messagerie > INN](./messagerie_01_inn)]		: pour la gestion (point de vue administrateur) du service de news
-* [[Messagerie > Mutt](./messagerie_02_mutt)]		: pour la gestion (point de vue utilisateur) des mails
-* [[Messagerie > uucp](./messagerie_03_uucp)]		: pour la gestion (point de vue utilisateur) de uucp
 
 * [[Programmation:C:heure.c]](./programmation_C_01_heure.c)	: programme minimaliste pour décomposer un nombre de secondes en h/m/s
 * [[Fichier](./fichier)]									: pour la gestion de fichiers
