@@ -6,7 +6,7 @@
 
 	```bash
 	$ finger username
-	```~
+	```
 
 * Réinitialiser le compteur des interfaces réseaux
 
