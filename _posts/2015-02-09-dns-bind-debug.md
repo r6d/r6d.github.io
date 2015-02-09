@@ -40,5 +40,114 @@ Lorsque l'on héberge sa propre zone, typiquement pour servir son nom de domaine
 
 Le processus de débug peut être fastidieux et quelques outils sont fournis avec `bind` pour faciliter la correction des erreur.
 
+* un outil de vérification de la configuration : `named-checkconf`
+* un outil de vérification des zones : `named-checkzone`
+* un outil de gestion du serveur bind : `rndc`
 
+## Commandes pour le déboggage
 
+Avant de changer la configuration il est conseillé de réaliser une sauvegarde des fichiers de configuration.
+Par exemple avec [GIT](http://git-scm.com/book/fr/v1) avec un `commit`.
+
+Pour la suite, considéront :
+
+* que le système est un Ubuntu 14.04
+* bind9 est installé par le gestionnaire de paquet
+* la configuration est dans le répertoire par défaut : `/etc/bind`
+* le nom de domaine servi est `example.net`, contenu dans le fichier de zone `example.net.zone`
+
+### Vérification de la configuration du serveur
+
+Déplacement dans le bon répertoire et vérification du contenu :
+
+```bash
+$ cd /etc/bind
+$ ls
+ bind.keys
+ db.0
+ db.127
+ db.255
+ db.empty
+ db.local
+ db.root
+ example.net.zone
+ named.conf
+ named.conf.default-zones
+ named.conf.local
+ named.conf.options
+ rndc.key
+ zones.rfc1918
+```
+
+On vérifie la configuration du serveur avec l'outil adapté :
+
+```bash
+named-checkconf -t named.conf
+```
+
+Si tout va bien, rien n'est indiqué.
+
+En cas d'erreur (oubli d'un `;` sur la ligne 13) :
+
+```bash
+named-checkconf -j named.conf
+named.conf:13: missing ';' before 'logging'
+```
+
+### Vérification de la configuration de la zone
+
+On se place dans le même répertoire que le fichier de zone.
+Ici, `/etc/bind`.
+
+```bash
+named-checkzone example.net example.net.zone 
+example.net.zone:2: no TTL specified; using SOA MINTTL instead
+zone example.net/IN: sub.example.net/NS 'ns2.example.net' has no address records (A or AAAA)
+zone example.net/IN: loaded serial 2014122301
+OK
+```
+
+On peut constater que la zone est valide pour l'outil de vérification du fait de la présence du `OK` à la fin.
+C'est à dire qu'il n'y a pas d'erreur de syntaxe dans le fichier.
+
+Par contre il y a deux erreurs de contenu qu'il faut corriger.
+
+* à la ligne 2, il manque la valeur du TTL
+* l'entrée `sub.example.net` utilise un serveur de nom, champ `NS` qui n'a pas d'adresse connue (ni IPv4 `A`, ni IPv6 `AAAA`)
+
+A noter que l'utilisation de `rndc` ne pose pas de problème sur cette zone (pas de vérification du contenu):
+
+```bash
+rndc reload example.net
+```
+
+### Vérification en tant qu'utilisateur
+
+L'outil adapté pour vérifier les réponses d'un serveur DNS, que ce soit bind ou un autre d'ailleur s'appelle `dig` :
+
+```bash
+dig example.net
+
+; <<>> DiG 9.8.1-P1 <<>> example.net
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 47969
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;example.net.                   IN      A
+
+;; ANSWER SECTION:
+example.net.            86389   IN      A       93.184.216.34
+
+;; Query time: 2 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Mon Feb  9 19:49:06 2015
+;; MSG SIZE  rcvd: 45
+```
+
+Cette réponse :
+
+* indique que tout va bien : `NOERROR`.
+  Un `SERVFAIL` est signe d'une erreur importante qui devrait être détectée avec les outils précédents.
+* la réponse à la question, section `ANSWER` donne l'adresse IPv4, `A`  
