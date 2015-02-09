@@ -6,7 +6,7 @@ comments: false
 tags: [mail, mutt]
 ---
 
-# Messagerie - Mutt
+# Messagerie - client email Mutt
 
 ## Accès à une boîte en IMAP
 
