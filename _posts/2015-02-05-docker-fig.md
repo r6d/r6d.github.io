@@ -16,13 +16,13 @@ Il est nécessaire d'installer l'installeur de modules python.
 Par chance, il est disponible dans le gestionnaire de paquet du sytème.
 
 ```bash
-sudo aptitude install -y python-pip
+$ sudo aptitude install -y python-pip
 ````
 
 Il ne reste plus que l'installation de `fig` à proprement parler.
 
 ```bash
-sudo pip install -U fig
+$ sudo pip install -U fig
 ````
 
 ## Exemple de fichier de configuration
@@ -82,11 +82,11 @@ worker:
 Les containers se lancent simplement par 
 
 ```bash
-fig up
+$ fig up
 ```
 
 Pour avoir des informations sur le status des containers
 
 ```bash
-fig ps
+$ fig ps
 ```
