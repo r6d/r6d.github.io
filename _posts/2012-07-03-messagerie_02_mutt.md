@@ -14,20 +14,20 @@ tags: [mail, mutt]
 * user / password
 
 	```bash
-	mutt -f imaps://<user>@<server>
+	$ mutt -f imaps://<user>@<server>
 	```
 
 * user complexe (adresse mail)
 
 	```bash
-	mutt -f imaps://'<doe@example.com>'@imap.example.com
+	$ mutt -f imaps://'<doe@example.com>'@imap.example.com
 	```
 
 ## Supprimer des doublons (par id de message)
 
-* Remove duplicates email messages [[http://promberger.info/linux/2008/03/31/mutt-delete-duplicate-e-mail-messages/](http://promberger.info/linux/2008/03/31/mutt-delete-duplicate-e-mail-messages/)]
+*  [Article original](http://promberger.info/linux/2008/03/31/mutt-delete-duplicate-e-mail-messages/)]
 
-	Actually, it’s much easier, you can skip the tagging step and just do *D* (for “delete matching pattern” followed by *~=*.
+	[...]. En réalité, c'est très simple, vous pouvez ignorer l'étape de marquage et simplement taper *D* (pour _delete matching pattern_, soit _suppression par reconnaissance de motif_) suivi de *~=*.
 
 	Pour ce faire (commande à taper dans mutt)
 
