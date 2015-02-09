@@ -37,21 +37,22 @@ SELECT 'level2' as level, md5(random()::text) AS descr
 * Create Databases
 
 	```bash
-	createdb -O owner -T some_template database_name
+	$ createdb -O owner -T some_template database_name
 	```
 	
 	* By default, PostgreSQL listens on TCP port 5432.
 
 ## Export de base
+
 * Dump all databases
 
 	```bash
-	pg_dumpall --clean > databases.sql
+	$ pg_dumpall --clean > databases.sql
 	```
 * Dump a database with compression (-Fc)
 
 	```bash
-	pg_dump -Fc --file=database.sql --clean database
+	$ pg_dump -Fc --file=database.sql --clean database
 	```
 
 * Dump a table
@@ -86,7 +87,8 @@ SELECT 'level2' as level, md5(random()::text) AS descr
 * Restore a database
 
 	```bash
-	pg_restore -Fc database.sql
+	$ pg_restore -Fc database.sql
+
 	pg_restore [-h host] [-p port] [-U user] [--schema=schema] -d database -v -c <path_to_dump_file>
 	```
 	* -p, --port=PORT database server port number
@@ -179,7 +181,7 @@ SELECT 'level2' as level, md5(random()::text) AS descr
 ### Créer un utilisateur et lui donner les droits sur une DB
 
 ```bash
-su - postgres
+$ su - postgres
 ```
 ```sql
 CREATE USER tom WITH PASSWORD 'myPassword';
