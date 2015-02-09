@@ -22,11 +22,11 @@ Dès qu'elles sont terminées, les données sont perdues.
 Voici comment lancer rapidement un cluster de 5 instances, on parle de `noeud`ou de `node` en utilisant [docker](http://www.docker.io).
 
 ```bash
-docker run --rm -it -p 19200:9200 -p 19300:9300 dockerfile/elasticsearch 
-docker run --rm -it -p 29200:9200 -p 29300:9300 dockerfile/elasticsearch 
-docker run --rm -it -p 39200:9200 -p 39300:9300 dockerfile/elasticsearch
-docker run --rm -it -p 49200:9200 -p 49300:9300 dockerfile/elasticsearch
-docker run --rm -it -p 59200:9200 -p 59300:9300 dockerfile/elasticsearch
+$ docker run --rm -it -p 19200:9200 -p 19300:9300 dockerfile/elasticsearch 
+$ docker run --rm -it -p 29200:9200 -p 29300:9300 dockerfile/elasticsearch 
+$ docker run --rm -it -p 39200:9200 -p 39300:9300 dockerfile/elasticsearch
+$ docker run --rm -it -p 49200:9200 -p 49300:9300 dockerfile/elasticsearch
+$ docker run --rm -it -p 59200:9200 -p 59300:9300 dockerfile/elasticsearch
 ```
 
 L'exécution de ces commandes dans des terminaux différents permet d'obtenir une réponse pour chacune des url :
@@ -50,7 +50,7 @@ Options :
 	En utilisant `curl` :
 	
 	```
-	curl -XPUT localhost:9200/_bulk --data-binary @shakespeare.json
+	$ curl -XPUT localhost:9200/_bulk --data-binary @shakespeare.json
 	```
 1. copier les données d'une instance elasticsearch déjà configurées `=`créer un clone partiel ou intégral.
 
@@ -59,25 +59,25 @@ Options :
 	Pour charger seulement un index d'une instance sur le port standard. Ici l'index s'appelle `logstash-2014.12.19.15` :
  
 	````bash
-	docker run --rm -t sherzberg/elasticdump --input=http://localhost:9200/logstash-2014.12.19.15 --output=http://localhost:29200/logstash-2014.12.19.15
+	$ docker run --rm -t sherzberg/elasticdump --input=http://localhost:9200/logstash-2014.12.19.15 --output=http://localhost:29200/logstash-2014.12.19.15
 	```
 
 	Pour charger tous les index d'une instance sur le port standard.
 
 	```bash
-	docker run --rm -t sherzberg/elasticdump --all=true --bulk=true --input=http://localhost:9200 --output=http://localhost:29200
+	$ docker run --rm -t sherzberg/elasticdump --all=true --bulk=true --input=http://localhost:9200 --output=http://localhost:29200
 	```
 
 
 ### Kibana 4
 
-https://github.com/bobrik/docker-kibana4
+[https://github.com/bobrik/docker-kibana4](https://github.com/bobrik/docker-kibana4)
 
 
 ## Instance ES avec monitoring simple (head)
 
 ```bash
-docker run --rm -it --name es -p 6520:9200 -p 6530:9300 jamescarr/elasticsearch-head
+$ docker run --rm -it --name es -p 6520:9200 -p 6530:9300 jamescarr/elasticsearch-head
 ```
 
 Disponible à [http://localhost:6520/_plugin/head/](http://localhost:6520/_plugin/head/)
