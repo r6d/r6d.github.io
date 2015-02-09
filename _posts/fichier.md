@@ -4,9 +4,9 @@
 
 Sous Ubuntu le paquet correspondant est _netatalk_
 
-* bon lien, fonctionne en un tour de main : [[http://d43.me/blog/1660/concisest-guide-to-setting-up-time-machine-server-on-ubuntu-server-12-04/](http://d43.me/blog/1660/concisest-guide-to-setting-up-time-machine-server-on-ubuntu-server-12-04/)]
+* bon lien, fonctionne en un tour de main : [d43.me, setting-up-time-machine-server-on-ubuntu-server-12-04/](http://d43.me/blog/1660/concisest-guide-to-setting-up-time-machine-server-on-ubuntu-server-12-04/)]
 
-* ancien lien : [[http://web.archive.org/web/20100722110311/http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume](http://web.archive.org/web/20100722110311/http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume)]
+* ancien lien : [archive.org de kremalicious.com, juin 2008](http://web.archive.org/web/20100722110311/http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume)]
 
 # Système de fichier / filesystem
 
