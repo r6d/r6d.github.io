@@ -159,5 +159,5 @@ Référence : [bortzmeyer.org](http://www.bortzmeyer.org/vider-cache-resolveur.h
 * vider le cache d'une zone
 
  ```bash
- rndc flushname example.net
+ $ rndc flushname example.net
  ```
