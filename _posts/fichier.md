@@ -15,19 +15,19 @@ Sous Ubuntu le paquet correspondant est _netatalk_
 * Avoir le numéro d'inode
 
 ```bash
-ls -il
-````
+$ ls -il
+```
 
 * Avoir des infos sur un fichier (dont inode) :
 
 ```bash
-stat file
-````
+$ stat file
+```
 
 ## Changer l'ordre des champs d'affichage de ls
 
 ```bash
-ls -la \
+$ ls -la \
 	|awk '{print $5,"-----",$7,"---",$8,"-----",$6}' \
 	|sort -n
 ```
@@ -37,7 +37,7 @@ ls -la \
 * version 1
 
 ```bash
-du -s * | awk '{print $1,"-----",$1/(1024*1024),"Go","-----",$2}' | sort -n
+$ du -s * | awk '{print $1,"-----",$1/(1024*1024),"Go","-----",$2}' | sort -n
 ```
 
 * version 2
@@ -53,7 +53,7 @@ du -s * | awk '{{printf "%8s --- %8s Go --- ",$1,$1/(1024*1024)}{for (i=2;i<=NF;
 * version 1
 
 ```bash
-find / -type f ! -regex "^/[proc\|dev\|sys]*/.*" -printf "%s %p\n" \
+$ find / -type f ! -regex "^/[proc\|dev\|sys]*/.*" -printf "%s %p\n" \
 	|sort -rnk1 \
 	|head -n50 \
 	|awk '{print $1/1048576 "MB" " " $2}'
@@ -62,7 +62,7 @@ find / -type f ! -regex "^/[proc\|dev\|sys]*/.*" -printf "%s %p\n" \
 * version 2
 
 ```bash
-du -s * | awk '{
+$ du -s * | awk '{
 	#{printf "-|"}
 	{printf "%8s --- %8s Go --- ",$1,$1/(1024*1024)}
 	#{printf "|-|"}
@@ -70,12 +70,12 @@ du -s * | awk '{
 	#{printf "|-\n"}
 	{printf "\n"}
 }' | sort -n
-``
+```
 
 * version 3 (condensé de la v2)
 
 ```bash
-du -s * \
+$ du -s * \
 	| awk '{{printf "%8s --- %8s Go --- ",$1,$1/(1024*1024)}{for (i=2;i<=NF;i++) { printf "%s ",$i }}{printf "\n"}}' \
 	| sort -n
 ```
