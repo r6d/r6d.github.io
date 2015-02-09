@@ -16,4 +16,16 @@ A savoir :
 * serveur faisant authorité = indique la vérité sur le contenu d'une zone désignée par un nom de domaine
 * résolveur, serveur récursif = parcours l'arborescence du DNS pour répondre à une demande
 
-Le 
+Le premier comportement sert à mettre à disposition une `zone`.
+Cela correspond à l'ensemble des informations qui peuvent être répondues par le serveur.
+
+le second (résolveur) permet d'interroger les serveurs nécessaires à l'obtention d'une demande par l'utilisateur.
+C'est ce service qui est utilisé sur le poste de l'utilisateur, ou plus courament chez le FAI (Fournisseur d'Accès à Internet) de celui-ci, lorsqu'il cherche à contacter _http://google.co.uk_, _http://www.facebook.com_, _http://www.free.fr_ et autre site.
+
+  * Le navigateur web, demande au résolveur de résoudre (de transformer la chaine de texte en adresse IP) le nom de machine (_google.co.uk_, _www.facebook.com_, _www.free.fr_) afin de pouvoir établir la connexion.
+  * le résolveur utilise son cache (une technique pour conserver en local des informations) pour répondre.
+    En cas d'absence d'information dans le cache (première demande ou valeur expirée), le résolveur parcours l'arborescence du DNS  en commençant par la racine `.`
+    Puis dans les exemples : `com.`, `fr.`et `uk.` et ainsi de suite jusqu'à obtenir une réponse (positive ou négative).
+
+
+
