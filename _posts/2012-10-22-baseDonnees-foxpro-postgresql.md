@@ -17,6 +17,6 @@ Cette méthode ne s'applique pas à la conversion de base fox pro gérant les re
 ```bash
 $ find . -type f -name "*.dbf" -exec \
 	bash -c 'pgdbf "{}" \
-			| iconv -c -f UTF-8 -t UTF-8 \
+			|iconv -c -f UTF-8 -t UTF-8 \
 			|psql -d <user>' \;
 ```
