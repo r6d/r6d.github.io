@@ -16,7 +16,7 @@ tags: [mail, uucp]
 	$ for i in `find . -type f` ; do uucp "$i" 'xray!~/'$i''; done
 	```
 
-* envois de fichiers (arborescence) vers `machine`
+* envois de fichiers (arborescence) vers `machine`, fonction `bash`
 
 	```bash
 	uucp-machine() {
@@ -25,7 +25,7 @@ tags: [mail, uucp]
 	}
 	```
 
-* envois de fichiers (arborescence) vers cube en passant par machine
+* envois de fichiers (arborescence) vers cube en passant par machine, fonction `bash`
 
 	```bash
 	uucp-cube() {
