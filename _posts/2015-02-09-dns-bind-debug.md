@@ -82,7 +82,7 @@ $ ls
 On vérifie la configuration du serveur avec l'outil adapté :
 
 ```bash
-named-checkconf -t named.conf
+$ named-checkconf -t named.conf
 ```
 
 Si tout va bien, rien n'est indiqué.
@@ -90,7 +90,7 @@ Si tout va bien, rien n'est indiqué.
 En cas d'erreur (oubli d'un `;` sur la ligne 13) :
 
 ```bash
-named-checkconf -j named.conf
+$ named-checkconf -j named.conf
 named.conf:13: missing ';' before 'logging'
 ```
 
@@ -100,7 +100,7 @@ On se place dans le même répertoire que le fichier de zone.
 Ici, `/etc/bind`.
 
 ```bash
-named-checkzone example.net example.net.zone 
+$ named-checkzone example.net example.net.zone 
 example.net.zone:2: no TTL specified; using SOA MINTTL instead
 zone example.net/IN: sub.example.net/NS 'ns2.example.net' has no address records (A or AAAA)
 zone example.net/IN: loaded serial 2014122301
@@ -118,7 +118,7 @@ Par contre il y a deux erreurs de contenu qu'il faut corriger.
 A noter que l'utilisation de `rndc` ne pose pas de problème sur cette zone (pas de vérification du contenu):
 
 ```bash
-rndc reload example.net
+$ rndc reload example.net
 ```
 
 ### Vérification en tant qu'utilisateur
@@ -126,7 +126,7 @@ rndc reload example.net
 L'outil adapté pour vérifier les réponses d'un serveur DNS, que ce soit bind ou un autre d'ailleur s'appelle `dig` :
 
 ```bash
-dig example.net
+$ dig example.net
 
 ; <<>> DiG 9.8.1-P1 <<>> example.net
 ;; global options: +cmd
