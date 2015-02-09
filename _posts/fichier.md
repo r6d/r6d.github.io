@@ -1,12 +1,8 @@
 # Partage de fichiers
 
-## Samba
+## AFP, partage de fichier apple
 
-## BTSync
-
-## AFP
-
-Partage de fichier apple sur ubuntu : paquet "netatalk"
+Sous Ubuntu le paquet correspondant est _netatalk_
 
 * bon lien, fonctionne en un tour de main : [[http://d43.me/blog/1660/concisest-guide-to-setting-up-time-machine-server-on-ubuntu-server-12-04/](http://d43.me/blog/1660/concisest-guide-to-setting-up-time-machine-server-on-ubuntu-server-12-04/)]
 
@@ -18,54 +14,54 @@ Partage de fichier apple sur ubuntu : paquet "netatalk"
 
 * Avoir le numéro d'inode
 
-~~~~ {.bash}
+```bash
 ls -il
-~~~~
+````
 
 * Avoir des infos sur un fichier (dont inode) :
 
-~~~~ {.bash}
+```bash
 stat file
-~~~~
+````
 
 ## Changer l'ordre des champs d'affichage de ls
 
-~~~~ {.bash}
+```bash
 ls -la \
 	|awk '{print $5,"-----",$7,"---",$8,"-----",$6}' \
 	|sort -n
-~~~~
+```
 
 ## Tris des fichiers/répertoires par taille croissante
 
 * version 1
 
-~~~~ {.bash}
+```bash
 du -s * | awk '{print $1,"-----",$1/(1024*1024),"Go","-----",$2}' | sort -n
-~~~~
+```
 
 * version 2
 
-~~~~~{.bash}
+```bash
 #!/bin/sh
 
 du -s * | awk '{{printf "%8s --- %8s Go --- ",$1,$1/(1024*1024)}{for (i=2;i<=NF;i++) { printf "%s ",$i }}{printf "\n"}}' | sort -n
-~~~~~
+```
 
 ## Trouver les 50 plus gros fichiers dans une arborescence
 
 * version 1
 
-~~~~ {.bash}
+```bash
 find / -type f ! -regex "^/[proc\|dev\|sys]*/.*" -printf "%s %p\n" \
 	|sort -rnk1 \
 	|head -n50 \
 	|awk '{print $1/1048576 "MB" " " $2}'
-~~~~
+```
 
 * version 2
 
-~~~~ {.bash}
+```bash
 du -s * | awk '{
 	#{printf "-|"}
 	{printf "%8s --- %8s Go --- ",$1,$1/(1024*1024)}
@@ -74,15 +70,15 @@ du -s * | awk '{
 	#{printf "|-\n"}
 	{printf "\n"}
 }' | sort -n
-~~~~
+``
 
 * version 3 (condensé de la v2)
 
-~~~~ {.bash}
+```bash
 du -s * \
 	| awk '{{printf "%8s --- %8s Go --- ",$1,$1/(1024*1024)}{for (i=2;i<=NF;i++) { printf "%s ",$i }}{printf "\n"}}' \
 	| sort -n
-~~~~
+```
 
 # Encodage
 
@@ -90,7 +86,7 @@ du -s * \
 
 * utilisation de iconv
 
-~~~~~{.bash}
+```bash
 #!/bin/sh
 
 # permet la passage de paramère par la console, lorsque ce script est enregistré dans un fichier
@@ -103,4 +99,4 @@ do
 	# pour remplacer la version utf8 par la version iso, décommente la ligne suivante
 	#mv "${i}_iso885915" "$i"
 done
-~~~~~
+```
