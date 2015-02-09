@@ -44,7 +44,7 @@ Le processus de débug peut être fastidieux et quelques outils sont fournis ave
 * un outil de vérification des zones : `named-checkzone`
 * un outil de gestion du serveur bind : `rndc`
 
-## Commandes pour le déboggage
+## Serveur faisant authorité, commandes pour le déboggage
 
 Avant de changer la configuration il est conseillé de réaliser une sauvegarde des fichiers de configuration.
 Par exemple avec [GIT](http://git-scm.com/book/fr/v1) avec un `commit`.
@@ -151,3 +151,13 @@ Cette réponse :
 * indique que tout va bien : `NOERROR`.
   Un `SERVFAIL` est signe d'une erreur importante qui devrait être détectée avec les outils précédents.
 * la réponse à la question, section `ANSWER` donne l'adresse IPv4, `A`  
+
+## Résolveur, commande usuelles de déboggage
+
+Référence : [bortzmeyer.org](http://www.bortzmeyer.org/vider-cache-resolveur.html)
+
+* vider le cache d'une zone
+
+ ```bash
+ rndc flushname example.net
+ ```
