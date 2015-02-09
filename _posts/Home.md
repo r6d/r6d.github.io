@@ -1,13 +1,5 @@
 # Welcome to the libs wiki! -  Notes, outils, liens & méthodes
 
-## Thèmes
-
-* [[Programmation:C:heure.c]](./programmation_C_01_heure.c)	: programme minimaliste pour décomposer un nombre de secondes en h/m/s
-* [[Fichier](./fichier)]									: pour la gestion de fichiers
-* [[Versionning > Gitmagic](./versionning_02_git_manuel)]	: un manuel sur Git en français.
-
----------------------
-
 ## Linux
 
 * Informations sur un utilisateur système
