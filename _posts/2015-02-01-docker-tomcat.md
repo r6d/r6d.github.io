@@ -48,6 +48,12 @@ L'utilisateur est `admin` et le mot de passe celui indiqué dans la chaine de la
 ```bash
 $ docker run --rm -it -p 8080:8080 -e TOMCAT_PASS="mypass" jpierre03/tomcat
 ```
+
 Le manager est disponible en tant que `admin` avec le mot de passe indiqué en paramètre
 
 [http://127.0.0.1:8080/manager/](http://127.0.0.1:8080/manager/)
+
+## Licence
+
+![logo creative common by-sa 3.0](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
+[Creative Commons Paternité – Partage à l’Identique 3.0 non transcrit](http://creativecommons.org/licenses/by-sa/3.0/)
