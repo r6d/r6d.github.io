@@ -10,13 +10,13 @@ tags: [mail, uucp]
 
 ## Envois de fichier
 
-* envoyer une arborescence fichier en uucp (modèle)
+* envoyer une arborescence fichier en uucp (modèle) en utilsant le système `xray`
 
 	```bash
-	for i in `find . -type f` ; do uucp "$i" 'xray!~/'$i''; done
+	$ for i in `find . -type f` ; do uucp "$i" 'xray!~/'$i''; done
 	```
 
-* envois de fichiers (arborescence) vers 'machine'
+* envois de fichiers (arborescence) vers `machine`
 
 	```bash
 	uucp-machine() {
@@ -41,11 +41,11 @@ tags: [mail, uucp]
 * statistiques sur le daemon uucp
 
 	```bash
-	/usr/sbin/uurate -a
+	$ /usr/sbin/uurate -a
 	```
 
 * état du daemon
 
 	```bash
-	uustsat -m
+	$ uustsat -m
 	```
