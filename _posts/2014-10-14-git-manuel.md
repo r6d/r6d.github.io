@@ -1,3 +1,11 @@
+---
+layout: post
+title: "GIT - manuel d'utilisation"
+date: 2014-10-14 12:00:00 +0200
+comments: false
+tags: [git]
+---
+
 % Versionning - Gitmagic
 
 Source : [http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/fr/ch01.html](http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/fr/ch01.html)
