@@ -14,9 +14,12 @@ Source : [http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/fr/ch01.html]
 
 Git est un couteau suisse de la gestion de versions. Un outil de gestion de révisions multi-usage, pratique et fiable, dont la flexibilité en rend l’apprentissage pas si simple, sans parler de le maîtriser !
 
-Comme Arthur C. Clarke le fait observer, toute technologie suffisamment avancée se confond avec la magie. C’est une approche intéressante pour Git : les débutants peuvent ignorer ses mécanismes internes et l’utiliser comme une baguette magique afin d'époustoufler les amis et rendre furieux les ennemis par ses fabuleuses capacités.
+Comme Arthur C. Clarke le fait observer, toute technologie suffisamment avancée se confond avec la magie.
+C’est une approche intéressante pour Git :
+	les débutants peuvent ignorer ses mécanismes internes et l’utiliser comme une baguette magique afin d'époustoufler les amis et rendre furieux les ennemis par ses fabuleuses capacités.
 
-Plutôt que de rentrer dans le détails, nous donnons des instructions pour obtenir tel ou tel effet. À force d’utilisation, petit à petit, vous comprendrez comment fonctionne chaque truc et comment composer vos propres recettes pour répondre à vos besoins.
+Plutôt que de rentrer dans le détails, nous donnons des instructions pour obtenir tel ou tel effet.
+À force d’utilisation, petit à petit, vous comprendrez comment fonctionne chaque truc et comment composer vos propres recettes pour répondre à vos besoins.
 
 ## Traductions
 
@@ -37,13 +40,15 @@ Plutôt que de rentrer dans le détails, nous donnons des instructions pour obte
 
 ## Merci !
 
-Je reste modeste devant le travail fourni par tant de monde pour traduire ces pages. J’apprécie beaucoup d'élargir mon audience grâce aux efforts des personnes déjà citées.
+Je reste modeste devant le travail fourni par tant de monde pour traduire ces pages.
+J’apprécie beaucoup d'élargir mon audience grâce aux efforts des personnes déjà citées.
 
 Dustin Sallings, Alberto Bertogli, James Cameron, Douglas Livingstone, Michael Budde, Richard Albury, Tarmigan, Derek Mahar, Frode Aannevik, Keith Rarick, Andy Somerville, Ralf Recker, Øyvind A. Holm, Miklos Vajna, Sébastien Hinderer, Thomas Miedema, Joe Malin et Tyler Breisacher ont contribué aux corrections et aux améliorations.
 
 François Marier maintient le paquet Debian, créé à l’origine par Daniel Baumarr.
 
-Ma gratitude va également à beaucoup d’autres pour leurs encouragements et compliments. Je suis tenté de vous citer ici, toutefois ceci risquerait de porter vos attentes à des sommets ridicules.
+Ma gratitude va également à beaucoup d’autres pour leurs encouragements et compliments.
+Je suis tenté de vous citer ici, toutefois ceci risquerait de porter vos attentes à des sommets ridicules.
 
 Si par erreur je vous ai oublié, merci de me le signaler ou, plus simplement, envoyez-moi un patch !
 
@@ -59,20 +64,21 @@ Un grand merci à ces sites pour l’hébergement de ce guide.
 
 Ce guide est publié sous la [GNU General Public License version 3](http://www.gnu.org/licenses/gpl-3.0.html). Bien évidement, les sources sont dans un dépôt Git et peuvent être obtenues en saisissant :
 
-~~~~ {.bash}
-	$ git clone git://repo.or.cz/gitmagic.git  # Pour créer le dossier gitmagic
-~~~~
+```bash
+$ git clone git://repo.or.cz/gitmagic.git  # Pour créer le dossier gitmagic
+```
 
 ou à partir d’un des miroirs :
 
-~~~~ {.bash}
+```bash
 $ git clone git://github.com/blynn/gitmagic.git
 $ git clone git://gitorious.org/gitmagic/mainline.git
-~~~~
+```
 
 # Introduction
 
-Je vais me servir d’une analogie pour présenter la gestion de versions. Référez-vous à la page de wikipedia sur la gestion de versions pour une explication plus censée.
+Je vais me servir d’une analogie pour présenter la gestion de versions.
+Référez-vous à la page de wikipedia sur la gestion de versions pour une explication plus censée.
 
 ## Le travail comme un jeu
 J’ai joué à des jeux vidéos presque toute ma vie.
@@ -177,55 +183,55 @@ En effet, lors de mon premier mois d’utilisation de Git, je ne me suis jamais 
 Vous êtes sur le point d’effectuer une opération drastique ?
 Avant de le faire, réalisez une capture de tous les fichiers du dossier courant :
 
-~~~~ {.bash}
+```bash
 $ git init
 $ git add .
 $ git commit -m "Ma première sauvegarde"
-~~~~
+```
 
 Si jamais votre opération tourne mal, vous pouvez retrouver votre version initiale, immaculée :
 
-~~~~ {.bash}
+```bash
 $ git reset --hard
-~~~~
+```
 
 Pour enregistrer un nouvel état :
 
-~~~~ {.bash}
+```bash
 $ git commit -a -m "Une autre sauvegarde"
-~~~~
+```
 
 ## Ajouter, supprimer, renommer
 Les commandes ci-dessus ne font que garder traces des fichiers qui étaient présents lorsque vous avez exécuté `git add` pour la première fois.
 Si vous ajoutez de nouveaux fichiers ou sous-dossiers, il faut le signaler à Git :
 
-~~~~ {.bash}
+```bash
 $ git add readme.txt Documentation
-~~~~
+```
 
 De même, si vous voulez que Git oublie certains fichiers :
 
-~~~~ {.bash}
+```bash
 $ git rm kludge.h obsolete.c
 $ git rm -r incriminating/evidence/
-~~~~
+```
 
 Git supprime les fichiers pour vous si vous ne l’avez pas encore fait.
 
 Renommer un fichier revient à supprimer l’ancien nom et ajouter le nouveau.
 Il y a également le raccourci `git mv` qui a la même syntaxe que la commande `mv`. Par exemple :
 
-~~~~ {.bash}
+```bash
 $ git mv bug.c feature.c
-~~~~
+```
 
 ## Annuler/Reprendre avancé
 Parfois vous voulez seulement revenir en arrière et oublier les modifications effectuées depuis un certain temps parce qu’elles sont toutes fausses.
 Dans ce cas :
 
-~~~~ {.bash}
+```bash
 $ git log
-~~~~
+```
 
 vous montre une liste des commits récents, accompagnés de leur empreinte SHA1 :
 
@@ -245,18 +251,18 @@ vous montre une liste des commits récents, accompagnés de leur empreinte SHA1 
 
 Les premiers caractères de l’empreinte sont suffisants pour spécifier un commit ; ou alors, copiez et collez l’empreinte en entier. Saisissez :
 
-~~~~ {.bash}
+```bash
 $ git reset --hard 766f
-~~~~
+```
 
 pour restaurer l'état correspondant au commit donné et supprimer de manière permanente tous les commits plus récents de l’enregistrement.
 
 Parfois vous ne voulez faire qu’un bref saut dans un état précédent.
 Dans ce cas, saisissez :
 
-~~~~ {.bash}
+```bash
 $ git checkout 82f5
-~~~~
+```
 
 Ceci vous ramène en arrière dans le temps, tout en conservant les commits récents.
 Toutefois, comme pour le voyage temporel de la science-fiction, si vous faites des modifications suivies d’un commit, vous entrerez dans une réalité parallèle puisque vos actions sont différentes de ce qu’elles étaient la première fois.
@@ -264,9 +270,9 @@ Toutefois, comme pour le voyage temporel de la science-fiction, si vous faites d
 Cette réalité parallèle est appelée une branche (branch), et nous en dirons plus après.
 Pour le moment rappelez-vous simplement que :
 
-~~~~ {.bash}
+```bash
 $ git checkout master
-~~~~
+```
 
 vous ramènera dans le présent.
 De plus, pour éviter que Git se plaigne, réalisez toujours un commit ou un reset de vos modifications avant de faire un `checkout`.
@@ -278,9 +284,9 @@ Pour reprendre l’analogie du jeu vidéo :
 
 Vous pouvez choisir de ne restaurer que certains fichiers et sous-dossiers en les nommant à la suite de la commande :
 
-~~~~ {.bash}
+```bash
 $ git checkout 82f5 un.fichier un-autre.fichier
-~~~~
+```
 
 Faites attention car cette forme de checkout peut écraser vos fichiers sans avertissement.
 Pour éviter les accidents, faites un commit avant toute commande checkout, surtout quand vous débutez avec Git.
@@ -289,25 +295,25 @@ En général, quand vous n'êtes pas sûr des conséquences d’une opération, 
 Vous n’aimez pas copier et coller les empreintes ?
 Alors utilisez :
 
-~~~~ {.bash}
+```bash
 $ git checkout :/"Ma première s"
-~~~~
+```
 
 pour arriver sur le commit qui commence avec ce message.
 Vous pouvez aussi demander la cinquième sauvegarde en arrière :
 
-~~~~ {.bash}
+```bash
 $ git checkout master~5
-~~~~
+```
 
 ## Reprise (revert)
 Dans une cour de justice, certains évènements peuvent être effacés du procès verbal.
 De même vous pouvez sélectionner des commits spécifiques à défaire :
 
-~~~~ {.bash}
+```bash
 $ git commit -a
 $ git revert 1b6d
-~~~~
+```
 
 défera le dernier commit ayant cette empreinte.
 La reprise est enregistrée comme un nouveau commit, ce que vous pourrez constater en lançant un git log.
@@ -316,31 +322,31 @@ La reprise est enregistrée comme un nouveau commit, ce que vous pourrez constat
 Certains projets demandent un changelog.
 Créez-le en tapant :
 
-~~~~ {.bash}
+```bash
 $ git log > ChangeLog
-~~~~
+```
 
 ## Télécharger des fichiers
 Faites une copie d’un projet géré par Git en saisissant :
 
-~~~~ {.bash}
+```bash
 $ git clone git://serveur/chemin/vers/les/fichiers
-~~~~
+```
 
 Par exemple, pour récupérer les fichiers utilisés pour créer ce site :
 
-~~~~ {.bash}
+```bash
 $ git clone git://git.or.cz/gitmagic.git
-~~~~
+```
 
 Nous aurons beaucoup à dire sur la commande clone d’ici peu.
 
 ##Le dernier cri
 Si vous avez déjà téléchargé une copie d’un projet en utilisant git clone, vous pouvez la mettre à jour vers la dernière version avec :
 
-~~~~ {.bash}
+```bash
 $ git pull
-~~~~
+```
 
 ## Publication instantanée
 Imaginez que vous avez écrit un script que vous voudriez partager avec d’autres.
@@ -350,64 +356,64 @@ Les développeurs peuvent travailler sur un projet fréquemment, mais ils ne ren
 
 Pour faire ça avec Git, dans le dossier qui contient votre script :
 
-~~~~ {.bash}
+```bash
 $ git init
 $ git add .
 $ git commit -m "Première publication"
-~~~~
+```
 
 Ensuite vous pouvez dire à vos utilisateurs de lancer :
 
-~~~~ {.bash}
+```bash
 $ git clone votre.ordinateur:/chemin/vers/le/script
-~~~~
+```
 
 pour télécharger votre script. En considérant qu’ils ont accès à votre ordinateur via ssh.
 Sinon, lancez git daemon et dites plutôt à vos utilisateurs de lancer :
 
-~~~~ {.bash}
+```bash
 $ git clone git://votre.ordinateur/chemin/vers/le/script
-~~~~
+```
 
 À partir de maintenant, chaque fois que votre script est prêt à être publié, exécutez :
 
-~~~~ {.bash}
+```bash
 $ git commit -a -m "Nouvelle version"
-~~~~
+```
 
 et vos utilisateurs peuvent mettre à jour leur version en allant dans leur dossier contenant votre script et en saisissant :
 
-~~~~ {.bash}
+```bash
 $ git pull
-~~~~
+```
 
 Vos utilisateurs ne se retrouveront jamais avec une version de votre script que vous ne vouliez pas leur montrer.
 
 ## Qu’ai-je fait ?
 Retrouvez les modifications faites depuis le dernier commit avec :
 
-~~~~ {.bash}
+```bash
 $ git diff
-~~~~
+```
 
 Ou depuis hier :
 
-~~~~ {.bash}
+```bash
 $ git diff "@{yesterday}"
-~~~~
+```
 
 Ou entre une version spécifique et la version deux commits en arrière :
 
-~~~~ {.bash}
+```bash
 $ git diff 1b6d "master~2"
-~~~~
+```
 
 Dans chacun de ces cas, la sortie est un patch (rustine) qui peut être appliqué en utilisant git apply.
 Vous pouvez aussi essayer :
 
-~~~~ {.bash}
+```bash
 $ git whatchanged --since="2 weeks ago"
-~~~~
+```
 
 Souvent je parcours plutôt l’historique avec qgit, pour sa pimpante interface photogénique, ou tig, une interface en mode texte qui fonctionne même sur les connexions lentes.
 Autrement, installez un serveur web, lancez git instaweb et dégainez n’importe quel navigateur internet.
@@ -421,21 +427,21 @@ Il y a au moins trois solutions. En considérant que nous sommes à D :
 La différence entre A et B sont les fichiers supprimés.
 Nous pouvons créer un patch représentant cette différence et l’appliquer :
 
-~~~~ {.bash}
+```bash
 $ git diff B A | git apply
-~~~~
+```
 
 Vu que nous avions enregistré les fichiers en A, nous pouvons les reprendre :
 
-~~~~ {.bash}
+```bash
 $ git checkout A foo.c bar.h
-~~~~
+```
 
 Nous pouvons aussi voir le chemin de A à B comme une modification à défaire :
 
-~~~~ {.bash}
+```bash
 $ git revert B
-~~~~
+```
 
 Quel est le meilleur choix ? Celui que vous préférez.
 C’est facile d’obtenir ce que vous voulez avec Git, et souvent il y a plein de manières de le faire.
@@ -456,18 +462,18 @@ Mais parfois j'édite sur mon portable, d’autres fois sur mon fixe, et les deu
 Initialisez un dépôt Git et faites un commit de vos fichiers depuis une machine.
 Ensuite sur l’autre :
 
-~~~~ {.bash}
+```bash
 $ git clone autre.ordinateur:/chemin/vers/les/fichiers
-~~~~
+```
 
 pour créer une deuxième copie de ces fichiers et du dépôt Git.
 
 À partir de ce moment,
 
-~~~~ {.bash}
+```bash
 $ git commit -a
 $ git pull autre.ordinateur:/chemin/vers/les/fichiers HEAD
-~~~~
+```
 
 ira chercher l'état des fichiers sur l’autre ordinateur pour mettre à jour celui sur lequel vous travaillez.
 Si récemment vous avez fait des modifications d’un même fichier en conflit entre elles, Git vous le signalera et vous devrez répéter à nouveau le commit après avoir résolu ces conflits.
@@ -475,65 +481,65 @@ Si récemment vous avez fait des modifications d’un même fichier en conflit e
 ## Gestion classique des sources
 Initialisez le dépôt Git de vos fichiers :
 
-~~~~ {.bash}
+```bash
 $ git init
 $ git add .
 $ git commit -m "Commit initial"
-~~~~
+```
 
 Sur le serveur central, initialisez un dépôt nu (bare dans la terminologie Git) dans un dossier quelconque :
 
-~~~~ {.bash}
+```bash
 $ mkdir proj.git
 $ cd proj.git
 $ git init --bare
 $  # variante en une ligne : GIT_DIR=proj.git git init
-~~~~
+```
 
 Si besoin, démarrez le démon (service) :
 
-~~~~ {.bash}
+```bash
 $ git daemon --detach  # peut être tourne-t-il déjà
-~~~~
+```
 
 Pour les services d’hébergement en ligne, suivez les instructions fournies pour mettre en place le dépôt Git initialement vide.
 En général il s’agit de remplir un formulaire sur une page web.
 
 Poussez votre projet vers le serveur central en utilisant :
 
-~~~~ {.bash}
+```bash
 $ git push git://serveur.central/chemin/du/proj.git HEAD
-~~~~
+```
 
 Pour obtenir les sources, un développeur saisit :
 
-~~~~ {.bash}
+```bash
 $ git clone git://serveur.central/chemin/du/proj.git
-~~~~
+```
 
 Après avoir fait des modifications, le développeur les enregistre en local :
 
-~~~~ {.bash}
+```bash
 $ git commit -a
-~~~~
+```
 
 Pour se mettre à jour par rapport à la dernière version :
 
-~~~~ {.bash}
+```bash
 $ git pull
-~~~~
+```
 
 Tout conflit lors de la fusion doit être résolu puis validé :
 
-~~~~ {.bash}
+```bash
 $ git commit -a
-~~~~
+```
 
 Pour envoyer les modifications locales vers le dépôt central :
 
-~~~~ {.bash}
+```bash
 $ git push
-~~~~
+```
 
 Si le serveur principal a de nouvelles modifications dues à d’autres développeurs, l’envoi échoue et le développeur doit se mettre à jour de la dernière version, résoudre les éventuels conflits de fusion, puis essayer à nouveau.
 
@@ -563,17 +569,17 @@ Vous en avez marre de la manière dont est géré un projet ?
 Vous pensez pouvoir faire mieux ?
 Dans ce cas, sur votre serveur :
 
-~~~~ {.bash}
+```bash
 $ git clone git://serveur.principal/chemin/vers/les/fichiers
-~~~~
+```
 
 Ensuite, informez tout le monde du fork de ce projet sur votre serveur.
 
 Par la suite, vous pouvez fusionner les modifications venant du projet originel grâce à :
 
-~~~~ {.bash}
+```bash
 $ git pull
-~~~~
+```
 
 ## Système ultime de sauvegarde
 Vous voulez des archives redondantes et géographiquement distribuées, permettant de faire face à un désastre ?
@@ -591,9 +597,9 @@ Ce doit être sûr, pas privé. Par exemple, la publier dans un quotidien marche
 Imaginons que vous souhaitiez travailler sur plusieurs fonctionnalités en parallèle.
 Dans ce cas validez (commit) votre projet et lancez :
 
-~~~~ {.bash}
+```bash
 $ git clone . /un/nouveau/dossier
-~~~~
+```
 
 Grâce aux liens matériels, les clones locaux sont créés plus rapidement et occupent moins de place que de simples copies.
 
@@ -601,40 +607,40 @@ Vous pouvez maintenant travailler simultanément sur deux fonctionnalités indé
 Par exemple vous pouvez modifier l’un des clones pendant que l’autre est en cours de compilation.
 À tout moment vous pouvez valider (commit) vos modifications puis rapatrier (`pull`) les modifications depuis l’autre clone.
 
-~~~~ {.bash}
+```bash
 $ git pull /mon/autre/clone HEAD
-~~~~
+```
 
 ## Guérilla de la gestion de versions
 Alors que vous travaillez sur un projet qui utilise un autre système de gestion de versions, Git vous manque ?
 Dans ce cas, initialisez un dépôt Git dans votre dossier de travail.
 
-~~~~ {.bash}
+```bash
 $ git init
 $ git add .
 $ git commit -m "Commit initial"
-~~~~
+```
 
 puis clonez-le :
 
-~~~~ {.bash}
+```bash
 $ git clone . /un/nouveau/dossier
-~~~~
+```
 
 Allez ensuite dans le nouveau dossier et travaillez plutôt là, utilisant Git comme vous le voulez.
 De temps à autre, quand vous voulez vous synchroniser avec les autres, rendez-vous dans le dossier de départ, synchronisez-le en utilisant l’autre système de gestion de version, puis saisissez :
 
-~~~~ {.bash}
+```bash
 $ git add .
 $ git commit -m "Synchro avec les autres"
-~~~~
+```
 
 Ensuite allez dans le nouveau dossier et lancez :
 
-~~~~ {.bash}
+```bash
 $ git commit -a -m "Description de mes modifications"
 $ git pull
-~~~~
+```
 
 La procédure pour partager vos modifications avec les autres dépend de l’autre système de gestion de versions.
 Le nouveau dossier contient les fichiers avec vos modifications.
@@ -649,15 +655,15 @@ Avec le plugin hg-git un utilisateur de Mercurial peut, sans rien perdre, envoye
 
 Téléchargez le plugin hg-git avec Git :
 
-~~~~ {.bash}
+```bash
 $ git clone git://github.com/schacon/hg-git.git
-~~~~
+```
 
 ou Mercurial:
 
-~~~~ {.bash}
+```bash
 $ hg clone http://bitbucket.org/durin42/hg-git/
-~~~~
+```
 
 Malheureusement, il ne semble pas y avoir de plugin analogue pour Git.
 Pour cette raison, il semble préférable d’utiliser Git plutôt que Mercurial pour le dépôt principal.
@@ -665,16 +671,16 @@ Avec un dépôt Mercurial, il faut généralement un volontaire qui maintienne u
 
 Bien que ce plugin puisse convertir un dépôt Mercurial en un dépôt Git en le poussant dans un dépôt vide, cette tâche est plus simple avec le script `hg-fast-export-git`, disponible via :
 
-~~~~ {.bash}
+```bash
 $ git clone git://repo.or.cz/fast-export.git
-~~~~
+```
 
 Pour faire une conversion, dans un nouveau dossier :
 
-~~~~ {.bash}
+```bash
 $ git init
 $ hg-fast-export.sh -r /depot/hg
-~~~~
+```
 
 ceci après avoir ajouté le script à votre `$PATH`.
 
@@ -731,36 +737,36 @@ Ceci vous permet de cacher votre écran de jeu dès que le chef arrive.
 
 Dans un dossier vide :
 
-~~~~ {.bash}
+```bash
 $ echo "Je suis plus intelligent que mon chef." > myfile.txt
 $ git init
 $ git add .
 $ git commit -m "Commit initial"
-~~~~
+```
 
 Vous venez de créer un dépôt Git qui gère un fichier contenant un message.
 Maintenant tapez :
 
-~~~~ {.bash}
+```bash
 $ git checkout -b chef  # rien ne semble avoir changé
 $ echo "Mon chef est plus intelligent que moi." > myfile.txt
 $ git commit -a -m "Un autre commit"
-~~~~
+```
 
 Tout se présente comme si vous aviez réécrit votre fichier et intégrer (`commit`) ce changement.
 Mais ce n’est qu’une illusion.
 Tapez :
 
-~~~~ {.bash}
+```bash
 $ git checkout master  # bascule vers la version originale du fichier
-~~~~
+```
 
 et ça y est ! Le fichier texte est restauré.
 Et si le chef repasse pour regarder votre dossier, tapez :
 
-~~~~ {.bash}
+```bash
 $ git checkout chef  # bascule vers la version visible par le chef
-~~~~
+```
 
 Vous pouvez basculer entre ces deux versions autant de fois que voulu, et intégrer (`commit`) vos changements à chacune d’elles indépendamment.
 
@@ -768,18 +774,18 @@ Vous pouvez basculer entre ces deux versions autant de fois que voulu, et intég
 Supposons que vous travailliez sur une fonctionnalité et que, pour une raison quelconque, vous ayez besoin de revenir trois versions en arrière afin d’ajouter temporairement quelques instructions d’affichage pour voir comment quelque chose fonctionne.
 Faites :
 
-~~~~ {.bash}
+```bash
 $ git commit -a
 $ git checkout HEAD~3
-~~~~
+```
 
 Maintenant vous pouvez ajouter votre code temporaire là où vous le souhaitez.
 Vous pouvez même intégrer (commit) vos changements.
 Lorsque vous avez terminé, tapez :
 
-~~~~ {.bash}
+```bash
 $ git checkout master
-~~~~
+```
 
 pour retourner à votre travail d’origine.
 Notez que tous les changement non intégrés sont définitivement perdus (NdT : les changements intégrés via commit sont conservés quelques jours et sont accessibles en connaissant leur empreinte SHA1).
@@ -787,15 +793,15 @@ Notez que tous les changement non intégrés sont définitivement perdus (NdT : 
 Que faire si vous voulez nommer ces changements temporaires ?
 Rien de plus simple :
 
-~~~~ {.bash}
+```bash
 $ git checkout -b temporaire
-~~~~
+```
 
 et faites un commit avant de rebasculer vers la branche master. Lorsque vous souhaitez revenir à vos changements temporaires, tapez simplement :
 
-~~~~ {.bash}
+```bash
 $ git checkout temporaire
-~~~~
+```
 
 Nous aborderons la commande checkout plus en détail lorsque nous parlerons du chargement d’anciens états.
 Mais nous pouvons tout de même en dire quelques mots : les fichiers sont bien amenés dans l'état demandé mais en quittant la branche master.
@@ -806,24 +812,24 @@ En d’autres termes, après un checkout vers un état ancien, Git nous place au
 ## Corrections rapides
 Vous travaillez sur une tâche particulière et on vous demande de tout laisser tomber pour corriger un nouveau bug découvert dans la version `1b6d…` :
 
-~~~~ {.bash}
+```bash
 $ git commit -a
 $ git checkout -b correction 1b6d
-~~~~
+```
 
 Puis quand vous avez corrigé le bug, saisissez :
 
-~~~~ {.bash}
+```bash
 $ git commit -a -m "Bug corrigé"
 $ git checkout master
-~~~~
+```
 
 pour vous ramener à votre tâche originale.
 Vous pouvez même fusionner (merge) avec la correction de bug toute fraîche :
 
-~~~~ {.bash}
+```bash
 $ git merge correction
-~~~~
+```
 
 ## Fusionner
 Dans certains systèmes de gestion de versions, la création de branches est facile mais les fusionner est difficile.
@@ -846,23 +852,23 @@ Nous nous intéressons plus fréquemment aux changements que nous avons faits da
 Vous pouvez choisir un parent spécifique grâce à l’accent circonflexe.
 Voici, par exemple, comment voir le log depuis le deuxième parent :
 
-~~~~ {.bash}
+```bash
 $ git log HEAD^2
-~~~~
+```
 
 Vous pouvez omettre le numéro pour le premier parent.
 Voici, par exemple, comment voir les différences avec le premier parent ;
 
-~~~~ {.bash}
+```bash
 $ git diff HEAD^
-~~~~
+```
 
 Vous pouvez combiner cette notation avec les autres.
 Par exemple :
 
-~~~~ {.bash}
+```bash
 $ git checkout 1b6d^^2~10 -b ancien
-~~~~
+```
 
 démarre la nouvelle branche «ancien» dans l'état correspondant à 10 versions en arrière du deuxième parent du premier parent de la version 1b6d.
 
@@ -880,30 +886,30 @@ Supposons que vous ayez terminé la version correspondant à la partie 1 et que 
 Supposons aussi que vous soyez dans la branche master.
 Alors, branchez-vous :
 
-~~~~ {.bash}
+```bash
 $ git checkout -b part2
-~~~~
+```
 
 Ensuite, travaillez sur la partie 2 et intégrez (via commit) vos changements autant que nécessaire.
 L’erreur étant humaine, vous voudrez parfois revenir en arrière pour effectuer des corrections dans la partie 1.
 Évidemment, si vous êtes chanceux ou très bon, vous pouvez sauter ce passage.
 
-~~~~ {.bash}
+```bash
 $ git checkout master  # Retour à la partie 1
 $ correction_des_bugs
 $ git commit -a        # Intégration de la correction
 $ git checkout part2   # Retour à la partie 2
 $ git merge master     # Fusion de la correction.
-~~~~
+```
 
 Finalement, la partie 1 est validée.
 
-~~~~ {.bash}
+```bash
 $ git checkout master    # Retour à la partie 1
 $ diffusion des fichiers # Diffusion au reste du monde !
 $ git merge part2        # Fusion de la partie 2
 $ git branch -d part2    # Suppression de la branche 'part2'.
-~~~~
+```
 
 À cet instant vous êtes à nouveau dans la branche master avec la partie 2 dans votre dossier de travail.
 
@@ -911,35 +917,35 @@ Il est facile d'étendre cette astuce à de nombreuses branches.
 Il est aussi facile de créer une branche rétroactivement : imaginons qu’après 7 commits, vous vous rendiez compte que vous auriez dû créer une branche.
 Tapez alors :
 
-~~~~ {.bash}
+```bash
 $ git branch -m master part2  # Renommer la branche "master" en "part2".
 $ git branch master HEAD~7    # Recréer une branche "master" 7 commits en arrière.
-~~~~
+```
 
 La branche master contient alors uniquement la partie 1 et la branche part2 contient le reste ; nous avons créé master sans basculer vers elle car nous souhaitons continuer à travailler sur part2.
 Ce n’est pas très courant. Jusqu'à présent nous avions toujours basculé vers une branche dès sa création, comme dans :
 
-~~~~ {.bash}
+```bash
 $ git checkout HEAD~7 -b master  # Créer une branche et basculer vers elle.
-~~~~
+```
 
 ## Réorganiser le foutoir
 Peut-être aimez-vous travailler sur tous les aspects d’un projet dans la même branche.
 Vous souhaitez que votre travail en cours ne soit accessible qu'à vous-même et donc que les autres ne puissent voir vos versions que lorsqu’elles sont proprement organisées.
 Commencez par créer deux branches :
 
-~~~~ {.bash}
+```bash
 $ git branch propre       # Créer une branche pour les versions propres
 $ git checkout -b foutoir # Créer et basculer vers une branche pour le foutoir
-~~~~
+```
 
 Ensuite, faites tout ce que vous voulez : corriger des bugs, ajouter des fonctionnalités, ajouter du code temporaire et faites-en des versions autant que voulu.
 Puis :
 
-~~~~ {.bash}
+```bash
 $ git checkout propre
 $ git cherry-pick foutoir^^
-~~~~
+```
 
 applique les modifications de la version grand-mère de la version courante du «foutoir» à la branche «propre».
 Avec les cherry-picks appropriés vous pouvez construire une branche qui ne contient que le code permanent et où toutes les modifications qui marchent ensemble sont regroupées.
@@ -947,9 +953,9 @@ Avec les cherry-picks appropriés vous pouvez construire une branche qui ne cont
 ## Gestion des branches
 Pour lister toutes les branches, tapez :
 
-~~~~ {.bash}
+```bash
 $ git branch
-~~~~
+```
 
 Par défaut, vous commencez sur la branche nommée «master».
 Certains préconisent de laisser la branche «master» telle quelle et de créer de nouvelles branches pour vos propres modifications.
@@ -968,17 +974,17 @@ C’est exactement comme si vous zappiez entre deux chaînes de télévision.
 Mais au lieu de presser deux boutons, il vous faut créer, basculer, fusionner et supprimer des branches temporaires.
 Par chance, Git propose un raccourci qui est aussi pratique que la télécommande de votre télévision :
 
-~~~~ {.bash}
+```bash
 $ git stash
-~~~~
+```
 
 Cela mémorise l'état courant dans un emplacement temporaire (un stash) et restaure l'état précédent.
 Votre dossier courant apparaît alors exactement comme il était avant que vous ne commenciez à faire des modifications et vous pouvez corriger des bugs, aller rechercher (`pull`) une modification de dépôt central ou toute autre chose.
 Lorsque vous souhaitez revenir à l'état mémorisé dans votre stash, tapez :
 
-~~~~ {.bash}
+```bash
 $ git stash apply  # Peut-être faudra-t-il résoudre quelques conflits.
-~~~~
+```
 
 Vous pouvez avoir plusieurs stash et les manipuler de différents manières.
 Voir `git help stash`.
@@ -1015,9 +1021,9 @@ C’est à vous de l’utiliser à bon escient.
 Que faire si vous avez fait un commit mais que vous souhaitez y attacher un message différent ?
 Pour modifier le dernier message, tapez :
 
-~~~~ {.bash}
+```bash
 $ git commit --amend
-~~~~
+```
 
 Vous apercevez-vous que vous avez oublié un fichier ?
 Faites `git add`{.bash} pour l’ajouter puis exécutez la commande ci-dessus.
@@ -1025,9 +1031,9 @@ Faites `git add`{.bash} pour l’ajouter puis exécutez la commande ci-dessus.
 Voulez-vous ajouter quelques modifications supplémentaires au dernier commit ?
 Faites ces modifications puis exécutez :
 
-~~~~ {.bash}
+```bash
 $ git commit --amend -a
-~~~~
+```
 
 ## … et bien plus
 Supposons que le problème précédent est dix fois pire.
@@ -1035,18 +1041,18 @@ Après une longue séance, vous avez effectué une série de commits.
 Mais vous n'êtes pas satisfait de la manière dont ils sont organisés et certains des messages associés doivent être revus.
 Tapez alors :
 
-~~~~ {.bash}
+```bash
 $ git rebase -i HEAD~10
-~~~~
+```
 
 et les dix derniers commits apparaissent dans votre `$EDITOR`{.bash} favori.
 Voici un petit extrait :
 
-~~~~ {.bash}
+```bash
 pick 5c6eb73 Added repo.or.cz link
 pick a311a64 Reordered analogies in "Work How You Want"
 pick 100834f Added push target to Makefile
-~~~~
+```
 
 Ensuite :
 
@@ -1060,15 +1066,15 @@ Ensuite :
 * Sauvegardez et quittez. Si vous avez marqué un commit pour amendement alors tapez :
 
 
-	~~~~ {.bash}
+	```bash
 	$ git commit --amend
-	~~~~
+	```
 
 	Sinon, tapez :
 
-	~~~~ {.bash}
+	```bash
 	$ git rebase --continue
-	~~~~
+	```
 
 Donc faites des commits très tôt et faites-en souvent : vous pourrez tout ranger plus tard grâce à `rebase`.
 
@@ -1094,9 +1100,9 @@ Par exemple, vous avez accidentellement ajouté un fichier texte contenant votre
 Supprimer ce fichier n’est pas suffisant puisqu’il pourra encore être retrouvé via d’anciennes versions du projet.
 Vous devez supprimer ce fichier dans toutes les versions :
 
-~~~~ {.bash}
+```bash
 $ git filter-branch --tree-filter 'rm top/secret/fichier' HEAD
-~~~~
+```
 
 La documentation `git help filter-branch`{.bash} explique cette exemple et donne une méthode plus rapide.
 De manière générale, `filter-branch` vous permet de modifier des pans entiers de votre historique grâce à une seule commande.
@@ -1114,7 +1120,7 @@ Typiquement un script utilisant cette commande est un script jetable qui ne serv
 
 À titre d’exemple, collez le texte suivant dans un fichier temporaire (/tmp/historique) :
 
-~~~~
+```
 commit refs/heads/master
 committer Alice <alice@example.com> Thu, 01 Jan 1970 00:00:00 +0000
 data <<EOT
@@ -1147,20 +1153,20 @@ int main() {
   return 0;
 }
 EOT
-~~~~
+```
 
 Puis créez un dépôt Git à partir de ce fichier temporaire en tapant :
 
-~~~~ {.bash}
+```bash
 $ mkdir projet; cd projet; git init
 $ git fast-import --date-format=rfc2822 < /tmp/historique
-~~~~
+```
 
 Vous pouvez extraire la dernière version de ce projet avec :
 
-~~~~ {.bash}
+```bash
 $ git checkout master .
-~~~~
+```
 
 La commande `git fast-export`{.bash} peut convertir n’importe quel dépôt Git en un fichier au format git fast-import ce qui vous permet de l'étudier pour écrire des scripts d’exportation mais vous permet aussi de transporter un dépôt dans un format lisible.
 Ces commandes permettent aussi d’envoyer un dépôt via un canal qui n’accepte que du texte pur.
@@ -1173,32 +1179,32 @@ Si seulement vous aviez testé cette fonctionnalité pendant vos développements
 Mais il est trop tard.
 En revanche, en supposant que vous avez fait des commits suffisamment souvent, Git peut cerner le problème.
 
-~~~~ {.bash}
+```bash
 $ git bisect start
 $ git bisect bad HEAD
 $ git bisect good 1b6d
-~~~~
+```
 
 Git extrait un état à mi-chemin entre ces deux versions (`HEAD` et `1b6d`).
 Testez la fonctionnalité et si le bug se manifeste :
 
-~~~~ {.bash}
+```bash
 $ git bisect bad
-~~~~
+```
 
 Si elle ne se manifeste pas, remplacer `"bad"` (mauvais) par `"good"` (bon). Git vous transporte à nouveau dans un état à mi-chemin entre la bonne et la mauvaise version, en réduisant ainsi les possibilités.
 Après quelques itérations, cette recherche dichotomique vous amènera au commit où le bug est survenu.
 Une fois vos investigations terminées, retourner à votre état original en tapant :
 
-~~~~ {.bash}
+```bash
 $ git bisect reset
-~~~~
+```
 
 Au lieu de tester chaque état à la main, automatisez la recherche en tapant :
 
-~~~~ {.bash}
+```bash
 $ git bisect run mon_script
-~~~~
+```
 
 Git utilise la valeur de retour du script fourni pour décider si un état est bon ou mauvais : mon_script doit retourner 0 si l'état courant est ok, 125 si cet état doit être sauté et n’importe quelle valeur entre 1 et 127 si l'état est mauvais.
 Une valeur négative abandonne la commande bisect.
@@ -1208,9 +1214,9 @@ Vous pouvez faire bien plus : la page d’aide explique comment visualiser les b
 ## Qui a tout cassé ?
 Comme de nombreux systèmes de gestion de versions, Git a sa commande blame :
 
-~~~~ {.bash}
+```bash
 $ git blame bug.c
-~~~~
+```
 
 Cette commande annote chaque ligne du fichier afin de montrer par qui et quand elle a été modifiée la dernière fois.
 À l’inverse de la plupart des autres systèmes, cette commande marche hors-ligne et ne lit que le disque local.
@@ -1255,10 +1261,10 @@ Heureusement c’est l’un des points forts de Git et peut-être même sa raiso
 Par défaut, Git utilise les valeurs fournies par le système pour remplir ces champs.
 Pour les configurer explicitement, tapez :
 
-~~~~ {.bash}
+```bash
 $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
-~~~~
+```
 
 Supprimer l’option `--global` pour que ces valeurs soient locales au dépôt courant.
 
@@ -1268,30 +1274,30 @@ Bien que ce soit moins efficace que le protocole natif, Git sait communiquer par
 
 Télécharger, compiler et installer Git sur votre compte et créer un dépôt dans votre dossier web :
 
-~~~~ {.bash}
+```bash
 $ GIT_DIR=proj.git git init
 $ cd proj.git
 $ git --bare update-server-info
 $ cp hooks/post-update.sample hooks/post-update
-~~~~
+```
 
 Avec les vieilles versions de Git, la commande de copie échoue et vous devez faire :
 
-~~~~ {.bash}
+```bash
 $ chmod a+x hooks/post-update
-~~~~
+```
 
 Maintenant vous pouvez transmettre vos modifications via SSH depuis n’importe lequel de vos clones :
 
-~~~~ {.bash}
+```bash
 $ git push web.server:/path/to/proj.git master
-~~~~
+```
 
 et n’importe qui peut récupérer votre projet grâce à :
 
-~~~~ {.bash}
+```bash
 $ git clone http://web.server/proj.git
-~~~~
+```
 
 ## Git via n’importe quoi
 Besoin de synchroniser des dépôts sans passer par un serveur ni même une connexion réseau ?
@@ -1302,16 +1308,16 @@ Mais un outil plus puissant existe : `git bundle`{.bash}.
 
 L'émetteur crée un 'bundle' :
 
-~~~~ {.bash}
+```bash
 $ git bundle create monbundle HEAD
-~~~~
+```
 
 puis il transmet ce bundle, monbundle, à l’autre partie par n’importe quel moyen : email, clé USB, impression puis reconnaissance de caractères, lecture des bits au téléphone, signaux de fumée, etc.
 Le récepteur retrouve les mises à jour du bundle en tapant :
 
-~~~~ {.bash}
+```bash
 $ git pull monbundle
-~~~~
+```
 
 Le récepteur peut même faire cela dans un dépôt entièrement vide.
 Malgré sa petite taille monbundle contient l’ensemble du dépôt Git d’origine.
@@ -1319,23 +1325,23 @@ Malgré sa petite taille monbundle contient l’ensemble du dépôt Git d’orig
 Pour des projets plus gros, on peut réduire le gaspillage en incluant dans le bundle uniquement les changements manquants dans l’autre dépôt.
 En supposant par exemple que le commit «1b6d…» est le commit le plus récent partagé par les deux dépôts, on peut faire :
 
-~~~~ {.bash}
+```bash
 $ git bundle create monbundle HEAD ^1b6d
-~~~~
+```
 
 Si on fait cela souvent, il se peut qu’on ne sache plus quel est le dernier commit partagé.
 La page d’aide suggère d’utiliser des tags pour résoudre ce problème.
 En pratique, juste après l’envoi d’un bundle, tapez :
 
-~~~~ {.bash}
+```bash
 $ git tag -f dernierbundle HEAD
-~~~~
+```
 
 et pour créer un nouveau bundle faites :
 
-~~~~ {.bash}
+```bash
 $ git bundle create nouveaubundle HEAD ^dernierbundle
-~~~~
+```
 
 ## Les patches : la monnaie d'échange globale
 Les patches sont des représentations textuelles de vos modifications qui peuvent être facilement compris par les ordinateurs comme par les humains.
@@ -1346,37 +1352,37 @@ De votre côté, vous n’avez besoin que d’un compte mail : aucune nécessit�
 
 La commande :
 
-~~~~ {.bash}
+```bash
 $ git diff 1b6d > mon.patch
-~~~~
+```
 
 produit un patch qui peut être collé dans un mail.
 Dans un dépôt Git, tapez :
 
-~~~~ {.bash}
+```bash
 $ git apply < mon.patch
-~~~~
+```
 
 pour appliquer le patch.
 
 D’une manière plus formelle, lorsque le nom des auteurs et peut-être leur signature doit apparaître, générer tous les patches depuis un certain point en tapant :
 
-~~~~ {.bash}
+```bash
 $ git format-patch 1b6d
-~~~~
+```
 
 Les fichiers résultants peuvent être fournis à git send-email ou envoyez à la main.
 Vous pouvez aussi spécifier un intervalle entre deux commits :
 
-~~~~ {.bash}
+```bash
 $ git format-patch 1b6d..HEAD^^
-~~~~
+```
 
 Du côté du destinataire, enregistrez un mail dans un fichier puis tapez :
 
-~~~~ {.bash}
+```bash
 $ git am < mail.txt
-~~~~
+```
 
 Ça appliquera le patch reçu mais créera aussi un commit en y incluant toutes les informations telles que le nom des auteurs.
 
@@ -1392,18 +1398,18 @@ Comment Git fait-il ?
 Le secret réside dans des options de configuration ajoutées dans le clone.
 Jetons-y un œil :
 
-~~~~ {.bash}
+```bash
 $ git config --list
-~~~~
+```
 
 L’option remote.origin.url détermine l’URL de la source ; «origin» est un alias donné au dépôt d’origine.
 Comme dans le cas de la branche principale qui se nomme «master» par convention, on peut changer ou supprimer cet alias mais il n’y a habituellement aucune raison de le faire.
 
 Si le dépôt original change, vous pouvez modifier son URL via :
 
-~~~~ {.bash}
+```bash
 $ git config remote.origin.url git://nouvel.url/proj.git
-~~~~
+```
 
 L’option branch.master.merge spécifie le nom de la branche distante utilisée par défaut par la commande `git pull`.
 Lors du clonage initial, le nom choisi est celui de la branche courant du dépôt d’origine.
@@ -1412,9 +1418,9 @@ Même si le `HEAD` du dépôt d’origine est déplacé vers une autre branche, 
 Cette option ne s’applique qu’au dépôt ayant servi au clonage initial, celui enregistré dans l’option `branch.master.remote`.
 Si nous effectuons un pull depuis un autre dépôt, nous devrons indiquer explicitement la branche voulue :
 
-~~~~ {.bash}
+```bash
 $ git pull git://example.com/other.git master
-~~~~
+```
 
 Les détails ci-dessus expliquent pourquoi nos appels à push et pull dans nos précédents exemples n’avaient pas besoin d’arguments.
 
@@ -1425,9 +1431,9 @@ Cela empêche les branches du dépôt distant d’interférer avec vos propres b
 
 Listons les branches distantes :
 
-~~~~ {.bash}
+```bash
 $ git branch -r
-~~~~
+```
 
 Vous devriez voir quelque chose comme :
 
@@ -1439,39 +1445,39 @@ Ces noms sont ceux des branches et du `HEAD` du dépôt distant et ils peuvent �
 Supposez par exemple que vous avez réalisé de nombreux commits et que vous vouliez voir la différence avec la dernière version ramenée par fetch.
 Vous pourriez rechercher dans le log pour retrouver l’empreinte SHA1 appropriée mais il est beaucoup plus simple de tapez :
 
-~~~~ {.bash}
+```bash
 $ git diff origin/HEAD
-~~~~
+```
 
 Vous pouvez aussi voir où en est rendu la branche `"experimental"` :
 
-~~~~ {.bash}
+```bash
 $ git log origin/experimental
-~~~~
+```
 
 ## Dépôts distants multiples
 Supposez que deux autres développeurs travaillent sur notre projet et que nous souhaitons garder un œil sur les deux.
 Nous pouvons suivre plus d’un dépôt à la fois grâce à :
 
-~~~~ {.bash}
+```bash
 $ git remote add un_autre git://example.com/un_depot.git
 $ git pull un_autre une_branche
-~~~~
+```
 
 Maintenant nous avons fusionné avec une branche d’un second dépôt et nous avons accès facilement à toutes les branches de tous les dépôts :
 
-~~~~ {.bash}
+```bash
 $ git diff origin/experimental^ un_autre/une_branche~5
-~~~~
+```
 
 Mais comment faire si nous souhaitons juste comparer leurs modifications sans affecter notre travail ?
 En d’autres termes, nous voulons examiner leurs branches sans que leurs modifications envahissent notre dossier de travail.
 À la place d’un pull, faisons :
 
-~~~~ {.bash}
+```bash
 $ git fetch          # Rapatrier depuis le dépôt d'origin, par défaut
 $ git fetch un_autre # Rapatrier depuis le dépôt d'un_autre
-~~~~
+```
 
 Cela ne rapatrie (`fetch`) que les historiques.
 Bien que notre dossier de travail reste inchangé, nous pouvons faire référence à n’importe quelle branche de n’importe quel dépôt dans nos commandes Git puisque nous en possédons maintenant une copie locale.
@@ -1505,18 +1511,18 @@ Je peux sans doute vous aider à gagner un peu de temps : vous trouverez ci-dess
 Dans mes projets, Git gère exactement tous les fichiers que je veux placer dans une archive afin de la publier.
 Pour créer une telle archive, j’utilise :
 
-~~~~ {.bash}
+```bash
 $ git archive --format=tar --prefix=proj-1.2.3/ HEAD
-~~~~
+```
 
 ## Gérer le changement
 Indiquer à Git quels fichiers ont été ajoutés, supprimés ou renommés est parfois pénible pour certains projets.
 À la place, vous pouvez faire :
 
-~~~~ {.bash}
+```bash
 $ git add .
 $ git add -u
-~~~~
+```
 
 Git cherchera les fichiers du dossier courant et gérera tous les détails tout seul.
 En remplacement de la deuxième commande add, vous pouvez utiliser `git commit -a`{.bash} pour créer un nouveau commit directement.
@@ -1524,9 +1530,9 @@ Lisez `git help ignore` pour savoir comment spécifier les fichiers qui doivent 
 
 Vous pouvez effectuer tout cela en une seule passe grâce à :
 
-~~~~ {.bash}
+```bash
 $ git ls-files -d -m -o -z | xargs -0 git update-index --add --remove
-~~~~
+```
 
 Les options `-z` et `-0` empêchent les effets secondaires imprévus dus au noms de fichiers contenant des caractères étranges.
 Comme cette commande ajoutent aussi les fichiers habituellement ignorés, vous voudrez sûrement utiliser les options `-x` ou `-X`.
@@ -1538,9 +1544,9 @@ Faites-vous plein de petits changements sans rapport entre eux parce que c’est
 
 Pas de soucis. Faites :
 
-~~~~ {.bash}
+```bash
 $ git add -p
-~~~~
+```
 
 Pour chacune des modifications que vous avez faites, Git vous montrera le bout de code qui a changé et vous demandera si elle doit faire partie du prochain commit.
 Répondez par "y" (oui) ou par "n" (non).
@@ -1548,9 +1554,9 @@ Vous avez aussi d’autres options comme celle vous permettant de reporter votre
 
 Une fois satisfait, tapez :
 
-~~~~ {.bash}
+```bash
 $ git commit
-~~~~
+```
 
 pour faire un commit incluant exactement les modifications qui vous avez sélectionnées (les modifications indexées).
 Soyez certain de ne pas utiliser l’option `-a` sinon Git fera un commit incluant toutes vos modifications.
@@ -1581,9 +1587,9 @@ Le tag `HEAD` est comme un curseur qui pointe habituellement vers le tout dernie
 Certaines commandes Git vous permettent de le déplacer.
 Par exemple :
 
-~~~~ {.bash}
+```bash
 $ git reset HEAD~3
-~~~~
+```
 
 déplacera `HEAD` trois commits en arrière.
 À partir de là, toutes les commandes Git agiront comme si vous n’aviez jamais fait ces trois commits, même si vos fichier restent dans leur état présent.
@@ -1594,16 +1600,16 @@ Les commits passés ne savent rien du futur.
 
 Si vous connaissez l’empreinte SHA1 du HEAD original, faites alors :
 
-~~~~ {.bash}
+```bash
 $ git reset 1b6d
-~~~~
+```
 
 Mais que faire si vous ne l’avez pas regardé ?
 Pas de panique : pour des commandes comme celle-ci, Git enregistre la valeur originale de `HEAD` dans un tag nommé `ORIG_HEAD` et vous pouvez revenir sain et sauf via :
 
-~~~~ {.bash}
+```bash
 $ git reset ORIG_HEAD
-~~~~
+```
 
 ## Chasseur de tête
 Peut-être que `ORIG_HEAD` ne vous suffit pas.
@@ -1621,38 +1627,38 @@ Ce dernier peut donc servir à retrouver les commits d’une branche qui a été
 La commande reflog propose une interface sympa vers ces fichiers de log.
 Essayez:
 
-~~~~ {.bash}
+```bash
 $ git reflog
-~~~~
+```
 
 Au lieu de copier/coller une empreinte listée par `reflog`, essayez :
 
-~~~~ {.bash}
+```bash
 $ git checkout "@{10 minutes ago}"
-~~~~
+```
 
 Ou basculez vers le cinquième commit précédemment visité via :
 
-~~~~ {.bash}
+```bash
 $ git checkout "@{5}"
-~~~~
+```
 
 Voir la section «Specifying Revisions» de `git help rev-parse`{.bash} pour en savoir plus.
 
 Vous pouvez configurer une plus longue période de rétention pour les commits condamnés.
 Par exemple :
 
-~~~~ {.bash}
+```bash
 $ git config gc.pruneexpire "30 days"
-~~~~
+```
 
 signifie qu’un commit effacé ne le sera véritablement qu’après 30 jours et lorsque `git gc`{.bash} tournera.
 
 Vous pouvez aussi désactiver le déclenchement automatique de git gc :
 
-~~~~ {.bash}
+```bash
 $ git config gc.auto 0
-~~~~
+```
 
 auquel cas les commits ne seront véritablement effacés que lorsque vous lancerez `git gc`{.bash} manuellement.
 
@@ -1663,26 +1669,26 @@ Avec un peu de bricolage, vous pouvez adapter Git à vos préférences.
 
 Une astuce facile consiste à créer des alias Git pour raccourcir les commandes que vous utilisez le plus fréquemment :
 
-~~~~ {.bash}
+```bash
 $ git config --global alias.co checkout
 $ git config --global --get-regexp alias  # affiche les alias connus
 alias.co checkout
 $ git co foo                              # identique à 'git checkout foo'
-~~~~
+```
 
 Une autre astuce consiste à intégrer le nom de la branche courante dans votre prompt ou dans le titre de la fenêtre.
 L’invocation de :
 
-~~~~ {.bash}
+```bash
 $ git symbolic-ref HEAD
-~~~~
+```
 
 montre le nom complet de la branche courante.
 En pratique, vous souhaiterez probablement enlever `"refs/heads/"` et ignorer les erreurs :
 
-~~~~ {.bash}
+```bash
 $ git symbolic-ref HEAD 2> /dev/null | cut -b 12-
-~~~~
+```
 
 Le sous-dossier `contrib` de Git est une mine d’outils construits au-dessus de Git.
 Un jour, certains d’entre eux pourraient être promus au rang de commandes officielles.
@@ -1691,9 +1697,9 @@ Dans Debian et Ubuntu, ce dossier est `/usr/share/doc/git-core/contrib`.
 L’un des plus populaires de ces scripts est `workdir/git-new-workdir`.
 Grâce à des liens symboliques intelligents, ce script crée un nouveau dépôt dont l’historique est partagé avec le dépôt original.
 
-~~~~ {.bash}
+```bash
 $ git-new-workdir un/existant/depot nouveau/repertoire
-~~~~
+```
 
 Le nouveau dossier et ses fichiers peuvent être vus comme un clone, sauf que l’historique est partagé et que les deux arbres des versions restent automatiquement synchrones.
 Nul besoin de merge, push ou pull.
@@ -1705,9 +1711,9 @@ Mais si vous savez ce que vous faites, vous pouvez passer outre les garde-fous d
 * Checkout : des modifications non intégrées (via commit) peuvent causer l'échec d’un checkout.
 	Pour détruire vos modifications et réussir quoi qu’il arrive un checkout d’un commit donné, utilisez l’option d’obligation :
 
-	~~~~ {.bash}
+	```bash
 	$ git checkout -f HEAD^
-	~~~~
+	```
 
 	Inversement, si vous spécifiez des chemins particuliers pour un checkout alors il n’y a pas de garde-fous.
 	Le contenu des chemins est silencieusement réécrit.
@@ -1716,23 +1722,23 @@ Mais si vous savez ce que vous faites, vous pouvez passer outre les garde-fous d
 * Reset : un reset échoue aussi en présence de modifications non intégrées.
 	Pour passer outre, faites :
 
-	~~~~ {.bash}
+	```bash
 	$ git reset --hard 1b6d
-	~~~~
+	```
 
 * Branch : la suppression de branches échoue si cela implique la perte de certains commits.
 	Par forcer la suppression, tapez :
 
-	~~~~ {.bash}
+	```bash
 	$ git branch -D branche_morte  # à la place de -d
-	~~~~
+	```
 
 	De manière similaire, une tentative visant à renommer une branche existante vers le nom d’une autre branche échoue si cela amène la perte de commits.
 	Pour forcer le changement de nom, tapez :
 
-	~~~~ {.bash}
+	```bash
 	$ git branch -M source target  # à la place de -m
-	~~~~
+	```
 
 	Contrairement à checkout et reset, ces deux dernières commandes n’effectuent pas la suppression des informations immédiatement.
 	Les commits destinés à disparaître sont encore disponibles dans le sous-dossier .git et peuvent encore être retrouvés grâce aux empreintes appropriées tel que retrouvées dans `.git/logs` (voir "Chasseur de tête" ci-dessus).
@@ -1741,9 +1747,9 @@ Mais si vous savez ce que vous faites, vous pouvez passer outre les garde-fous d
 * Clean : certaines commandes Git refusent de s’exécuter pour ne pas écraser des fichiers non suivis.
 	Si vous êtes certain que tous ces fichiers et dossiers peuvent être sacrifiés alors effacez-les sans pitié via :
 
-	~~~~ {.bash}
+	```bash
 	$ git clean -f -d
-	~~~~
+	```
 
 	Ensuite, la commande trop prudente fonctionnera !
 
@@ -1754,21 +1760,21 @@ D’autres erreurs moins graves concernent les espaces blancs inutiles ou les co
 
 Si seulement je m’en étais prémuni en utilisant un `hook` (un crochet) pour m’alerter de ces problèmes :
 
-~~~~ {.bash}
+```bash
 $ cd .git/hooks
 $ cp pre-commit.sample pre-commit  # Vieilles versions de Git : chmod +x pre-commit
-~~~~
+```
 
 Maintenant Git empêchera un commit s’il détecte des espace inutiles ou s’il reste des conflits de fusion non résolus.
 
 Pour gérer ce guide, j’ai aussi ajouté les lignes ci-dessous au début de mon hook pre-commit pour me prémunir de mes inattentions :
 
-~~~~ {.bash}
+```bash
 if git ls-files -o | grep '\.txt$'; then
   echo FAIL! Untracked .txt files.
   exit 1
 fi
-~~~~
+```
 
 Plusieurs opération de Git acceptent les hooks ; voir `git help hooks`.
 Nous avons déjà utilisé le hook `post-update` lorsque nous avons parlé de Git au-dessus de HTTP.
@@ -1844,29 +1850,29 @@ Tout d’abord, faisons un peu de magie.
 Choisissez un nom de fichier… n’importe quel nom de fichier !
 Puis dans un dossier vide, faites (en remplaçant `VOTRE_NOM_DE_FICHIER` par le nom que vous avez choisi) :
 
-~~~~ {.bash}
+```bash
 $ echo joli > VOTRE_NOM_DE_FICHIER
 $ git init
 $ git add .
 $ find .git/objects -type f
-~~~~
+```
 
 Vous verrez `.git/objects/06/80f15d4cb13a09f600a25b84eae36506167970`.
 
 Comment puis-je le savoir sans connaître le nom de fichier que vous avez choisi ?
 Tout simplement parce que l’empreinte SHA1 de :
 
-~~~~
+```
 "blob" SP "5" NUL "joli" LF
-~~~~
+```
 
 est `0680f15d4cb13a09f600a25b84eae36506167970`.
 Où `SP` est un espace, `NUL` est l’octet de valeur nulle et `LF` est un passage à la ligne.
 Vous pouvez vérifier cela en tapant :
 
-~~~~ {.bash}
+```bash
 $ printf "blob 5\000joli\n" | sha1sum
-~~~~
+```
 
 Git utilise un classement par contenu : les fichiers ne sont pas stockés selon leur nom mais selon l’empreinte des données qu’ils contiennent, dans un fichier que nous appelons un objet blob.
 Nous pouvons considérer l’empreinte comme un ID unique du contenu d’un fichier. Donc nous pouvons retrouver un fichier par son contenu. La chaîne initiale blob 5 est simplement un entête indiquant le type de l’objet et sa longueur en octets ; cela simplifie le classement interne.
@@ -1881,9 +1887,9 @@ Git ne stocke le contenu qu’une seule fois.
 À propos, les fichiers dans `.git/objects` sont compressés par `zlib` et, par conséquent, vous ne pouvez pas en consulter le contenu directement.
 Passez-les au travers du filtre `zpipe -d`{.bash} ou tapez :
 
-~~~~ {.bash}
+```bash
 $ git cat-file -p 0680f15d4cb13a09f600a25b84eae36506167970
-~~~~
+```
 
 qui affiche proprement l’objet choisi.
 
@@ -1892,38 +1898,38 @@ Mais que deviennent les noms des fichiers ?
 Ils doivent bien être stockés quelque part à un moment.
 Git se préoccupe des noms de fichiers lors d’un commit :
 
-~~~~ {.bash}
+```bash
 $ git commit  # Tapez un message
 $ find .git/objects -type f
-~~~~
+```
 
 Vous devriez voir maintenant trois objets.
 Mais là, je ne peux plus prédire le nom des deux nouveaux fichiers puisqu’ils dépendent en partie du nom de fichier que vous avez choisi.
 Nous continuerons en supposant que vous avez choisi «rose».
 Si ce n’est pas le cas, vous pouvez réécrire l’histoire pour que ce soit le cas :
 
-~~~~ {.bash}
+```bash
 $ git filter-branch --tree-filter 'mv VOTRE_NOM_DE_FICHIER rose'
 $ find .git/objects -type f
-~~~~
+```
 
 Le fichier `.git/objects/9a/6a950c3b14eb1a3fb540a2749514a1cb81e206` devrait maintenant apparaître puisque c’est l’empreinte SHA1 du contenu suivant :
 
-~~~~ {.bash}
+```bash
 "tree" SP "32" NUL "100644 rose" NUL 0x9a6a950c3b14eb1a3fb540a2749514a1cb81e206
-~~~~
+```
 
 Vérifiez que ce contenu est le bon en tapant :
 
-~~~~ {.bash}
+```bash
 $ echo 9a6a950c3b14eb1a3fb540a2749514a1cb81e206 | git cat-file --batch
-~~~~
+```
 
 Avec `zpipe`, il est plus simple de vérifier l’empreinte :
 
-~~~~ {.bash}
+```bash
 $ zpipe -d < .git/objects/9a/6a950c3b14eb1a3fb540a2749514a1cb81e206 | sha1sum
-~~~~
+```
 
 La vérification de l’empreinte est plus difficile via cat-file puisque cette commande n’affiche pas que le contenu brut du fichier après décompression.
 
@@ -1935,11 +1941,11 @@ Dans ce dernier cas, l’empreinte représente un autre objet de type arbre.
 Si vous faites appel à la commande filter-branch, vous verrez apparaître de vieux objets dont vous n’avez pas besoin.
 Même s’ils disparaîtront automatiquement une fois expirée la période de rétention, nous allons les effacer dès maintenant pour rendre notre petit exemple plus facile à suivre :
 
-~~~~ {.bash}
+```bash
 $ rm -r .git/refs/original
 $ git reflog expire --expire=now --all
 $ git prune
-~~~~
+```
 
 Sur de vrais projets, vous devriez éviter de telles commandes puisqu’elles détruisent les sauvegardes.
 Si vous voulez un dossier propre, il est conseillé de faire un tout nouveau clone.
@@ -1953,7 +1959,7 @@ Le troisième est l’objet commit.
 Son contenu dépend du message de commit ainsi que de la date et l’heure auxquelles il a été créé.
 Pour que vous obteniez la même chose qu’ici, nous devons bidouiller un peu :
 
-~~~~ {.bash}
+```bash
 $ git commit --amend -m Shakespeare  # Changement de message de commit
 $ git filter-branch --env-filter 'export
     GIT_AUTHOR_DATE="Fri 13 Feb 2009 15:31:30 -0800"
@@ -1963,18 +1969,18 @@ $ git filter-branch --env-filter 'export
     GIT_COMMITTER_NAME="Bob"
     GIT_COMMITTER_EMAIL="bob@example.com"'  # Trucage de la date, l'heure et l'auteur.
 $ find .git/objects -type f
-~~~~
+```
 
 Le fichier `.git/objects/ae/9d1241b2b6eea90529149a065f6bc444365c2a `devrait maintenant exister puisque c’est l’empreinte SHA1 du contenu suivant :
 
-~~~~
+```
 "commit 158" NUL
 "tree 9a6a950c3b14eb1a3fb540a2749514a1cb81e206" LF
 "author Alice <alice@example.com> 1234567890 -0800" LF
 "committer Bob <bob@example.com> 1234567890 -0800" LF
 LF
 "Shakespeare" LF
-~~~~
+```
 	
 Comme précédemment, vous pouvez utiliser `zpipe` ou `cat-file` pour vérifier par vous-même.
 
@@ -2123,22 +2129,22 @@ Dans ce nouveau répertoire, traduisez chacun des fichiers txt du répertoire "e
 
 Par exemple, pour créer ce guide en Klingon, vous devriez faire :
 
-~~~~ {.bash}
+```bash
 $ git clone git://repo.or.cz/gitmagic.git
 $ cd gitmagic
 $ mkdir tlh  # "tlh" et le code IETF de la langue Klingon.
 $ cd tlh
 $ cp ../en/intro.txt .
 $ edit intro.txt  # Traduire le fichier.
-~~~~
+```
 
 et ainsi de suite pour tous les fichiers.
 Vous pouvez relire votre travail incrémentalement :
 
-~~~~ {.bash}
+```bash
 $ make LANG=tlh
 $ firefox book.html
-~~~~
+```
 
 Faites souvent des commits pour vos modifications puis faites-le moi savoir dès que c’est prêt.
 GitHub.com propose une interface qui facilite les choses : faites un fork du projet "gitmagic", poussez-y vos modifications et demandez-moi de les fusionner.
