@@ -6,6 +6,9 @@ description: Un blog technique
 # url is currently only used only for the RSS feed in feed.xml
 url: http://r6d.eu
 
+# production_url is currently only used only for the sitemap feed in sitemap.txt
+production_url: http://r6d.eu
+
 # baseurl will often be '', but for a project page on gh-pages, it needs to
 # be the project name.
 # *** IMPORTANT: If your local "jekyll serve" throws errors change this to '' or
