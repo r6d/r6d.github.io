@@ -3,6 +3,7 @@ layout: post
 title: "Messagerie - INN"
 date: 2012-07-03 12:56:32 +0200
 comments: false
+tags: [reseau, commande_unix]
 ---
 
 # Messagerie - Le serveur de nouvelles (news) INN
