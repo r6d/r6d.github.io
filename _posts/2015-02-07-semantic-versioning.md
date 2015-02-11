@@ -3,7 +3,7 @@ layout: post
 title: "Nommage sémantique des versions"
 date: 2015-02-07 16:32:000 +0100
 comments: false
-tags: [versioning, nommage]
+tags: [versioning, git]
 ---
 
 # Gestion sémantique de version 2.0.0
