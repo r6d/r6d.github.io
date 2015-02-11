@@ -3,7 +3,7 @@ layout: post
 title: "Tomcat et Docker"
 date: 2015-02-01 16:58:000 +0100
 comments: false
-tags: [tomcat, java, docker]
+tags: [java, docker]
 ---
 
 # Déploiement rapide de serveur Tomcat avec docker
