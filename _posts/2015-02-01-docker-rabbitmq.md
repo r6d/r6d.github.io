@@ -3,7 +3,7 @@ layout: post
 title: "RabbitMQ et Docker"
 date: 2015-02-01 16:34:000 +0100
 comments: false
-tags: [rabbitmq, amqp, docker]
+tags: [rabbitmq, docker]
 ---
 
 # Utilisation rapide de RabbitMQ avec docker

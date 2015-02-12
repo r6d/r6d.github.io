@@ -3,7 +3,7 @@ layout: post
 title: "Outils pour débugger bind9, le serveur DNS"
 date: 2015-02-09 18:58:000 +0100
 comments: false
-tags: [dns, bind, résolveur, serveur faisant authorité]
+tags: [dns, reseau]
 ---
 
 # Déboggage de service DNS fourni par bind9
