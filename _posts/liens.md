@@ -15,3 +15,9 @@
 ## Markdown
 
 * [images clicables](http://meta.stackexchange.com/a/2191)
+
+## Java
+
+* [@FunctionalInterface](http://java.dzone.com/articles/introduction-functional-1)
+* [design pattern, exemples en java, SO](http://stackoverflow.com/a/1673862)
+
