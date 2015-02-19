@@ -66,3 +66,34 @@ La seconde solution consiste à aller supprimer directement les données dans la
 
 La base de données de quassel utilise un modèle de stockage de données plutôt simple.
 
+## Accès direct à la base de données
+
+### Statistiques sur les réseaux
+
+```sql
+SELECT count(*) as count__________, n.networkname, n.networkid
+  FROM backlog
+  NATURAL JOIN buffer buf
+  NATURAL JOIN network n
+
+  GROUP BY n.networkname, n.networkid
+  ORDER BY count(*) DESC
+  LIMIT 100;
+```
+
+### Suppression de l'historique d'un réseau
+
+Suppression des historiques rattaché au réseau identifié dans la base de données par `3`.
+
+```sql
+-- Remove logs for all buffer for network 3
+
+DELETE
+  FROM backlog
+  WHERE bufferid
+    IN (
+      SELECT bufferid
+      FROM buffer
+      WHERE networkid IN (3)
+    );
+```
