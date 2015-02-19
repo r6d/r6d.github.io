@@ -22,3 +22,6 @@
 * [@FunctionalInterface](http://java.dzone.com/articles/introduction-functional-1)
 * [design pattern, exemples en java, SO](http://stackoverflow.com/a/1673862)
 
+## Réseau
+
+* [BGP, BCP38](http://www.bcp38.info/index.php/Main_Page)
