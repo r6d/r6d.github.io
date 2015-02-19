@@ -61,25 +61,25 @@ Si tout est bon, continuer :)
 En plus de cela, il faut que l'utilisateur soit membre du groupe _dialout_.
 
 ```bash
-sudo adduser <username> dialout
+$ sudo adduser <username> dialout
 ```
 
 Il est possible d'écrire "toto" dans le port série :
 
 ```bash
-echo "toto" >> /dev/ttyUSB0
+$ echo "toto" >> /dev/ttyUSB0
 ```
 
 Il est d'une façon similaire possible de lire un port série :
 
 ```bash
-cat /dev/ttyUSB0
+$ cat /dev/ttyUSB0
 ```
 
 ou 
 
-```
-tail -f /dev/ttyUSB0
 ```bash
+$ tail -f /dev/ttyUSB0
+```
 
 ATTENTION : le port doit être déjà configuré par rapport au matériel à utiliser, sinon ça ne fonctionne pas comme prévu
