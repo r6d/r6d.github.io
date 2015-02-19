@@ -36,7 +36,7 @@ Si tout est bon, continuer :)
 	* nommer et renommer les variables pour qu'elles aient des significations explicites ET en anglais
 	* extraire des fonctions faisant peu de choses, avec des noms explicite.
 
-			Plus l'actions est complexe, plus elle doit être découpée en fonctions
+		Plus une action est complexe, plus elle doit être découpée en fonctions
 
 	* ajouter les assertions sur les invariants
 	* ajouter les pré-conditions
