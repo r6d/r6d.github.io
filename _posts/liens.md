@@ -15,6 +15,7 @@
 ## Markdown
 
 * [images clicables](http://meta.stackexchange.com/a/2191)
+* [syntaxe par l'exemmple](http://dev.ggouv.fr/wiki/group/219/page/1080/Le-language-Markdown)
 
 ## Java
 
