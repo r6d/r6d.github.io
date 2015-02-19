@@ -42,5 +42,27 @@ En mode client-serveur :
 ## Besoin
 
 Après quelques mois de connexion continue à des cannaux IRC bien actifs, la base de donnée de stockage de l'historique est devenue imposante (= prend trops de place pour l'utilisation réelle de l'historique).
-Il est donc temps de faire un peu de nettoyage.
+
+--> Il est donc temps de ~~faire de la place~~ faire du ménage.
+
+## Approches 
+
+Pour atteindre cet objectif, il existe plusieurs méthodes.
+
+### Solution n°1 : méthode douce
+
+La plus simple est d'utiliser la fonction intégrée à quassel.
+Cette technique permet de supprimer des canaux ainsi que l'historique associé.
+
+Lorque la base de données contient plusieurs millions d'enregistrements, la suppression de l'historique devient génante.
+
+Dans ce scénario, nous avons constatés que quassel-serveur peut se bloquer, se déconnecter de tous les serveurs IRC et cela pour plusieurs heures.
+
+Donc cette méthode est pratique pour les cannaux peux actifs, mais pas forcément acceptable pour nettoyer rapidement le serveur.
+
+### Solution n°2 : méthode forte
+
+La seconde solution consiste à aller supprimer directement les données dans la base de données.
+
+La base de données de quassel utilise un modèle de stockage de données plutôt simple.
 
