@@ -3,7 +3,7 @@ layout: post
 title: "Premier routeur Internet"
 date: 2015-02-22 23:27:000 +0100
 comments: false
-tags: [network]
+tags: [reseau]
 ---
 
 # Honneurs pour le premier routeur Internet
@@ -14,3 +14,4 @@ Le titre original est : _In Honor Of The Internet Turning 45 Today, Here Is Its 
 
 
 <iframe src="http://www.snotr.com/embed/14338" width="400" height="330" frameborder="0"></iframe>
+<video src=“http://myvideo.webm” controls>Votre navigateur ne supporte par la balise html5 video.</video>
