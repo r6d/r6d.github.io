@@ -21,14 +21,23 @@
 ip -6 addr add 2001:41d0:8:9875:40::1/80 dev docker0
 ip -6 route add 2001:41d0:8:9875:40::1/80 dev docker0
 
-
-ip -6 addr show docker0
-ip link show
-
-
-docker -d --ipv6 --fixed-cidr-v6="2001:41d0:8:9875:40::1/64" --ip-forward=true
-
-
 https://github.com/docker/docker/issues/10045
 
-docker run --rm -it ubuntu bash -c "ip -6 addr show dev eth0; ip -6 route show" --ipv6
+## Affichage de la configuration réseau
+
+```bash
+ip -6 addr show docker0
+ip link show
+```
+
+## Lancement du daemon docker
+
+```bash
+$ docker -d --ipv6 --fixed-cidr-v6="2001:41d0:8:9875:40::1/80" --ip-forward=true
+```
+
+## Affichage de la configuration réseau vu de l'intérieur d'un container
+
+```bash
+$ docker run --rm -it ubuntu bash -c "ip -6 addr show dev eth0; ip -6 route show" --ipv6
+```
