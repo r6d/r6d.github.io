@@ -1,6 +1,25 @@
+---
+layout: post
+title: "IPv6 et Docker, Ubuntu 12 LTS"
+date: 2015-02-23 20:20:000 +0100
+comments: false
+tags: [reseau, docker]
+---
+
 # IPv6 et docker, machine avec Ubuntu 12.04.5 LTS
 
 * [documentation officielle](https://docs.docker.com/articles/networking/#ipv6-with-docker)
+
+## Objectif
+
+Il s'agit de pouvoir affecter des adresses IPv6 aux containers hébergés sur une machine dotée d'un bloc d'addresses IPv6 publiques.
+
+## Solution utilisée
+
+ip -6 addr add 2001:41d0:8:9875:40::1/80 dev docker0
+ip -6 route add 2001:41d0:8:9875:40::1/80 dev docker0
+
+* [bug indiquant la solution utilisée ici](https://github.com/docker/docker/issues/10045)
 
 >
 > Docker checks if the IPv6 address of docker0 is fe80::1/64. If not it fails.
@@ -17,11 +36,6 @@
 >
 > I'd recommend 2.
 >
-
-ip -6 addr add 2001:41d0:8:9875:40::1/80 dev docker0
-ip -6 route add 2001:41d0:8:9875:40::1/80 dev docker0
-
-https://github.com/docker/docker/issues/10045
 
 ## Affichage de la configuration réseau
 
