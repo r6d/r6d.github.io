@@ -12,12 +12,19 @@ tags: [reseau, docker]
 
 ## Objectif
 
-Il s'agit de pouvoir affecter des adresses IPv6 aux containers hébergés sur une machine dotée d'un bloc d'addresses IPv6 publiques.
+Il s'agit de pouvoir affecter des adresses IPv6 aux containers hébergés sur une machine dotée d'un bloc d'adresses IPv6 publiques.
+
+En l'occurence, il s'agit d'une machine hébergée chez OVH.
 
 ## Solution utilisée
 
+Il semble d'après la configuration de la machine qu'OVH alloue un `/56` par machine.
+Cela semble surprenant et mérite confirmation.
+
+```bash
 ip -6 addr add 2001:41d0:8:9875:40::1/80 dev docker0
 ip -6 route add 2001:41d0:8:9875:40::1/80 dev docker0
+```
 
 * [bug indiquant la solution utilisée ici](https://github.com/docker/docker/issues/10045)
 
