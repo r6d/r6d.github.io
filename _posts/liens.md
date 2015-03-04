@@ -79,6 +79,10 @@
 
 * [déchiffrer facilement des flux TLS avec wireshark, jimshaver.net](https://jimshaver.net/2015/02/11/decrypting-tls-browser-traffic-with-wireshark-the-easy-way/)
 
+### DNS
+
+* [Vie privée : et le DNS alors ?, imirhil.fr](https://blog.imirhil.fr/vie-privee-et-le-dns-alors.html)
+
 ## Construction
 
 * [maison à eau, futura-sciences.com](http://www.futura-sciences.com/magazines/maison/infos/actu/d/revetement-maison-entouree-eau-economiser-energie-57184)
