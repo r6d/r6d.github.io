@@ -63,5 +63,22 @@
 
 ## Infosec
 
-* [Un logiciel espion extrêmement sophistiqué a infecté des disques durs depuis près de 2 décennies, la NSA serait à l'origine](http://www.developpez.com/actu/81461/Un-logiciel-espion-extremement-sophistique-a-infecte-des-disques-durs-depuis-pres-de-2-decennies-la-NSA-serait-a-l-origine/)
+* [Textes de référence pour la protection des systèmes d'information, ANSSI](http://www.ssi.gouv.fr/entreprise/reglementation/protection-des-systemes-dinformations/)
 
+### Probable NSA-compliant / GCHQ
+
+* [Un logiciel espion extrêmement sophistiqué a infecté des disques durs depuis près de 2 décennies, la NSA serait à l'origine](http://www.developpez.com/actu/81461/Un-logiciel-espion-extremement-sophistique-a-infecte-des-disques-durs-depuis-pres-de-2-decennies-la-NSA-serait-a-l-origine/)
+* [Fanny, journaldugeek.com](http://www.journaldugeek.com/2015/02/17/fanny-larme-de-piratage-massif-de-la-nsa/)
+* [Avez-vous été espionné illégalement ? Une ONG vous donne la réponse, journaldugeek.com](http://www.journaldugeek.com/2015/02/17/avez-vous-ete-espionne-illegalement-une-ong-vous-donne-la-reponse/)
+
+### Mail
+
+* [vérifier la configuration d'un serveur mail, starttls.info](https://starttls.info/)
+
+### Web
+
+* [déchiffrer facilement des flux TLS avec wireshark, jimshaver.net](https://jimshaver.net/2015/02/11/decrypting-tls-browser-traffic-with-wireshark-the-easy-way/)
+
+## Construction
+
+* [maison à eau, futura-sciences.com](http://www.futura-sciences.com/magazines/maison/infos/actu/d/revetement-maison-entouree-eau-economiser-energie-57184)
