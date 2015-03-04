@@ -62,6 +62,7 @@
 ### Cartographie
 
 * [geocloud icontainer docker, registry.docker.com](https://registry.hub.docker.com/u/mapcentia/gc2/)
+* [possibilité geocloud, mapcentia.com](http://www.mapcentia.com/en/geocloud/features.htm#elasticsearch)
 
 ## Logiciel Libre
 
