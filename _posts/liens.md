@@ -47,4 +47,7 @@
 * [livre blanc sur les logs, ossir.org](http://www.ossir.org/technico-juridique/livre-blanc-sur-les-logs.shtml)
 * [RFC5848 - Signed Syslog Messages, ietf.org](http://tools.ietf.org/html/rfc5848)
 
- 
+## Projets & outils WEB
+
+* [code public Facebook.com](https://code.facebook.com/projects/)
+
