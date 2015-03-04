@@ -22,6 +22,7 @@
 
 * [@FunctionalInterface](http://java.dzone.com/articles/introduction-functional-1)
 * [design pattern, exemples en java, SO](http://stackoverflow.com/a/1673862)
+* [encodage URL, excilys.com](http://blog.excilys.com/2015/02/18/encoder-correctement-une-url-en-java/)
 
 ## Déploiement continu
 
