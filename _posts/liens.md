@@ -56,4 +56,12 @@
 * [Can I Use ?](http://caniuse.com/)
 * [Do I Use ?](http://doiuse.com/)
 
+## Logiciel Libre
+
+* [On <3 le logiciel libre !, framablog](http://framablog.org/2015/02/14/on-love-logiciel-libre/)
+* [J’aime le logiciel libre, framablog](http://framablog.org/2015/02/14/jaime-le-logiciel-libre/)
+
+## Infosec
+
+* [Un logiciel espion extrêmement sophistiqué a infecté des disques durs depuis près de 2 décennies, la NSA serait à l'origine](http://www.developpez.com/actu/81461/Un-logiciel-espion-extremement-sophistique-a-infecte-des-disques-durs-depuis-pres-de-2-decennies-la-NSA-serait-a-l-origine/)
 
