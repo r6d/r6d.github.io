@@ -73,6 +73,10 @@
 
 * [Textes de référence pour la protection des systèmes d'information, ANSSI](http://www.ssi.gouv.fr/entreprise/reglementation/protection-des-systemes-dinformations/)
 
+### DCRI-compliant
+
+* [Babar, @bortzmeyer](http://seenthis.net/messages/343443)
+
 ### Probable NSA-compliant / GCHQ
 
 * [Gemalto, carte sim, techcrunch.com](http://techcrunch.com/2015/02/19/the-nsa-reportedly-stole-millions-of-sim-encryption-keys-to-gather-private-data/)
