@@ -75,6 +75,7 @@
 
 ### Probable NSA-compliant / GCHQ
 
+* [Gemalto, carte sim, techcrunch.com](http://techcrunch.com/2015/02/19/the-nsa-reportedly-stole-millions-of-sim-encryption-keys-to-gather-private-data/)
 * [Un logiciel espion extrêmement sophistiqué a infecté des disques durs depuis près de 2 décennies, la NSA serait à l'origine](http://www.developpez.com/actu/81461/Un-logiciel-espion-extremement-sophistique-a-infecte-des-disques-durs-depuis-pres-de-2-decennies-la-NSA-serait-a-l-origine/)
 * [Fanny, journaldugeek.com](http://www.journaldugeek.com/2015/02/17/fanny-larme-de-piratage-massif-de-la-nsa/)
 * [Avez-vous été espionné illégalement ? Une ONG vous donne la réponse, journaldugeek.com](http://www.journaldugeek.com/2015/02/17/avez-vous-ete-espionne-illegalement-une-ong-vous-donne-la-reponse/)
