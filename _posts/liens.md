@@ -80,6 +80,10 @@
 * [Fanny, journaldugeek.com](http://www.journaldugeek.com/2015/02/17/fanny-larme-de-piratage-massif-de-la-nsa/)
 * [Avez-vous été espionné illégalement ? Une ONG vous donne la réponse, journaldugeek.com](http://www.journaldugeek.com/2015/02/17/avez-vous-ete-espionne-illegalement-une-ong-vous-donne-la-reponse/)
 
+### Superfish / Lenovo
+
+* [Extraire le certificat de Superfish, erratasec.com](http://blog.erratasec.com/2015/02/extracting-superfish-certificate.html)
+
 ### Mail
 
 * [vérifier la configuration d'un serveur mail, starttls.info](https://starttls.info/)
