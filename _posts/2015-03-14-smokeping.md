@@ -1,7 +1,15 @@
+---
+layout: post
+title: "Smokeping et Docker"
+date: 2015-03-10 14:11:000 +0100
+comments: false
+tags: [reseau, docker]
+---
 
 # Smokeping et Docker
 
-[le container dperson/smokeping](https://registry.hub.docker.com/u/dperson/smokeping/)
+* [le container dperson/smokeping](https://registry.hub.docker.com/u/dperson/smokeping/)
+* [le dépot github](https://github.com/dperson/smokeping)
 
 ## Création du container 
 
