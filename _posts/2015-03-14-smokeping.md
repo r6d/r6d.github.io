@@ -30,3 +30,17 @@ for i in `seq 1 254`; do docker exec smoke_r6d smokeping.sh -t "All;host_${i};19
 ```bash
 while true; do docker exec smoke_r6d smokeping --debug; sleep 300; done
 ```
+
+## Ajout en masse de cibles de suivi par le DNS
+
+``` bash
+for h in `dig +short NS com.`; do docker exec smoke_r6d smokeping.sh -t "DNS_com;$h;$h"; done
+for h in `dig +short NS fr.`; do docker exec smoke_r6d smokeping.sh -t "DNS_fr;$h;$h"; done
+```
+
+Pour corriger le nom de la reference smokeping (ne doit pas contenir de .)
+
+```bash
+docker exec smoke_r6d sed -i '/++/s/\./_/g' /etc/smokeping/config.d/Targets
+```
+
