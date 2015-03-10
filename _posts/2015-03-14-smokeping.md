@@ -44,3 +44,21 @@ Pour corriger le nom de la reference smokeping (ne doit pas contenir de .)
 docker exec smoke_r6d sed -i '/++/s/\./_/g' /etc/smokeping/config.d/Targets
 ```
 
+## Ajout en masse de supervision des TLD
+
+```bash
+#!/bin/sh
+
+TLDS=`curl https://data.iana.org/TLD/tlds-alpha-by-domain.txt|grep -v ^#`
+
+for tld in ${TLDS};
+do
+        for h in `dig +short NS ${tld}.`;
+        do
+                name=$( echo $h | sed 's/\./_/g' )
+                config="DNS_${tld};${name};${h}"
+                #docker exec smoke_r6d smokeping.sh -t "${config}";
+                echo $config
+        done
+done
+```
