@@ -62,3 +62,16 @@ do
         done
 done
 ```
+
+## Pour indiquer que l'instance précédente est arrétée
+
+```bash
+docker exec smoke_r6d rm /var/run/smokeping/smokeping.pid
+```
+
+Suivi de 
+
+```bash
+docker restart smoke_r6d
+```
+
