@@ -10,7 +10,7 @@
     $ git remote rm origin
     ```
 
-* extraction : on ne garde que le dossier `sql` et son historique :
+* extraction : on ne garde que le dossier `sql` et son historique
 
     ```bash
     $ git filter-branch --subdirectory-filter sql -- --all
@@ -25,7 +25,7 @@
 
 * ajout du nouveau remote
 
-    ``bash
+    ```bash
     $ git remote add origin <url>
     ```
 
