@@ -22,7 +22,7 @@ dpkg : erreur de traitement de /var/cache/apt/archives/cupsys_1.3.7-4_amd64.deb 
 dpkg-deb: sous-processus paste tué par le signal (Relais brisé (pipe))
 ```
 
-## Pour les utilisateurs de `dpkg`
+## Avec `dpkg`
 
 Une solution est indiqué dans le même thread.
 
@@ -30,7 +30,7 @@ Une solution est indiqué dans le même thread.
 $ dpkg -i --force-overwrite cupsys_1.3.7-4_amd64.deb
 ```
 
-## Pour les utilisateur d'aptitude
+## Avec `aptitude`
 
 ```bash
 $  apt-get -o Dpkg::Options::="--force-overwrite" <nom du paquet>
@@ -61,30 +61,6 @@ dpkg : avertissement : problème contourné par utilisation de --force :
 dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-ds1553.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
 dpkg : avertissement : problème contourné par utilisation de --force :
 dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-max8907.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
-dpkg : avertissement : problème contourné par utilisation de --force :
-dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-bq32k.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
-dpkg : avertissement : problème contourné par utilisation de --force :
-dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-ds1672.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
-dpkg : avertissement : problème contourné par utilisation de --force :
-dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-max6900.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
-dpkg : avertissement : problème contourné par utilisation de --force :
-dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-rv3029c2.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
-dpkg : avertissement : problème contourné par utilisation de --force :
-dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-ds1390.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
-dpkg : avertissement : problème contourné par utilisation de --force :
-dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-ds1374.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
-dpkg : avertissement : problème contourné par utilisation de --force :
-dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-ds1742.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
-dpkg : avertissement : problème contourné par utilisation de --force :
-dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-r9701.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
-dpkg : avertissement : problème contourné par utilisation de --force :
-dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-pcf2123.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
-dpkg : avertissement : problème contourné par utilisation de --force :
-dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-ds1305.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
-dpkg : avertissement : problème contourné par utilisation de --force :
-dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-ds2404.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
-dpkg : avertissement : problème contourné par utilisation de --force :
-dpkg : avertissement : tentative de remplacement de « /lib/modules/3.13.0-46-generic/kernel/drivers/rtc/rtc-m48t86.ko », qui appartient aussi au paquet linux-image-3.13.0-46-generic 3.13.0-46.79~precise1
 
 [...]
 
