@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Comment installer un paquet récalcitrant sous Ubuntu / Debian-like ?"
-date: 2015-02-17 23:06:000 +0100
+date: 2015-03-16 13:43:000 +0100
 comments: false
 tags: [adminsys]
 ---
