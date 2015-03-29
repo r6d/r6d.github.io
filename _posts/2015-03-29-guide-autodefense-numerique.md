@@ -35,3 +35,14 @@ Extrait de la page d'accueil de [https://guide.boum.org/](https://guide.boum.org
 
 * [Tome 1 du Guide d'autodéfense numérique (pdf, copie locale, 3eme edition 2013)](/assets/files/2015/03/guide-tome1-a4-20140828.pdf)
 * [Tome 2 du Guide d'autodéfense numérique (pdf, copie locale, 3eme edition 2013)](/assets/files/2015/03/guide-tome2-a4-20140828.pdf)
+
+## Ils en parlent
+
+* [reflets.info](http://reflets.info/un-guide-dautodefense-numerique-indispensable/)
+* [linuxfr.org](http://linuxfr.org/news/parution-du-second-tome-du-guide-d-autodefense-numerique)
+* []()
+
+## Du même sujet
+
+* [Autodéfense courriel par la Free Software Fondation](https://emailselfdefense.fsf.org/fr/)
+* [Vie privée - Données personnelles, La Quadrature du Net](https://laquadrature.net/fr/vie_privee/)
