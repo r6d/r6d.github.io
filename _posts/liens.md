@@ -45,7 +45,8 @@
 * [BGP, monitoring, routeviews.org](http://www.routeviews.org)
 * [BGP, monitoring, ripe.net/ris](https://www.ripe.net/data-tools/stats/ris/routing-information-service)
 * [AS112, bortzmeyer.org](http://www.bortzmeyer.org/6304.html)
-* [DNS pour numéro de telephone, ENUM](http://danielpocock.com/a-quick-look-at-enum)
+* [DNS pour numéro de telephone: ENUM, danielpocock.com](http://danielpocock.com/a-quick-look-at-enum)
+* [Le source-specific routing sous linux 3.12 et supérieur, swordarmor.fr](https://www.swordarmor.fr/le-source-specific-routing-sous-linux-312-et-superieur.html)
 
 ## Gestion des logs
 
