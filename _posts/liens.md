@@ -1,6 +1,12 @@
 
 # Liens
 
+## Artefacts java
+
+* [Tutoriel sanatype](http://central.sonatype.org/pages/ossrh-guide.html)
+* [Demande de création fr.prunetwork](https://issues.sonatype.org/browse/OSSRH-14804)
+* [Tutoriel en fr](http://javaetmoi.developpez.com/tutoriels/java/publication-maven-central/)
+
 ## Elasticsearch
 
 * [tests unitaire java & electicsearch, github.com/tlrx](https://github.com/tlrx/elasticsearch-test)
