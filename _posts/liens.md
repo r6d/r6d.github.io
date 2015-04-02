@@ -45,6 +45,7 @@
 * [BGP, monitoring, routeviews.org](http://www.routeviews.org)
 * [BGP, monitoring, ripe.net/ris](https://www.ripe.net/data-tools/stats/ris/routing-information-service)
 * [AS112, bortzmeyer.org](http://www.bortzmeyer.org/6304.html)
+* [DNS pour numéro de telephone, ENUM](http://danielpocock.com/a-quick-look-at-enum)
 
 ## Gestion des logs
 
