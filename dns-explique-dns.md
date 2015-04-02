@@ -46,17 +46,17 @@ réponse :
 La commande `dig` est appelée avec plusieurs paramètres :
 
 * `@ns1.statdns.com` : indique quel résolveur utiliser pour répondre à la question posée
-* `ascii.statdns.org` : indique quel est le nom de dommaine de la question
-* `naptr`  : indique le type d'information souhaitée (ici du tetxe. Le DNS ne stocke pas que des adresses IP)
+* `ascii.statdns.org` : indique quel est le nom de domaine de la question
+* `naptr`  : indique le type d'information souhaitée (ici du texte. Le DNS ne stocke pas que des adresses IP)
 * `+short` : indique que l'on souhaite l'affichage minimal de dig = seulement la réponse à la question sans fioriture
 
 ### Que dit le schéma du résultat ?
 
-Le schéma indique les différentes activités qui sont réalisées dans le cas d'une requete (query) dns posée par l'utilisteur (user).
+Le schéma indique les différentes activités qui sont réalisées dans le cas d'une requête (query) dns posée par l'utilisateur (user).
 En pratique il s'agit d'un programme sur l'ordinateur de l'utilisateur.
 
-Le mécanisme de résolution des requetes distingue deux types de serveur DNS.
+Le mécanisme de résolution des requêtes distingue deux types de serveur DNS.
 
-* les résolveurs d'un cotés, qui s'occupent de chercher la réponse à la question, quitte à poser la question à plusieurs (autres) serveurs.
-* les serveurs faisant authorité, qui "détiennent la vérité" sur une ou plusieurs zones. Une zone est un ensemble d'enregistrements.
+* les résolveurs d'un côté, qui s'occupent de chercher la réponse à la question, quitte à poser la question à plusieurs (autres) serveurs.
+* les serveurs faisant autorité, qui "détiennent la vérité" sur une ou plusieurs zones. Une zone est un ensemble d'enregistrements.
 
