@@ -3,7 +3,7 @@ layout: post
 title: "Guide d'autodéfense numérique, Pour référence"
 date: 2015-03-29 17:33:000 +0200
 comments: false
-tags: [adminsys]
+tags: []
 ---
 
 # Guide de défense numérique - Cyberfoutaise ?
@@ -40,7 +40,6 @@ Extrait de la page d'accueil de [https://guide.boum.org/](https://guide.boum.org
 
 * [reflets.info](http://reflets.info/un-guide-dautodefense-numerique-indispensable/)
 * [linuxfr.org](http://linuxfr.org/news/parution-du-second-tome-du-guide-d-autodefense-numerique)
-* []()
 
 ## Du même sujet
 
