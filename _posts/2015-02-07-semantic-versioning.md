@@ -201,4 +201,5 @@ Si vous souhaitez laisser des commentaires, veuillez [ouvrir un ticket sur GitHu
 
 ##  Licence
 
+![logo creative common by 3.0](http://i.creativecommons.org/l/by/3.0/88x31.png)
 [Creative Commons - CC BY 3.0](http://creativecommons.org/licenses/by/3.0/)
