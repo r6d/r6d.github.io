@@ -45,8 +45,8 @@ Lors des test, il est également utile d'avoir des données à charger rapidemen
 
 Options : 
 
-1. charger un jeux de données tout prêt, par exemple [shakespeare.json](http://www.elasticsearch.org/guide/en/kibana/current/using-kibana-for-the-first-time.html)
-
+1. charger un jeux de données tout prêt, par exemple [shakespeare.json](http://www.elastic.co/guide/en/kibana/3.0/snippets/shakespeare.json)
+2. 
 	En utilisant `curl` :
 	
 	```
