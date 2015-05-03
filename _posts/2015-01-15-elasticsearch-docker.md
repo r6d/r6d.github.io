@@ -22,11 +22,11 @@ Dès qu'elles sont terminées, les données sont perdues.
 Voici comment lancer rapidement un cluster de 5 instances, on parle de `noeud`ou de `node` en utilisant [docker](http://www.docker.io).
 
 ```bash
-$ docker run --rm -it -p 19200:9200 -p 19300:9300 dockerfile/elasticsearch 
-$ docker run --rm -it -p 29200:9200 -p 29300:9300 dockerfile/elasticsearch 
-$ docker run --rm -it -p 39200:9200 -p 39300:9300 dockerfile/elasticsearch
-$ docker run --rm -it -p 49200:9200 -p 49300:9300 dockerfile/elasticsearch
-$ docker run --rm -it -p 59200:9200 -p 59300:9300 dockerfile/elasticsearch
+$ docker run --rm -it -p 19200:9200 -p 19300:9300 elasticsearch 
+$ docker run --rm -it -p 29200:9200 -p 29300:9300 elasticsearch 
+$ docker run --rm -it -p 39200:9200 -p 39300:9300 elasticsearch
+$ docker run --rm -it -p 49200:9200 -p 49300:9300 elasticsearch
+$ docker run --rm -it -p 59200:9200 -p 59300:9300 elasticsearch
 ```
 
 L'exécution de ces commandes dans des terminaux différents permet d'obtenir une réponse pour chacune des url :
