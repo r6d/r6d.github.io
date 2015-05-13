@@ -60,3 +60,7 @@ Le mécanisme de résolution des requêtes distingue deux types de serveur DNS.
 * les résolveurs d'un côté, qui s'occupent de chercher la réponse à la question, quitte à poser la question à plusieurs (autres) serveurs.
 * les serveurs faisant autorité, qui "détiennent la vérité" sur une ou plusieurs zones. Une zone est un ensemble d'enregistrements.
 
+## Licence
+
+![logo creative common by-sa 3.0](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
+[Creative Commons Paternité – Partage à l’Identique 3.0 non transcrit](http://creativecommons.org/licenses/by-sa/3.0/)

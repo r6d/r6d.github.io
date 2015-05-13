@@ -62,3 +62,9 @@ $ docker -d --ipv6 --fixed-cidr-v6="2001:41d0:8:9875:40::1/80" --ip-forward=true
 ```bash
 $ docker run --rm -it ubuntu bash -c "ip -6 addr show dev eth0; ip -6 route show" --ipv6
 ```
+
+
+## Licence
+
+![logo creative common by-sa 3.0](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
+[Creative Commons Paternité – Partage à l’Identique 3.0 non transcrit](http://creativecommons.org/licenses/by-sa/3.0/)

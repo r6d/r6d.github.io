@@ -21,3 +21,8 @@ int main(void) {
 	return 0;
 }
 ~~~~
+
+## Licence
+
+![logo creative common by-sa 3.0](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
+[Creative Commons Paternité – Partage à l’Identique 3.0 non transcrit](http://creativecommons.org/licenses/by-sa/3.0/)

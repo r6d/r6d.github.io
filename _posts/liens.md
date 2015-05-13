@@ -117,3 +117,8 @@
 ## Construction
 
 * [maison à eau, futura-sciences.com](http://www.futura-sciences.com/magazines/maison/infos/actu/d/revetement-maison-entouree-eau-economiser-energie-57184)
+
+## Licence
+
+![logo creative common by-sa 3.0](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
+[Creative Commons Paternité – Partage à l’Identique 3.0 non transcrit](http://creativecommons.org/licenses/by-sa/3.0/)

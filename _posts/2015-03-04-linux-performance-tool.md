@@ -19,3 +19,8 @@ L'image n'est pas de moi, voici le lien vers [l'image d'origine](http://www.bren
 Par souci de disponibilité, la voici copiée en local :
 
 ![](/assets/files/2015/03/linux_observability_tools.png)
+
+## Licence
+
+![logo creative common by-sa 3.0](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
+[Creative Commons Paternité – Partage à l’Identique 3.0 non transcrit](http://creativecommons.org/licenses/by-sa/3.0/)

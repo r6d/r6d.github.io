@@ -17,3 +17,8 @@ Le titre original est : _In Honor Of The Internet Turning 45 Today, Here Is Its 
 Une copie locale :
 
 <video src="http://www.r6d.eu/assets/files/2015/02/internet-first-router.flv" controls>Votre navigateur ne supporte par la balise html5 video.</video>
+
+## Licence
+
+![logo creative common by-sa 3.0](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
+[Creative Commons Paternité – Partage à l’Identique 3.0 non transcrit](http://creativecommons.org/licenses/by-sa/3.0/)
