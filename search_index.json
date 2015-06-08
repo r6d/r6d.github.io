@@ -4,6 +4,7 @@ layout: none
 [
     {% for page in site.pages %}
         {
+            "type": "page",
             "title": "{{ page.title }}",
             "url": "{{ site.url }}{{ page.url }}",
             "path": "{{ page.url }}",
@@ -13,6 +14,7 @@ layout: none
 
     {% for post in site.posts %}
         {
+            "type": "post",
             "title": "{{ post.title }}",
             "url": "{{ site.url }}{{ post.url }}",
             "path": "{{ post.url }}",
