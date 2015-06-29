@@ -1,4 +1,8 @@
-# jekyll-table-of-contents
+# R6D.eu
+
+This blog is a way to publish some tips and scripts.
+
+## jekyll-table-of-contents
 
 A simple JavaScript table of contents generator. Works well with [jekyll](https://github.com/mojombo/jekyll) static sites. At [Tanda](https://www.tanda.co) we are using it for our [help pages](https://github.com/ghiculescu/payaus-docs).
 
