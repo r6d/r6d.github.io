@@ -98,12 +98,14 @@
 ### DCRI-compliant
 
 * [Babar, @bortzmeyer](http://seenthis.net/messages/343443)
+* [Zone d'Intérêt: Ce que les sources administratives révèlent de la DGSE](http://zonedinteret.blogspot.fr/2013/09/ce-que-les-sources-administratives.html)
 
 ### Probable NSA-compliant / GCHQ
 
 * [Gemalto, carte sim, techcrunch.com](http://techcrunch.com/2015/02/19/the-nsa-reportedly-stole-millions-of-sim-encryption-keys-to-gather-private-data/)
 * [Fanny, journaldugeek.com](http://www.journaldugeek.com/2015/02/17/fanny-larme-de-piratage-massif-de-la-nsa/)
 * [Avez-vous été espionné illégalement ? Une ONG vous donne la réponse, journaldugeek.com](http://www.journaldugeek.com/2015/02/17/avez-vous-ete-espionne-illegalement-une-ong-vous-donne-la-reponse/)
+* [NSA Laughs at PCs, Prefers Hacking Routers and Switches,  Wired.com](http://www.wired.com/2013/09/nsa-router-hacking/)
 
 ### Disque dur
 
@@ -133,6 +135,7 @@
 ## Chaine vidéo
 
 * [Golden Moustache, youtube](https://www.youtube.com/channel/UCJruTcTs7Gn2Tk7YC-ENeHQ)
+* [Pourquoi j'ai quitté facebook, Golden Moustache, youtube](https://youtu.be/XP1AU6z_NGI)
 
 ## Licence
 
