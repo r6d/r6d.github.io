@@ -21,6 +21,9 @@
 ## RabbitMQ
 
 * [Routing Topologies for Performance and Scalability with RabbitMQ, spring.io](http://spring.io/blog/2011/04/01/routing-topologies-for-performance-and-scalability-with-rabbitmq/)
+* [2 Lessons on RabbitMQ from HighLoad – Extending the server with Plugins and HA Queues, vmware.com](http://blogs.vmware.com/vfabric/2012/11/2-lessons-on-rabbitmq-from-highload-extending-the-server-with-plugins-and-ha-queues.html)
+* [How to compose apps using WebSockets, rabbitmq.com](http://www.rabbitmq.com/blog/2012/02/23/how-to-compose-apps-using-websockets/)
+* [How Instagram Feeds Work: Celery and RabbitMQ, vmware.com](http://blogs.vmware.com/vfabric/2013/04/how-instagram-feeds-work-celery-and-rabbitmq.html )
 
 ## Regexp
 
@@ -100,6 +103,10 @@
 * [Babar, @bortzmeyer](http://seenthis.net/messages/343443)
 * [Zone d'Intérêt: Ce que les sources administratives révèlent de la DGSE](http://zonedinteret.blogspot.fr/2013/09/ce-que-les-sources-administratives.html)
 * [Allo ?! Bercy ? ah non… #Spavou ?! (rebranding AMESIS), reflet.net](https://reflets.info/allo-bercy-ah-non-spavou/)
+
+### USA renseignement
+
+* [La CIA reconnaît avoir orchestré le coup d'Etat iranien de 1953, liberation.fr](http://www.liberation.fr/monde/2013/08/20/la-cia-reconnait-avoir-orchestre-le-coup-d-etat-iranien-de-1953_925833)
 
 ### Probable NSA-compliant / GCHQ
 
