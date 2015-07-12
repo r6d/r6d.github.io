@@ -54,6 +54,12 @@
 * [DNS pour numéro de telephone: ENUM, danielpocock.com](http://danielpocock.com/a-quick-look-at-enum)
 * [Le source-specific routing sous linux 3.12 et supérieur, swordarmor.fr](https://www.swordarmor.fr/le-source-specific-routing-sous-linux-312-et-superieur.html)
 
+### Outils FAI
+
+* [Github, Neutrinet](https://github.com/Neutrinet)
+* [www, Neutrinet](http://neutrinet.be/)
+* [Gitlab, CapsLock](https://git.legeox.net/explore/projects)
+
 ## Gestion des logs
 
 * [octopussy.pm](http://www.octopussy.pm/screenshots)
@@ -73,6 +79,7 @@
 
 * [geocloud icontainer docker, registry.docker.com](https://registry.hub.docker.com/u/mapcentia/gc2/)
 * [possibilité geocloud, mapcentia.com](http://www.mapcentia.com/en/geocloud/features.htm#elasticsearch)
+* [éditeur solution géographique, 3liz](http://www.3liz.com/)
 
 ## Logiciel Libre
 
@@ -93,7 +100,7 @@
 * [Fanny, journaldugeek.com](http://www.journaldugeek.com/2015/02/17/fanny-larme-de-piratage-massif-de-la-nsa/)
 * [Avez-vous été espionné illégalement ? Une ONG vous donne la réponse, journaldugeek.com](http://www.journaldugeek.com/2015/02/17/avez-vous-ete-espionne-illegalement-une-ong-vous-donne-la-reponse/)
 
-### dDsque dur
+### Disque dur
 
 * [firmware DD, spritesmods.com](http://spritesmods.com/?art=hddhack&page=all)
 * [Un logiciel espion extrêmement sophistiqué a infecté des disques durs depuis près de 2 décennies, la NSA serait à l'origine](http://www.developpez.com/actu/81461/Un-logiciel-espion-extremement-sophistique-a-infecte-des-disques-durs-depuis-pres-de-2-decennies-la-NSA-serait-a-l-origine/)
@@ -117,6 +124,10 @@
 ## Construction
 
 * [maison à eau, futura-sciences.com](http://www.futura-sciences.com/magazines/maison/infos/actu/d/revetement-maison-entouree-eau-economiser-energie-57184)
+
+## Chaine vidéo
+
+* [Golden Moustache, youtube](https://www.youtube.com/channel/UCJruTcTs7Gn2Tk7YC-ENeHQ)
 
 ## Licence
 
