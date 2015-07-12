@@ -95,10 +95,11 @@
 
 * [Textes de référence pour la protection des systèmes d'information, ANSSI](http://www.ssi.gouv.fr/entreprise/reglementation/protection-des-systemes-dinformations/)
 
-### DCRI-compliant
+### France renseignement
 
 * [Babar, @bortzmeyer](http://seenthis.net/messages/343443)
 * [Zone d'Intérêt: Ce que les sources administratives révèlent de la DGSE](http://zonedinteret.blogspot.fr/2013/09/ce-que-les-sources-administratives.html)
+* [Allo ?! Bercy ? ah non… #Spavou ?! (rebranding AMESIS), reflet.net](https://reflets.info/allo-bercy-ah-non-spavou/)
 
 ### Probable NSA-compliant / GCHQ
 
