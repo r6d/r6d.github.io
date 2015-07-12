@@ -18,6 +18,10 @@
 * [D + logstash, github.com](https://github.com/pblittle/docker-logstash)
 * [activation IPv6, docker.com](http://docs.docker.com/v1.5/articles/networking/#ipv6)
 
+## RabbitMQ
+
+* [Routing Topologies for Performance and Scalability with RabbitMQ, spring.io](http://spring.io/blog/2011/04/01/routing-topologies-for-performance-and-scalability-with-rabbitmq/)
+
 ## Regexp
 
 * [Mail, RFC822](http://www.ex-parrot.com/~pdw/Mail-RFC822-Address.html)
