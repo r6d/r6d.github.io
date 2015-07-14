@@ -1,23 +1,23 @@
 
 # Liens
 
+## Logiciel
+
 ## Artefacts java
 
 * [Tutoriel sonatype](http://central.sonatype.org/pages/ossrh-guide.html)
 * [Demande de création fr.prunetwork](https://issues.sonatype.org/browse/OSSRH-14804)
 * [Tutoriel en français pour publier sur maven-central](http://javaetmoi.developpez.com/tutoriels/java/publication-maven-central/)
 
-## Logiciel
-
 ### Elasticsearch
 
 * [tests unitaire java & electicsearch, github.com/tlrx](https://github.com/tlrx/elasticsearch-test)
-* [MVC GOOGLE MAPS SEARCH USING ELASTICSEARCH](https://damienbod.wordpress.com/2015/01/07/mvc-google-maps-search-using-elasticsearch/)
-* [Making Jekyll searchable with elasticearch, webbrick.com](http://webbrickworks.com/blog/2013/06/27/making-jekyll-searchable-with-elasticearch.html)
+* [MVC Google Maps search using Elasticsearch](https://damienbod.wordpress.com/2015/01/07/mvc-google-maps-search-using-elasticsearch/)
+* [Rendre un site Jekyll recherchable avec Elasticsearch, webbrick.com](http://webbrickworks.com/blog/2013/06/27/making-jekyll-searchable-with-elasticearch.html)
 
 ### Docker
 
-* [D + logstash, github.com](https://github.com/pblittle/docker-logstash)
+* [Docker + logstash, github.com](https://github.com/pblittle/docker-logstash)
 * [activation IPv6, docker.com](http://docs.docker.com/v1.5/articles/networking/#ipv6)
 
 ### RabbitMQ
