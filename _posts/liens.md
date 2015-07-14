@@ -3,43 +3,47 @@
 
 ## Artefacts java
 
-* [Tutoriel sanatype](http://central.sonatype.org/pages/ossrh-guide.html)
+* [Tutoriel sonatype](http://central.sonatype.org/pages/ossrh-guide.html)
 * [Demande de création fr.prunetwork](https://issues.sonatype.org/browse/OSSRH-14804)
-* [Tutoriel en fr](http://javaetmoi.developpez.com/tutoriels/java/publication-maven-central/)
+* [Tutoriel en français pour publier sur maven-central](http://javaetmoi.developpez.com/tutoriels/java/publication-maven-central/)
 
-## Elasticsearch
+## Logiciel
+
+### Elasticsearch
 
 * [tests unitaire java & electicsearch, github.com/tlrx](https://github.com/tlrx/elasticsearch-test)
 * [MVC GOOGLE MAPS SEARCH USING ELASTICSEARCH](https://damienbod.wordpress.com/2015/01/07/mvc-google-maps-search-using-elasticsearch/)
 * [Making Jekyll searchable with elasticearch, webbrick.com](http://webbrickworks.com/blog/2013/06/27/making-jekyll-searchable-with-elasticearch.html)
 
-## Docker
+### Docker
 
 * [D + logstash, github.com](https://github.com/pblittle/docker-logstash)
 * [activation IPv6, docker.com](http://docs.docker.com/v1.5/articles/networking/#ipv6)
 
-## RabbitMQ
+### RabbitMQ
 
 * [Routing Topologies for Performance and Scalability with RabbitMQ, spring.io](http://spring.io/blog/2011/04/01/routing-topologies-for-performance-and-scalability-with-rabbitmq/)
 * [2 Lessons on RabbitMQ from HighLoad – Extending the server with Plugins and HA Queues, vmware.com](http://blogs.vmware.com/vfabric/2012/11/2-lessons-on-rabbitmq-from-highload-extending-the-server-with-plugins-and-ha-queues.html)
 * [How to compose apps using WebSockets, rabbitmq.com](http://www.rabbitmq.com/blog/2012/02/23/how-to-compose-apps-using-websockets/)
 * [How Instagram Feeds Work: Celery and RabbitMQ, vmware.com](http://blogs.vmware.com/vfabric/2013/04/how-instagram-feeds-work-celery-and-rabbitmq.html )
 
-## Regexp
+## Traitements texte & langages
+
+### Regexp
 
 * [Mail, RFC822](http://www.ex-parrot.com/~pdw/Mail-RFC822-Address.html)
 * [regexcrossword.com](http://regexcrossword.com/)
 * [test en ligne de regexp, regex101.com](https://www.regex101.com/)
 
-## Markdown
+### Markdown
 
 * [images clicables](http://meta.stackexchange.com/a/2191)
-* [syntaxe par l'exemmple](http://dev.ggouv.fr/wiki/group/219/page/1080/Le-language-Markdown)
-* [image docker de pandoc](https://registry.hub.docker.com/u/jagregory/pandoc/)
+* [syntaxe par l'exemple](http://dev.ggouv.fr/wiki/group/219/page/1080/Le-language-Markdown)
+* [image docker de pandoc, docker.com](https://registry.hub.docker.com/u/jagregory/pandoc/)
 
 ## Java
 
-* [@FunctionalInterface](http://java.dzone.com/articles/introduction-functional-1)
+* [@FunctionalInterface,  java.dzone.com](http://java.dzone.com/articles/introduction-functional-1)
 * [design pattern, exemples en java, SO](http://stackoverflow.com/a/1673862)
 * [encodage URL, excilys.com](http://blog.excilys.com/2015/02/18/encoder-correctement-une-url-en-java/)
 
@@ -94,17 +98,17 @@
 * [On <3 le logiciel libre !, framablog](http://framablog.org/2015/02/14/on-love-logiciel-libre/)
 * [J’aime le logiciel libre, framablog](http://framablog.org/2015/02/14/jaime-le-logiciel-libre/)
 
-## Infosec
+## Infosec & Renseignement
 
 * [Textes de référence pour la protection des systèmes d'information, ANSSI](http://www.ssi.gouv.fr/entreprise/reglementation/protection-des-systemes-dinformations/)
 
-### France renseignement
+### France
 
 * [Babar, @bortzmeyer](http://seenthis.net/messages/343443)
 * [Zone d'Intérêt: Ce que les sources administratives révèlent de la DGSE](http://zonedinteret.blogspot.fr/2013/09/ce-que-les-sources-administratives.html)
 * [Allo ?! Bercy ? ah non… #Spavou ?! (rebranding AMESIS), reflet.net](https://reflets.info/allo-bercy-ah-non-spavou/)
 
-### USA renseignement
+### UK/USA
 
 * [La CIA reconnaît avoir orchestré le coup d'Etat iranien de 1953, liberation.fr](http://www.liberation.fr/monde/2013/08/20/la-cia-reconnait-avoir-orchestre-le-coup-d-etat-iranien-de-1953_925833)
 
