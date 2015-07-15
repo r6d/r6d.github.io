@@ -12,7 +12,7 @@ L'installation d'un serveur GNU/Linux s'accompagne de l'installation du système
 
 ```bash
 aptitude update 
-aptitude install byobu htop atop curl
+aptitude install byobu htop atop curl git
 
 ```
 
