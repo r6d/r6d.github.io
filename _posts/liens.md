@@ -149,8 +149,11 @@
 * [Golden Moustache, youtube](https://www.youtube.com/channel/UCJruTcTs7Gn2Tk7YC-ENeHQ)
 * [Pourquoi j'ai quitté facebook, Golden Moustache, youtube](https://youtu.be/XP1AU6z_NGI)
 
+## Design & Architecture
 
-# Outils WEB
+* [Tweeting from KBlog: An Experiment in Loose Coupling](http://www.windley.com/archives/2011/04/tweeting_from_kblog_thoughts_about_loose_coupling.shtml)
+
+## Outils WEB
 
 ## SQL
 
