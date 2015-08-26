@@ -152,6 +152,7 @@
 ## Design & Architecture
 
 * [Tweeting from KBlog: An Experiment in Loose Coupling](http://www.windley.com/archives/2011/04/tweeting_from_kblog_thoughts_about_loose_coupling.shtml)
+* [Writing Efficient State Machines in C](http://johnsantic.com/comp/state.html)
 
 ## Outils WEB
 
