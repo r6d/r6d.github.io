@@ -149,6 +149,13 @@
 * [Golden Moustache, youtube](https://www.youtube.com/channel/UCJruTcTs7Gn2Tk7YC-ENeHQ)
 * [Pourquoi j'ai quitté facebook, Golden Moustache, youtube](https://youtu.be/XP1AU6z_NGI)
 
+
+# Outils WEB
+
+## SQL
+
+* [Retour d'expérielce SQL.js, linuxfr](http://linuxfr.org/news/retour-d-experience-sur-sql-js)
+
 ## Licence
 
 ![logo creative common by-sa 3.0](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
