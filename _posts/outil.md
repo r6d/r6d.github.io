@@ -1,35 +1,37 @@
-# serveur
+# Liste d'applications
+
+Voici une liste d'applications couramment utilisées en précisant leurs rôle.
+
+## Serveur
 
 * docker
-* Tomcat
+* tomcat
 * rabbitmq
 * postfix
 * bind
 * postgresql
 * memcached
 * munin
-*
 
-# documentation
+## Documentation
 
 * markdown
 * pandoc (html, pdf)
 * doxygen
 
-# développement
+## Développement
 
 * git
 * make
 * intellij
 
-# suvi, gestion
+# Suvi et gestion de projet
 
 * jira
 * scrum
 * ms project
 
-
-# a RANGER
+## À RANGER
 
 * etherpad
 * scrumblr
