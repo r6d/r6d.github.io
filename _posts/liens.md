@@ -149,6 +149,17 @@
 * [Golden Moustache, youtube](https://www.youtube.com/channel/UCJruTcTs7Gn2Tk7YC-ENeHQ)
 * [Pourquoi j'ai quitté facebook, Golden Moustache, youtube](https://youtu.be/XP1AU6z_NGI)
 
+## Design & Architecture
+
+* [Tweeting from KBlog: An Experiment in Loose Coupling](http://www.windley.com/archives/2011/04/tweeting_from_kblog_thoughts_about_loose_coupling.shtml)
+* [Writing Efficient State Machines in C](http://johnsantic.com/comp/state.html)
+
+## Outils WEB
+
+## SQL
+
+* [Retour d'expérielce SQL.js, linuxfr](http://linuxfr.org/news/retour-d-experience-sur-sql-js)
+
 ## Licence
 
 ![logo creative common by-sa 3.0](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
