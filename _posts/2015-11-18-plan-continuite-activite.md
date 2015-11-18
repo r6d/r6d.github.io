@@ -66,7 +66,7 @@ L’on cherche à couvrir ici les scénarios conduisant à « un niveau d’acti
 ### Formaliser les moyens et les procédures
 
 C’est ici que l’on entre dans le concret : il s’agit de créer ou de sourcer les moyens redondants qui devront être disponibles à l’activation du PCA.
-Il peut s’agir de palettes de postes de travail mis de côté, de la construction d’une salle informatique de secours, mais aussi de la recherche de partenaires ou de prestataires capables d’intervenir durant la crise (fourniture de matériel, de puissance de calcul, de réseau, de communication, de positions de travail, etc…).
+Il peut s’agir de palettes de postes de travail mis de côté, de la construction d’une salle informatique de secours, mais aussi de la recherche de partenaires ou de prestataires capables d’intervenir durant la crise (fourniture de matériel, de puissance de calcul, de réseau, de communication, de positions de travail, etc...).
 
 Evidemment les ressources seules ne servent à rien et il faudra les accompagner des procédures nécessaires afin de savoir exactement comment les mettre en oeuvre le jour venu.
 
