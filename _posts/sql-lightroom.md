@@ -20,18 +20,15 @@ FROM AgLibraryKeyword;
 -- get list of all files with keyword id 88890
 SELECT stackParent_fileName, stackParent____colorLabels, rating
 FROM Adobe_images AS a
-  JOIN AgLibraryKeywordImage AS b
-WHERE b.tag=88890
-  AND a.id_local=b.image;
+  JOIN AgLibraryKeywordImage AS b ON a.id_local=b.image
+WHERE b.tag=88890;
 
 -- get list of all files for keyword Bob
 SELECT stackParent_fileName, stackParent____colorLabels, rating
 FROM Adobe_images AS a
-  JOIN AgLibraryKeywordImage AS b
-  JOIN AgLibraryKeyword AS c
-WHERE c.name="Bob"
-  AND b.tag=c.id_local
-  AND a.id_local=b.image;
+  JOIN AgLibraryKeywordImage AS b ON a.id_local=b.image
+  JOIN AgLibraryKeyword AS c ON b.tag=c.id_local
+WHERE c.name="Bob";
 
 -- get list of all files with color label Green
 SELECT stackParent_fileName, stackParent____colorLabels, rating
@@ -41,53 +38,39 @@ WHERE stackParent____colorLabels is "Green";
 -- get list of all files with a 4 star rating in a folder named Holiday
 SELECT stackParent_fileName, foldername.name, rating
 FROM Adobe_images AS info
-  JOIN AgLibraryRootFolder AS foldername
-  JOIN AgLibraryFolder AS folderid
-  JOIN AgLibraryFile AS filetofolder
+  JOIN AgLibraryRootFolder AS foldername ON foldername.id_local=folderid.rootFolder
+  JOIN AgLibraryFolder AS folderid ON folderid.id_local=filetofolder.folder
+  JOIN AgLibraryFile AS filetofolder ON filetofolder.id_local=info.rootFile
 WHERE foldername.name="Holiday"
-  AND foldername.id_local=folderid.rootFolder
-  AND folderid.id_local=filetofolder.folder
-  AND filetofolder.id_local=info.rootFile
   AND rating=4.0;
 
 -- get list of all files with pick=0 and color label Green in a folder named Holiday
 SELECT stackParent_fileName, foldername.name, rating, colorLabels
 FROM Adobe_images AS info
-  JOIN AgLibraryRootFolder AS foldername
-  JOIN AgLibraryFolder AS folderid
-  JOIN AgLibraryFile AS filetofolder
+  JOIN AgLibraryRootFolder AS foldername ON foldername.id_local=folderid.rootFolder
+  JOIN AgLibraryFolder AS folderid ON folderid.id_local=filetofolder.folder
+  JOIN AgLibraryFile AS filetofolder ON filetofolder.id_local=info.rootFile
 WHERE foldername.name="Holiday"
-  AND foldername.id_local=folderid.rootFolder
-  AND folderid.id_local=filetofolder.folder
-  AND filetofolder.id_local=info.rootFile
   AND info.pick=0.0
   AND info.colorLabels="Green";
 
 -- get list of all files with their associated keywords (but only files with a keyword)
 SELECT stackParent_fileName, foldername.name, keywordstofiles.name, rating, colorLabels
 FROM Adobe_images AS info
-  JOIN AgLibraryRootFolder AS foldername
-  JOIN AgLibraryFolder AS folderid
-  JOIN AgLibraryFile AS filetofolder
-  JOIN AgLibraryKeywordImage AS keyworddirectory
-  JOIN AgLibraryKeyword AS keywordstofiles
-WHERE keyworddirectory.tag is not null
-  AND keyworddirectory.tag=keywordstofiles.id_local
-  AND info.id_local=keyworddirectory.image
-  AND foldername.id_local=folderid.rootFolder
-  AND folderid.id_local=filetofolder.folder
-  AND filetofolder.id_local=info.rootFile;
+  JOIN AgLibraryRootFolder AS foldername ON foldername.id_local=folderid.rootFolder
+  JOIN AgLibraryFolder AS folderid ON folderid.id_local=filetofolder.folder
+  JOIN AgLibraryFile AS filetofolder ON filetofolder.id_local=info.rootFile
+  JOIN AgLibraryKeywordImage AS keyworddirectory ON keyworddirectory.image=info.id_local
+  JOIN AgLibraryKeyword AS keywordstofiles ON keywordstofiles.id_local=keyworddirectory.tag
+WHERE keyworddirectory.tag is not null;
 
 -- get list of all files with their rating (but only files with a rating)
 SELECT stackParent_fileName, foldername.name, rating, colorLabels
 FROM Adobe_images AS info
-  JOIN AgLibraryRootFolder AS foldername
-  JOIN AgLibraryFolder AS folderid
-  JOIN AgLibraryFile AS filetofolder
-WHERE info.rating is not null
-  AND foldername.id_local=folderid.rootFolder
-  AND folderid.id_local=filetofolder.folder
-  AND filetofolder.id_local=info.rootFile;
+  JOIN AgLibraryRootFolder AS foldername ON foldername.id_local=folderid.rootFolder
+  JOIN AgLibraryFolder AS folderid ON folderid.id_local=filetofolder.folder
+  JOIN AgLibraryFile AS filetofolder ON filetofolder.id_local=info.rootFile
+WHERE info.rating is not null;
 
 -- export collections: http://blog.codekills.net/2010/09/12/lightroom--export-a-list-of-pictures-in-a-catalog/
 ```
