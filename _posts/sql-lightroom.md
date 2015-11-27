@@ -25,6 +25,8 @@ WHERE rating NOT NULL;
 ```sql
 -- Distribution des evaluations pour chaque tag
 SELECT rating, name, count(*) AS count FROM Adobe_images AS info JOIN AgLibraryKeywordImage kwi ON info.id_local=kwi.image JOIN AgLibraryKeyword kw ON kw.id_local=kwi.tag GROUP BY name, rating LIMIT 10;
+
+SELECT name, rating, count(*) AS count FROM Adobe_images AS info JOIN AgLibraryKeywordImage kwi ON info.id_local=kwi.image JOIN AgLibraryKeyword kw ON kw.id_local=kwi.tag WHERE rating NOT NULL GROUP BY name, rating ORDER BY count DESC, rating DESC LIMIT 25;
 ```
 
 
