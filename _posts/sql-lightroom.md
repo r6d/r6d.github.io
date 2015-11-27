@@ -1,7 +1,24 @@
 # Extraction de données depuis un catalogue Lightroom
 
 TODO
+```sql
+sqlite3 backup-catalog.lrcat
+.output export.txt
+```
 
+```sql
+-- get all keywords with their id
+SELECT id_local, name
+FROM AgLibraryKeyword;
+
+-- get all images with a rating
+SELECT a.id_local, rating
+FROM Adobe_images AS a
+  JOIN AgLibraryKeywordImage AS b ON a.id_local=b.image
+WHERE rating NOT NULL;
+
+
+```
 
 ## Ressources
 
@@ -10,12 +27,6 @@ TODO
 (Requêtes non testées)
 
 ```sql
-sqlite3 backup-catalog.lrcat
-.output export.txt
-
--- get all keywords with their id
-SELECT id_local, name
-FROM AgLibraryKeyword;
 
 -- get list of all files with keyword id 88890
 SELECT stackParent_fileName, stackParent____colorLabels, rating
