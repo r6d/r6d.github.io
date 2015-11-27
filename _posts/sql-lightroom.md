@@ -20,6 +20,14 @@ WHERE rating NOT NULL;
 
 ```
 
+## WIP Query
+
+```sql
+-- Distribution des evaluations pour chaque tag
+SELECT rating, name, count(*) AS count FROM Adobe_images AS info JOIN AgLibraryKeywordImage kwi ON info.id_local=kwi.image JOIN AgLibraryKeyword kw ON kw.id_local=kwi.tag GROUP BY name, rating LIMIT 10;
+```
+
+
 ## Ressources
 
 * [John07/lightroom-exporting.sql](https://gist.github.com/John07/119fc5d1ea1d84677763)
