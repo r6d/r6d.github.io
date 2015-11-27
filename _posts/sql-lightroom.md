@@ -20,15 +20,15 @@ FROM AgLibraryKeyword;
 -- get list of all files with keyword id 88890
 SELECT stackParent_fileName, stackParent____colorLabels, rating
 FROM Adobe_images AS a
-JOIN AgLibraryKeywordImage AS b
+  JOIN AgLibraryKeywordImage AS b
 WHERE b.tag=88890
   AND a.id_local=b.image;
 
 -- get list of all files for keyword Bob
 SELECT stackParent_fileName, stackParent____colorLabels, rating
 FROM Adobe_images AS a
-JOIN AgLibraryKeywordImage AS b
-JOIN AgLibraryKeyword AS c
+  JOIN AgLibraryKeywordImage AS b
+  JOIN AgLibraryKeyword AS c
 WHERE c.name="Bob"
   AND b.tag=c.id_local
   AND a.id_local=b.image;
@@ -41,9 +41,9 @@ WHERE stackParent____colorLabels is "Green";
 -- get list of all files with a 4 star rating in a folder named Holiday
 SELECT stackParent_fileName, foldername.name, rating
 FROM Adobe_images AS info
-JOIN AgLibraryRootFolder AS foldername
-JOIN AgLibraryFolder AS folderid
-JOIN AgLibraryFile AS filetofolder
+  JOIN AgLibraryRootFolder AS foldername
+  JOIN AgLibraryFolder AS folderid
+  JOIN AgLibraryFile AS filetofolder
 WHERE foldername.name="Holiday"
   AND foldername.id_local=folderid.rootFolder
   AND folderid.id_local=filetofolder.folder
@@ -53,9 +53,9 @@ WHERE foldername.name="Holiday"
 -- get list of all files with pick=0 and color label Green in a folder named Holiday
 SELECT stackParent_fileName, foldername.name, rating, colorLabels
 FROM Adobe_images AS info
-JOIN AgLibraryRootFolder AS foldername
-JOIN AgLibraryFolder AS folderid
-JOIN AgLibraryFile AS filetofolder
+  JOIN AgLibraryRootFolder AS foldername
+  JOIN AgLibraryFolder AS folderid
+  JOIN AgLibraryFile AS filetofolder
 WHERE foldername.name="Holiday"
   AND foldername.id_local=folderid.rootFolder
   AND folderid.id_local=filetofolder.folder
@@ -66,11 +66,11 @@ WHERE foldername.name="Holiday"
 -- get list of all files with their associated keywords (but only files with a keyword)
 SELECT stackParent_fileName, foldername.name, keywordstofiles.name, rating, colorLabels
 FROM Adobe_images AS info
-JOIN AgLibraryRootFolder AS foldername
-JOIN AgLibraryFolder AS folderid
-JOIN AgLibraryFile AS filetofolder
-JOIN AgLibraryKeywordImage AS keyworddirectory
-JOIN AgLibraryKeyword AS keywordstofiles
+  JOIN AgLibraryRootFolder AS foldername
+  JOIN AgLibraryFolder AS folderid
+  JOIN AgLibraryFile AS filetofolder
+  JOIN AgLibraryKeywordImage AS keyworddirectory
+  JOIN AgLibraryKeyword AS keywordstofiles
 WHERE keyworddirectory.tag is not null
   AND keyworddirectory.tag=keywordstofiles.id_local
   AND info.id_local=keyworddirectory.image
@@ -81,9 +81,9 @@ WHERE keyworddirectory.tag is not null
 -- get list of all files with their rating (but only files with a rating)
 SELECT stackParent_fileName, foldername.name, rating, colorLabels
 FROM Adobe_images AS info
-JOIN AgLibraryRootFolder AS foldername
-JOIN AgLibraryFolder AS folderid
-JOIN AgLibraryFile AS filetofolder
+  JOIN AgLibraryRootFolder AS foldername
+  JOIN AgLibraryFolder AS folderid
+  JOIN AgLibraryFile AS filetofolder
 WHERE info.rating is not null
   AND foldername.id_local=folderid.rootFolder
   AND folderid.id_local=filetofolder.folder
