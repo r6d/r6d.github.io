@@ -88,6 +88,8 @@ Explication rapide des options :
 amqp-consume -q "q_dns_ttl" --url=amqp://guest:guest@localhost:5672 -p 1 ~/dig.sh
 ```
 
+![](/assets/files/2015/12/conso2.png)
+
 ## Liens
 
 * [RabbitMQ et Bash, wlanboy.com](http://www.wlanboy.com/tutorial/rabbitmq-bash)
