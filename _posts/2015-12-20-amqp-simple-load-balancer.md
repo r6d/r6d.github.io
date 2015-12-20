@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "RabbitMQ et la répartition de tâche facile"
-date: 2015-12-19 17:00:000 +0100
+date: 2015-12-20 13:30:000 +0100
 comments: false
 tags: [amqp, rabbitmq]
 ---
