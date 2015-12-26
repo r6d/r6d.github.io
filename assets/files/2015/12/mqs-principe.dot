@@ -27,8 +27,12 @@ digraph {
         style=filled;
         color=lightgrey;
         label="broker AMQP";
-        {ex_a} -> {q_b;};
-        {ex_b} -> {q_a; q_c; q_d};
+
+        {ex_a} -> {q_b;}[label="#"];
+
+        {ex_b} -> {q_a;}[label="error.*"];
+        {ex_b} -> {q_c;}[label="*.worker_c"];
+        {ex_b} -> {q_d;}[label="*.store"];
     }
 
     // Liens entrées
