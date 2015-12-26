@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Architecture Orientée Message, Spécification"
+date: 2015-12-26 20:45:000 +0100
+comments: false
+tags: [amqp, rabbitmq, specification]
+---
+
 # Spécification d'une architecture de services orientée messages
 
 ## Introduction
