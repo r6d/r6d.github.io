@@ -29,11 +29,12 @@ J'aimerais :
 * faciliter la supervision des tâches (restantes à exécuter, en cours, ...)
 * ne pas perdre une tâche non finie en cas de crash du worker + redistribution automatique sur un autre worker
 * pouvoir ajouter/supprimer des workers facilement, même s'ils sont sur plusieurs machines. Les tâches sont équitablement réparties entre les workers.
+* pouvoir mettre en oeuvre / déployer la solution sur plusieurs architectures et systèmes d'exploitation dont : x86, x86_64, ARM avec GNU/Linux, Windows, Mac OS X
 
 La solution actuelle utilise différents composants :
 
 * des fichiers sur disque contenant les tâches à exécuter + des scripts lancés à la main pour consommer ces fichiers
-* des commandes transférées en UUCP. Les workers (machines qui exécutent les commandes) récupèrent le travail avec `cron`
+* des commandes transférées en `UUCP`. Les workers (machines qui exécutent les commandes) récupèrent le travail avec `cron`
 
 ### Story Logs
 
@@ -61,7 +62,20 @@ En tant que représentant du métier X, j'aimerais :
 
 ## Architecture
 
+L'architecture proposée est une architecture 3-tiers.
+Les parties sont :
+
+1. les applications qui produisent des messages
+2. le service de routage des messages
+3. les applications qui récupèrent des messages
+
 ![schéma de principe](/assets/files/2015/12/mqs-principe.png)
+
+Notes :
+
+* si une application a besoin de récupérer les résultats en sortie du routage des messages, celle-ci doit établir une seconde connexion au service en tant que consommateur.
+	* exemple 1 : une application qui transforme le format d'un message délimité par des virgules vers un format json
+	* exemple 2 : une application qui réduit la taille d'une image pour générer des vignettes
 
 ## Licence
 
