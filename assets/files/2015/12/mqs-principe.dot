@@ -1,0 +1,41 @@
+digraph {
+    // Expéditeurs
+    app_a1[label="application 1"];
+    app_a2[label="application 2"];
+
+    app_b1[label="application 3"];
+
+    // Point d'échange
+    ex_a[label="exchange I"];
+    ex_b[label="exchange II"];
+
+    // Files d'attente
+    q_a[label="file A"];
+    q_b[label="file B"];
+    q_c[label="file C"];
+    q_d[label="file D"];
+
+    // Consommateur
+    c_a[label="consommateur Alpha"];
+    c_b[label="consommateur Bravo"];
+    c_c[label="consommateur Charlie"];
+    c_d[label="consommateur Delta"];
+
+    subgraph cluster_0 {
+        style=filled;
+        color=lightgrey;
+        label="broker AMQP";
+        {ex_a} -> {q_b;};
+        {ex_b} -> {q_a; q_c; q_d};
+    }
+
+    // Liens entrées
+    {app_a1; app_a2 } -> {ex_b};
+    {app_b1; } -> {ex_a};
+
+    // Liens sorties
+    q_b -> c_a;
+    q_b -> c_b;
+    q_c -> c_c;
+    q_d -> c_d;
+}

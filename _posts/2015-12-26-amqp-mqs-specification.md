@@ -59,6 +59,10 @@ En tant que représentant du métier X, j'aimerais :
 * pouvoir publier/consommer ~5 k message par seconde
 * pouvoir supprimer toutes les tâches en attentes d'une application
 
+## Architecture
+
+![schéma de principe](/assets/files/2015/12/mqs-principe.png)
+
 ## Licence
 
 ![logo creative common by-sa 3.0](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
