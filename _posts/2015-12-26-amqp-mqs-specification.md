@@ -59,6 +59,7 @@ En tant que représentant du métier X, j'aimerais :
 * pouvoir publier/consommer ~5 k message par seconde
 * pouvoir supprimer toutes les tâches en attentes d'une application
 
+## Licence
 
- http://www.rabbitmq.com/resources/BayFP_RabbitMQ_talk_20090408.pdf
-# MQS : Message Queing Service, service de gestion de message en file d'attente
+![logo creative common by-sa 3.0](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
+[Creative Commons Paternité – Partage à l’Identique 3.0 non transcrit](http://creativecommons.org/licenses/by-sa/3.0/)
