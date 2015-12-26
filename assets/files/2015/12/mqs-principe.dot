@@ -1,4 +1,6 @@
 digraph {
+    rankdir=LR;
+
     // Expéditeurs
     app_a1[label="application 1"];
     app_a2[label="application 2"];
