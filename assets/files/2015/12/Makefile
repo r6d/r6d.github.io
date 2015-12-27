@@ -1,6 +1,6 @@
-all:	mqs-principe.png
+all:	mqs-principe.png mqs-impl.png
 	date
 
-mqs-principe.png: mqs-principe.dot
-	dot -Tpng mqs-principe.dot -o mqs-principe.png
- 
+%.png: %.dot
+	dot -Tpng $< -o $@
+
