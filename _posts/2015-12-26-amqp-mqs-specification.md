@@ -3,10 +3,10 @@ layout: post
 title: "Architecture Orientée Message, Spécification"
 date: 2015-12-26 20:45:000 +0100
 comments: false
-tags: [amqp, rabbitmq, specification]
+tags: [amqp, rabbitmq, mom, specification]
 ---
 
-# Spécification d'une architecture de services orientée messages
+# Architecture de services Orientée Messages, Spécification
 
 ## Introduction
 
@@ -48,7 +48,7 @@ J'aimerais :
 * centraliser les flux de logs
 * pouvoir orienter les flux vers différentes destination (poubelle, archivage, notification d'erreur, ...) selon des marquages sur les messages (clef de routage)
 
-### Business
+### Story Business
 
 En tant que représentant du métier X, j'aimerais :
 
