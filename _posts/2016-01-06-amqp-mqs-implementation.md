@@ -14,6 +14,15 @@ Pour mémoire cette architecture est composée de 2 familles d'applications (pro
 
 ![schéma d'implémentation](/assets/files/2016/01/mqs-impl.png)
 
+Légende :
+
+
+* lien rouge --> indique que le schéma n'est pas terminé
+* lien orange --> protocole STOMP
+* lien jaune -->
+* lien vert --> protocole MQTT
+* lien bleu --> protocole AMQP
+
 #
 
 http://www.rabbitmq.com/resources/BayFP_RabbitMQ_talk_20090408.pdf
