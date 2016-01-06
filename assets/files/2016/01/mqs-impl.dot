@@ -11,26 +11,41 @@ digraph {
     ex_l_twitter        [label="Log Twitter"];
     ex_l_jira           [label="Log JIRA"];
     ex_l_github         [label="Log Github"];
+ 
+    ex_a_check_url      [label="App Vérifie URL"];
+    ex_a_index_url      [label="App Indexe le contenu\n d'un URL"];
+    ex_a_send_mail      [label="App Envoie de mail"];
 
     // Files d'attente
 
     // Consommateur
+    c_browser           [label="Navigateur web +\n bibliothèque javascript"];
+    c_check_url         [label="amqp-receive +\n check-url.sh"];
+    c_index_url         [label="amqp-receive +\n index-website-url.sh"];
     c_logstash          [label="Logstash"];
+    c_send_mail         [label="amqp-receive +\n send-mail.sh"];
 
     subgraph cluster_0 {
         style=filled;
         color=lightgrey;
-        label="broker AMQP";
+        label="RabbitMQ\n avec plusieurs protocoles activés";
 
-        {ex_l_dns}      ->  {q_dns_ttl;}    [label="#"];
-        {ex_l_github}   ->  {q_github_ttl;} [label="#"];
-        {ex_l_jira}     ->  {q_jira_ttl;}   [label="#"];
-        {ex_l_mail}     ->  {q_mail_ttl;}   [label="#"];
-        {ex_l_postgresql}-> {q_postgresql_ttl;}[label="#"];
-        {ex_l_ssh}      ->  {q_ssh_ttl;}    [label="#"];
-        {ex_l_syslog}   ->  {q_syslog_ttl;} [label="#"];
-        {ex_l_twitter}  ->  {q_twitter_ttl;}[label="#"];
-        {ex_l_www}      ->  {q_www_ttl;}    [label="#"];
+        {ex_l_dns}      ->  {q_dns_ttl;}        [label="#"];
+        {ex_l_github}   ->  {q_github_ttl;}     [label="#"];
+        {ex_l_jira}     ->  {q_jira_ttl;}       [label="#"];
+        {ex_l_mail}     ->  {q_mail_ttl;}       [label="#"];
+        {ex_l_postgresql}-> {q_postgresql_ttl;} [label="#"];
+        {ex_l_ssh}      ->  {q_ssh_ttl;}        [label="#"];
+        {ex_l_syslog}   ->  {q_syslog_ttl;}     [label="#"];
+        {ex_l_temperature}->{q_temperature_ttl;}[label="#"];
+        {ex_l_twitter}  ->  {q_twitter_ttl;}    [label="#"];
+        {ex_l_www}      ->  {q_www_ttl;}        [label="#"];
+
+        {ex_a_check_url}->  {q_a_check_url;}    [label="#"];
+        {ex_a_index_url}->  {q_a_index_url;}    [label="#"];
+        {ex_a_send_mail}->  {q_a_send_mail;}    [label="#"];
+
+        {ex_l_twitter;ex_l_jira; ex_l_github;} -> q_annon_Xcdz123 ;
     }
 
     subgraph cluster_1 {
@@ -38,28 +53,28 @@ digraph {
         color=lightgrey;
         label="Serveur X";
 
-        xray_bind       -> ex_l_dns;
-        xray_postfix    -> ex_l_mail;
-        xray_postgresql -> ex_l_postgresql;
+        xray_bind       -> ex_l_dns[color="blue"];
+        xray_postfix    -> ex_l_mail[color="blue"];
+        xray_postgresql -> ex_l_postgresql[color="blue"];
     }
     subgraph cluster_2 {
         style=filled;
         color=lightgrey;
         label="Serveur V";
 
-        voyage_apache   -> ex_l_www;
-        voyage_bind     -> ex_l_dns;
-        voyage_openssh  -> ex_l_ssh;
-        voyage_postfix  -> ex_l_mail;
-        voyage_twitter  -> ex_l_twitter;
+        voyage_apache   -> ex_l_www[color="blue"];
+        voyage_bind     -> ex_l_dns[color="blue"];
+        voyage_openssh  -> ex_l_ssh[color="blue"];
+        voyage_postfix  -> ex_l_mail[color="blue"];
+        voyage_twitter  -> ex_l_twitter[color="blue"];
     }
     subgraph cluster_3 {
         style=filled;
         color=lightgrey;
         label="Serveur D";
 
-        db_nginx        -> ex_l_www;
-        db_openssh      -> ex_l_ssh;
+        db_nginx        -> ex_l_www[color="blue"];
+        db_openssh      -> ex_l_ssh[color="blue"];
     }
     subgraph cluster_4 {
         label="Todo";
@@ -67,9 +82,24 @@ digraph {
         todo -> ex_l_jira   [color="red"];
         todo -> ex_l_github [color="red"];
         todo -> ex_l_syslog [color="red"];
+        
+        todo -> ex_a_check_url [color="red"];
+        todo -> ex_a_index_url [color="red"];
+        todo -> ex_a_send_mail [color="red"];
     }
     // Liens entrées
+    p_arduino -> ex_l_temperature[color="green"];
 
     // Liens sorties
-    {q_dns_ttl;q_mail_ttl;q_www_ttl;q_ssh_ttl;q_syslog_ttl;q_postgresql_ttl;q_twitter_ttl;q_jira_ttl; q_github_ttl;} -> c_logstash->elasticsearch;
+    {q_dns_ttl;q_mail_ttl;q_www_ttl;q_ssh_ttl;q_syslog_ttl;q_postgresql_ttl;q_temperature_ttl;q_twitter_ttl;q_jira_ttl; q_github_ttl;} -> c_logstash[color="blue"];
+
+    q_annon_Xcdz123 -> c_browser[color="orange"];
+
+    {q_a_check_url;} -> c_check_url[color="blue"];
+    {q_a_index_url;} -> c_index_url[color="blue"];
+    {q_a_send_mail;} -> c_send_mail[color="blue"];
+ 
+    // Elasticsearch
+    c_logstash -> elasticsearch;
+    c_index_url -> elasticsearch;
 }
