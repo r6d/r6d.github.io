@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Architecture Orientée Message, Implémentation"
-date: 2015-12-29 18:00:000 +0100
+date: 2016-01-06 18:00:000 +0100
 comments: false
 tags: [amqp, rabbitmq, mom, implementation]
 ---
@@ -12,7 +12,7 @@ Ce document présente une réalisation de [l'architecture présentée dans un au
 Pour mémoire cette architecture est composée de 2 familles d'applications (producteur de messages et consommateur) qui échangent des messages par l'intermédiaire d'un broker. 
 
 
-![schéma d'implémentation](/assets/files/2015/12/mqs-impl.png)
+![schéma d'implémentation](/assets/files/2016/01/mqs-impl.png)
 
 #
 

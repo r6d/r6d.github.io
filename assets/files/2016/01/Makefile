@@ -1,4 +1,4 @@
-all:	mqs-principe.png
+all:	mqs-impl.png
 	date
 
 %.png: %.dot
