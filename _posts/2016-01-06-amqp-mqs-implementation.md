@@ -21,6 +21,8 @@ TODO
 
 ![exemple 1](/assets/files/2016/01/rabbitmq-hutch-11-638.jpg)
 
+![exemple 2](/assets/files/2016/01/20150914161921517.png)
+
 ## Mise en oeuvre avec RabbitMQ
 
 TODO
@@ -40,9 +42,14 @@ Légende :
 
 Liens :
  
- * [rabbitmq-hutch-11-638.jpg](http://images.google.fr/imgres?imgurl=http%3A%2F%2Fimage.slidesharecdn.com%2Frabbitmqandhutch-130813050114-phpapp01%2F95%2Frabbitmq-hutch-11-638.jpg)
-* [BayFP_RabbitMQ_talk_20090408](http://www.rabbitmq.com/resources/BayFP_RabbitMQ_talk_20090408.pdf)
-* [Introduction to RabbitMQ & Hands on](http://ambuj4bigdata.blogspot.fr/2015/02/introduction-to-rabbitmq-hands-on.html)
+ * [Microservices with RabbitMQ and Docker, linkedin.com](https://www.linkedin.com/pulse/microservices-rabbitmq-docker-jairo-diaz),
+ 
+	*  [même article sur le site d'origine, blog.codescrum.com](http://blog.codescrum.com/2014/12/16/Microservices_with_RabbitMQ_and_Docker/),
+	* [exemple d'implémentation en ruby, github.com](https://github.com/codescrum/microservice-tests-01)
+*  [BayFP_RabbitMQ_talk_20090408, rabbitmq.com](http://www.rabbitmq.com/resources/BayFP_RabbitMQ_talk_20090408.pdf)
+*  [Introduction to RabbitMQ & Hands on, ambuj4bigdata.blogspot.fr](http://ambuj4bigdata.blogspot.fr/2015/02/introduction-to-rabbitmq-hands-on.html)
+* [20150914161921517.png, img.blog.csdn.net](http://img.blog.csdn.net/20150914161921517)
+ *  [rabbitmq-hutch-11-638.jpg, image.slidesharecdn.com](http://images.google.fr/imgres?imgurl=http%3A%2F%2Fimage.slidesharecdn.com%2Frabbitmqandhutch-130813050114-phpapp01%2F95%2Frabbitmq-hutch-11-638.jpg)
 
 Accronymes : 
 
