@@ -2,7 +2,8 @@ digraph {
     rankdir=LR;
 
     // Point d'échange
-    ex_l_dns            [label="Log DNS"];
+    ex_l_dns            [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR>
+                        <TD> Log DNS </TD></TR></TABLE>>];
     ex_l_mail           [label="Log Mail"];
     ex_l_www            [label="Log WWW"];
     ex_l_ssh            [label="Log SSH"];
