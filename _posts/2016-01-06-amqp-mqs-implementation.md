@@ -21,6 +21,19 @@ TODO
 
 ![exemple 1](/assets/files/2016/01/rabbitmq-hutch-11-638.jpg)
 
+* Exemple d'utilisation de la clef de routage
+
+Le routage par motif permet de router un message dans plusieurs files d'attentes.
+
+Dans cet exemple, la clef de routage associée aux messages est composée d'une partie géographique (europe, ...) et une autre partie qui indique la nature (news, ....) du message.
+
+Les files d'attentes ont la possibilité de choisir :
+
+* un type d'information particulier pour une zone spécifique (europe.news),
+* tous les messages d'une zone spécifique (europe.#),
+* un type d'information particulier pour toutes les zones (#.news),
+* tous les messages pour toutes les zones (#)
+
 ![exemple 2](/assets/files/2016/01/20150914161921517.png)
 
 ## Mise en oeuvre avec RabbitMQ
