@@ -2,20 +2,19 @@ digraph {
     rankdir=LR;
 
     // Point d'échange
-    ex_l_dns            [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR>
-                        <TD> Log DNS </TD></TR></TABLE>>];
-    ex_l_mail           [label="Log Mail"];
-    ex_l_www            [label="Log WWW"];
-    ex_l_ssh            [label="Log SSH"];
-    ex_l_syslog         [label="Log syslog"];
-    ex_l_postgresql     [label="Log PostgreSQL"];
-    ex_l_twitter        [label="Log Twitter"];
-    ex_l_jira           [label="Log JIRA"];
-    ex_l_github         [label="Log Github"];
- 
-    ex_a_check_url      [label="App Vérifie URL"];
-    ex_a_index_url      [label="App Indexe le contenu\n d'un URL"];
-    ex_a_send_mail      [label="App Envoie de mail"];
+    ex_l_dns            [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR><TD> Log DNS </TD></TR></TABLE>>];
+    ex_l_mail           [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR><TD> Log Mail </TD></TR></TABLE>>];
+    ex_l_www            [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR><TD> Log WWW </TD></TR></TABLE>>];
+    ex_l_ssh            [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR><TD> Log SSH </TD></TR></TABLE>>];
+    ex_l_syslog         [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR><TD> Log syslog </TD></TR></TABLE>>];
+    ex_l_postgresql     [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR><TD> Log PostgreSQL </TD></TR></TABLE>>];
+    ex_l_twitter        [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR><TD> Log Twitter </TD></TR></TABLE>>];
+    ex_l_jira           [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR><TD> Log JIRA </TD></TR></TABLE>>];
+    ex_l_github         [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR><TD> Log Github </TD></TR></TABLE>>];
+
+    ex_a_check_url      [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR><TD> App Vérifie URL </TD></TR></TABLE>>];
+    ex_a_index_url      [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR><TD> App Indexe le contenu\n d'un URL </TD></TR></TABLE>>];
+    ex_a_send_mail      [shape="none",label=<<TABLE border="0" cellborder="0"><TR><TD FIXEDSIZE="true" WIDTH="60" HEIGHT="60"><IMG SRC="router.png" scale="true"/></TD></TR><TR><TD> App Envoie de mail </TD></TR></TABLE>>];
 
     // Files d'attente
 
@@ -79,11 +78,11 @@ digraph {
     }
     subgraph cluster_4 {
         label="Todo";
-        
+
         todo -> ex_l_jira   [color="red"];
         todo -> ex_l_github [color="red"];
         todo -> ex_l_syslog [color="red"];
-        
+
         todo -> ex_a_check_url [color="red"];
         todo -> ex_a_index_url [color="red"];
         todo -> ex_a_send_mail [color="red"];
@@ -99,7 +98,7 @@ digraph {
     {q_a_check_url;} -> c_check_url[color="blue"];
     {q_a_index_url;} -> c_index_url[color="blue"];
     {q_a_send_mail;} -> c_send_mail[color="blue"];
- 
+
     // Elasticsearch
     c_logstash -> elasticsearch;
     c_index_url -> elasticsearch;
