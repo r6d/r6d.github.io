@@ -38,6 +38,30 @@ Les files d'attentes ont la possibilité de choisir :
 
 ## Mise en oeuvre avec RabbitMQ
 
+### Les messages
+
+On distingue différents types de messages par leur famille d'utilisation :
+
+1. les messages de log
+	Ce type de message est transformé dans une chaine d'opération pour permettre l'analyse ultérieure d'une situation.
+	Le flux de messages est unidirectionnel.
+	Généralement un traitement des messages en lot est possible.
+1. les messages interactifs
+	Ce type de message est en fait une demande d'action et peut nécessiter une réponse.
+	Le flux de messages est unidirectionnel.
+	Généralement, un traitement le plus rapide possible est souhaité.
+
+### Les acteurs
+
+Services produisant des messages de log :
+
+|Où ?              |Nom des services                         |
+|------------------|-----------------------------------------|
+|Local (machine)   |dns, mail, postgresql, syslog, ssh, web  |
+|Distant (internet)|github, jira, twitter                    |
+
+
+
 TODO
 
 ![schéma d'implémentation](/assets/files/2016/01/mqs-impl.png)
