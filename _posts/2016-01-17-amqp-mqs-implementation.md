@@ -1,15 +1,18 @@
 ---
 layout: post
 title: "Architecture Orientée Message, Implémentation"
-date: 2016-01-06 18:00:000 +0100
+date: 2016-01-17 18:00:000 +0100
 comments: false
 tags: [amqp, rabbitmq, mom, implementation]
 ---
 
 # Architecture de services Orientée Messages, Implémentation
 
-Ce document présente une réalisation de [l'architecture présentée dans un autre article](/2015/12/amqp-mqs-specification/).
-Pour mémoire cette architecture est composée de 2 familles d'applications (producteur de messages et consommateur) qui échangent des messages par l'intermédiaire d'un broker. 
+## Introduction
+
+Ce document présente une réalisation de [l'Architecture Orientée Message présentée dans un autre article](/2015/12/amqp-mqs-specification/).
+Pour mémoire cette architecture est composée de 2 familles d'applications (producteur de messages et consommateur) qui échangent des messages par l'intermédiaire d'un broker.
+Dans ce modèle, le broker joue le rôle de gestionnaire de message. Il sait comment orienter les messages entre le producteur et le/les destinataires sans que les applications connectées aient besoin de le savoir.
 
 L'outil, le broker de messages sélectionné est RabbitMQ.
 
@@ -20,7 +23,7 @@ Quelques tests menés sur un ordinateur portable montrent que RabbitMQ peut supp
 
 Pour ceux qui veulent directement le schéma d'implémentation, [c'est par là](#schéma) .
 
-## Introduction au routage de message avec RabbitMQ
+## Notions de routage de message
 
 Pour une explication globale des concept de routage de message, [c'est par ici](https://www.rabbitmq.com/tutorials/amqp-concepts.html).
 
@@ -29,13 +32,13 @@ Selon la configuration (type de point d'échange, "binding") un message peut êt
 
 L'intérêt d'utiliser un outil pour faire cette fonction est multiple :
 
-* séparer les producteur des consommateurs (= par de lien logiciel fort entre les deux parties)
-* réaliser l'inversion de contrôle ([IoC](https://en.wikipedia.org/wiki/Inversion_of_control)) permettant de pouvoir lancer les applications dans le sens que l'on souhaite sans s'occuper de l'ordre des traitements (= pas besoin de faire de résolution de dépendances).
-* pas besoin de réinventer la roue de la communication réseau avec les problèmes associés (outil de supervision ...)
+* séparer les producteur des consommateurs (= ils n'ont pas besoin de pouvoir communiquer directement ni de manière synchrone. Pas de dépendance logicielle entre le consommateur et le producteur, seulement être d'accord sur le format de message)
+* réaliser l'inversion de contrôle ([IoC](https://en.wikipedia.org/wiki/Inversion_of_control)) permettant de pouvoir lancer les applications dans le sens que l'on souhaite sans s'occuper de l'ordre des traitements (en terme réseau, les applications sont clientes. Le broker est serveur).
+* pas besoin de réinventer la roue de la communication réseau avec les problèmes associés (outil de supervision, ré-émission des messages, sauvegarde sur disque ...)
 
-* différents modes de routage de messages
+La spécification d'AMQP définie plusieurs façon de router les messages, [comme indiqué dans les concepts](https://www.rabbitmq.com/tutorials/amqp-concepts.html).
 
-![exemple 1](/assets/files/2016/01/rabbitmq-hutch-11-638.jpg)
+Dans le cas présent un routage basé sur la clef de routage est utilisé.
 
 * Exemple d'utilisation de la clef de routage
 
@@ -53,6 +56,13 @@ Les files d'attentes ont la possibilité de choisir :
 ![exemple 2](/assets/files/2016/01/20150914161921517.png)
 
 ## Mise en oeuvre avec RabbitMQ
+
+On découpe la mise en pratique du besoin sur différents points :
+
+* les messages
+* les acteurs (producteurs et consommateurs)
+* les points d'échange
+* les clefs de routage et les files d'attente
 
 ### Les messages
 
@@ -168,6 +178,10 @@ Légende :
 * lien bleu --> protocole AMQP
 
 ## En cours
+
+* différents modes de routage de messages
+
+![exemple 1](/assets/files/2016/01/rabbitmq-hutch-11-638.jpg)
 
 Liens :
  
