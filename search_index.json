@@ -1,26 +1,15 @@
 ---
 layout: none
 ---
-[
-    {% for page in site.pages %}
-        {
-            "type": "page",
-            "title": "{{ page.title }}",
-            "url": "{{ site.url }}{{ page.url }}",
-            "path": "{{ page.url }}",
-            "content": "{{ page.content | strip_html | strip_newlines}}"
-        },
-    {% endfor %}
 
-    {% for post in site.posts %}
-        {
-            "type": "post",
-            "title": "{{ post.title }}",
-            "url": "{{ site.url }}{{ post.url }}",
-            "path": "{{ post.url }}",
-            "content": "{{ post.content | strip_html | strip_newlines}}",
-            "categories": "{{ post.categories }}",
-            "date": "{{ post.date }}"
-        }{% if forloop.last != true %},{% endif %}
-    {% endfor %}
-]
+{% for post in site.posts %}
+{
+    "type": "post",
+        "title": "{{ post.title }}",
+        "url": "{{ site.url }}{{ post.url }}",
+        "path": "{{ post.url }}",
+        "content": "{{ post.content | strip_html | strip_newlines}}",
+        "categories": "{{ post.categories }}",
+        "date": "{{ post.date }}"
+}{% if forloop.last != true %},{% endif %}
+{% endfor %}
