@@ -1,7 +1,8 @@
 ---
 layout: none
 ---
-[
+{
+"pages": [
     {% for page in site.pages %}
         {
             "type": "page",
@@ -9,9 +10,10 @@ layout: none
             "url": "{{ site.url }}{{ page.url }}",
             "path": "{{ page.url }}",
             "content": "{{ page.content | strip_html | strip_newlines}}"
-        },
+        }{% if forloop.last != true %},{% endif %}
     {% endfor %}
-
+]
+"posts" : [
     {% for post in site.posts %}
         {
             "type": "post",
@@ -24,3 +26,4 @@ layout: none
         }{% if forloop.last != true %},{% endif %}
     {% endfor %}
 ]
+}
