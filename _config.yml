@@ -28,7 +28,7 @@ disqus: ''
 comments: false
 
 permalink: /:year/:month/:title
-#paginate: 4
+paginate: 4
 
 highlighter: rouge
 #markdown: redcarpet
@@ -36,3 +36,8 @@ highlighter: rouge
 #  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 
 exclude: ['README.md', 'LICENSE']
+
+# This will require each of these plugins automatically.
+plugins:
+  - jekyll-paginate
+
