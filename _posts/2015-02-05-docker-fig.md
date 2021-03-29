@@ -3,10 +3,12 @@ layout: post
 title: "Fig et Docker"
 date: 2015-02-05 16:58:000 +0100
 comments: false
-tags: [fig, docker]
+tags: [fig, docker, docker-compose]
 ---
 
 # Lancer plusieurs applications docker-isées avec fig
+
+Note 2021-03-29 : Fig est obsolète depuis un moment, maintenant on appelle ça "docker-compose".
 
 * [instructions officielles d'installation](http://www.fig.sh/install.html)
 
