@@ -1,7 +1,7 @@
 # R6D.eu
 
 
-[https://r6d.eu](https://r6d.eu)
+[https://www.r6d.eu](https://www.r6d.eu)
 
 This blog is a way to publish some tips and scripts.
 
